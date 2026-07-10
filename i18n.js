@@ -71,7 +71,7 @@
     "p6.truth": "A wrong type <strong>breaks the build</strong>",
     "p6.code.cm1": "// This is a comment.",
     "p6.code.cm2": "// It might be lying right now.",
-    "p6.code.cm3": "// @param desconto — value between 0 and 1",
+    "p6.code.cm3": "// @param discount — value between 0 and 1",
     "p6.code.cm4": "// This is a contract.",
     "p6.code.cm5": "// If it lies, it doesn't compile.",
 

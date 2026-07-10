@@ -112,14 +112,14 @@
           <div class="code-card anim">
             <div class="code-card__bar">
               <span class="code-card__lang code-card__lang--js">JS</span>
-              <span class="code-card__file">desconto.js</span>
+              <span class="code-card__file">discount.js</span>
             </div>
-            <pre class="code-card__body"><code><span class="t-kw">function</span> <span class="t-fn">calcularDesconto</span>(<span class="t-var">pedido</span>) {
-  <span class="t-kw">return</span> <span class="t-var">pedido</span>.<span class="t-prop">total</span> * <span class="t-var">pedido</span>.<span class="t-prop">desconto</span>;
+            <pre class="code-card__body"><code><span class="t-kw">function</span> <span class="t-fn">calculateDiscount</span>(<span class="t-var">order</span>) {
+  <span class="t-kw">return</span> <span class="t-var">order</span>.<span class="t-prop">total</span> * <span class="t-var">order</span>.<span class="t-prop">discount</span>;
 }
 
 <span class="t-cm" data-i18n="p3.code.cm1">// Três meses depois, outro dev chama:</span>
-<span class="t-fn">calcularDesconto</span>({ <span class="t-prop">total</span>: <span class="t-num">100</span>, <span class="t-prop t-strike">descontoPercentual</span>: <span class="t-num">0.1</span> });
+<span class="t-fn">calculateDiscount</span>({ <span class="t-prop">total</span>: <span class="t-num">100</span>, <span class="t-prop t-strike">discountPercent</span>: <span class="t-num">0.1</span> });
 
 <span class="t-cm" data-i18n="p3.code.cm2">// Resultado: <span class="t-nan">NaN</span>. Sem erro. Sem aviso.</span>
 <span class="t-cm" data-i18n="p3.code.cm3">// Só NaN no carrinho do cliente.</span></code></pre>
@@ -140,23 +140,23 @@
           <div class="code-card anim">
             <div class="code-card__bar">
               <span class="code-card__lang code-card__lang--ts">TS</span>
-              <span class="code-card__file">desconto.ts</span>
+              <span class="code-card__file">discount.ts</span>
             </div>
-            <pre class="code-card__body"><code><span class="t-kw">interface</span> <span class="t-type">Pedido</span> {
+            <pre class="code-card__body"><code><span class="t-kw">interface</span> <span class="t-type">Order</span> {
   <span class="t-prop">total</span>: <span class="t-type">number</span>;
-  <span class="t-prop">desconto</span>: <span class="t-type">number</span>;
+  <span class="t-prop">discount</span>: <span class="t-type">number</span>;
 }
 
-<span class="t-kw">function</span> <span class="t-fn">calcularDesconto</span>(<span class="t-var">pedido</span>: <span class="t-type">Pedido</span>) {
-  <span class="t-kw">return</span> <span class="t-var">pedido</span>.<span class="t-prop">total</span> * <span class="t-var">pedido</span>.<span class="t-prop">desconto</span>;
+<span class="t-kw">function</span> <span class="t-fn">calculateDiscount</span>(<span class="t-var">order</span>: <span class="t-type">Order</span>) {
+  <span class="t-kw">return</span> <span class="t-var">order</span>.<span class="t-prop">total</span> * <span class="t-var">order</span>.<span class="t-prop">discount</span>;
 }
 
-<span class="t-fn">calcularDesconto</span>({ <span class="t-prop">total</span>: <span class="t-num">100</span>, <span class="t-err">descontoPercentual</span>: <span class="t-num">0.1</span> });</code></pre>
+<span class="t-fn">calculateDiscount</span>({ <span class="t-prop">total</span>: <span class="t-num">100</span>, <span class="t-err">discountPercent</span>: <span class="t-num">0.1</span> });</code></pre>
             <div class="code-card__error">
               <span class="code-card__error-x">✕</span>
               <div>
-                <strong>'descontoPercentual' does not exist in type 'Pedido'.</strong><br />
-                <span class="code-card__error-hint">Did you mean 'desconto'?</span>
+                <strong>'discountPercent' does not exist in type 'Order'.</strong><br />
+                <span class="code-card__error-hint">Did you mean 'discount'?</span>
               </div>
             </div>
           </div>
@@ -178,13 +178,13 @@
             <div class="objection anim">
               <div class="objection__quote" data-i18n="p5.o2.quote">“TS é verboso”</div>
               <p class="objection__answer" data-i18n="p5.o2.answer">Isso era verdade em 2016. TypeScript moderno <strong>infere</strong> quase tudo:</p>
-              <pre class="objection__code"><code><span class="t-kw">const</span> <span class="t-var">usuarios</span> = [<span class="t-str">"Ana"</span>, <span class="t-str">"Bruno"</span>];
+              <pre class="objection__code"><code><span class="t-kw">const</span> <span class="t-var">users</span> = [<span class="t-str">"Ana"</span>, <span class="t-str">"Bruno"</span>];
 <span class="t-cm" data-i18n="p5.o2.cm1">// ↑ TS já sabe: string[]</span>
 
-<span class="t-kw">const</span> <span class="t-var">total</span> = <span class="t-var">usuarios</span>.<span class="t-prop">length</span> * <span class="t-num">2</span>;
+<span class="t-kw">const</span> <span class="t-var">total</span> = <span class="t-var">users</span>.<span class="t-prop">length</span> * <span class="t-num">2</span>;
 <span class="t-cm" data-i18n="p5.o2.cm2">// ↑ TS já sabe: number</span>
 
-<span class="t-var">usuarios</span>.<span class="t-fn">map</span>(<span class="t-var">u</span> <span class="t-kw">=&gt;</span> <span class="t-var">u</span>.<span class="t-fn">toUpperCase</span>());
+<span class="t-var">users</span>.<span class="t-fn">map</span>(<span class="t-var">u</span> <span class="t-kw">=&gt;</span> <span class="t-var">u</span>.<span class="t-fn">toUpperCase</span>());
 <span class="t-cm" data-i18n="p5.o2.cm3">// autocomplete, zero anotação</span></code></pre>
               <p class="objection__punch" data-i18n="p5.o2.punch">Zero anotações. 100% tipado.</p>
             </div>
@@ -214,15 +214,15 @@
           <div class="code-card code-card--on-red anim">
             <div class="code-card__bar">
               <span class="code-card__lang code-card__lang--ts">TS</span>
-              <span class="code-card__file">contrato.ts</span>
+              <span class="code-card__file">contract.ts</span>
             </div>
             <pre class="code-card__body"><code><span class="t-cm" data-i18n="p6.code.cm1">// Isso aqui é um comentário.</span>
 <span class="t-cm" data-i18n="p6.code.cm2">// Pode estar mentindo agora mesmo.</span>
-<span class="t-cm" data-i18n="p6.code.cm3">// @param desconto — valor entre 0 e 1</span>
+<span class="t-cm" data-i18n="p6.code.cm3">// @param discount — valor entre 0 e 1</span>
 
 <span class="t-cm t-cm--strong" data-i18n="p6.code.cm4">// Isso aqui é um contrato.</span>
 <span class="t-cm t-cm--strong" data-i18n="p6.code.cm5">// Se mentir, não compila.</span>
-<span class="t-kw">function</span> <span class="t-fn">aplicar</span>(<span class="t-var">desconto</span>: <span class="t-type">number</span>): <span class="t-type">Preco</span> { <span class="t-cm">...</span> }</code></pre>
+<span class="t-kw">function</span> <span class="t-fn">apply</span>(<span class="t-var">discount</span>: <span class="t-type">number</span>): <span class="t-type">Price</span> { <span class="t-cm">...</span> }</code></pre>
           </div>
         </div>
       </article>
