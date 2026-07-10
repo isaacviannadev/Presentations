@@ -13,16 +13,23 @@
 
   <nav class="nav">
     <div class="nav__logo"><span class="nav__logo-mark">IV</span><span class="nav__logo-text">presentations</span></div>
-    <div class="nav__tag">workshops &amp; talks</div>
+    <div class="nav__right">
+      <button class="lang-switch" type="button" aria-label="Switch language">
+        <span class="lang-switch__opt is-active" data-lang="pt">PT</span>
+        <span class="lang-switch__sep">/</span>
+        <span class="lang-switch__opt" data-lang="en">EN</span>
+      </button>
+      <div class="nav__tag">workshops &amp; talks</div>
+    </div>
   </nav>
 
   <main class="hub__main">
     <div class="hero__bg-grid" aria-hidden="true"></div>
 
     <header class="hub__header">
-      <p class="hub__kicker">// escolha a apresentação</p>
+      <p class="hub__kicker" data-i18n="hub.kicker">// escolha a apresentação</p>
       <h1 class="hub__title">Presentations</h1>
-      <p class="hub__sub">Talks de engenharia frontend em formato de slides interativos — navegue com a roda do mouse ou as setas do teclado.</p>
+      <p class="hub__sub" data-i18n="hub.sub">Talks de engenharia frontend em formato de slides interativos — navegue com a roda do mouse ou as setas do teclado.</p>
     </header>
 
     <div class="deck-list">
@@ -30,26 +37,26 @@
       <a class="deck" href="typescript/">
         <div class="deck__head">
           <span class="deck__badge deck__badge--ts">TS</span>
-          <span class="deck__meta">workshop · 5–7 min · PT/EN</span>
+          <span class="deck__meta" data-i18n="d1.meta">workshop · 5–7 min · PT/EN</span>
         </div>
-        <h2 class="deck__title">O bug que o TypeScript pegaria às 3h da manhã</h2>
-        <p class="deck__desc">Por que TypeScript não é sobre escrever tipos — é sobre mover o erro pro lugar mais barato: o editor, antes do commit.</p>
+        <h2 class="deck__title" data-i18n="d1.title">O bug que o TypeScript pegaria às 3h da manhã</h2>
+        <p class="deck__desc" data-i18n="d1.desc">Por que TypeScript não é sobre escrever tipos — é sobre mover o erro pro lugar mais barato: o editor, antes do commit.</p>
         <div class="deck__foot">
-          <span class="deck__tags"><code>NaN</code> · custo do bug · inferência · <code>any</code></span>
-          <span class="deck__cta">abrir <span class="deck__arrow">→</span></span>
+          <span class="deck__tags" data-i18n="d1.tags"><code>NaN</code> · custo do bug · inferência · <code>any</code></span>
+          <span class="deck__cta" data-i18n="d1.cta">abrir <span class="deck__arrow">→</span></span>
         </div>
       </a>
 
       <a class="deck" href="tailwind/">
         <div class="deck__head">
           <span class="deck__badge deck__badge--tw">TW</span>
-          <span class="deck__meta">arquitetura frontend · jul/2026</span>
+          <span class="deck__meta" data-i18n="d2.meta">arquitetura frontend · jul/2026</span>
         </div>
-        <h2 class="deck__title">Tailwind CSS no lugar de Styled&nbsp;Components</h2>
-        <p class="deck__desc">Motivação técnica de adoção em projetos React — dados, benchmarks e trade-offs reais. Sem modismo, sem pânico no legado.</p>
+        <h2 class="deck__title" data-i18n="d2.title">Tailwind CSS no lugar de Styled&nbsp;Components</h2>
+        <p class="deck__desc" data-i18n="d2.desc">Motivação técnica de adoção em projetos React — dados, benchmarks e trade-offs reais. Sem modismo, sem pânico no legado.</p>
         <div class="deck__foot">
-          <span class="deck__tags">−48% render · State of CSS · RSC · migração incremental</span>
-          <span class="deck__cta">abrir <span class="deck__arrow">→</span></span>
+          <span class="deck__tags" data-i18n="d2.tags">−48% render · State of CSS · RSC · migração incremental</span>
+          <span class="deck__cta" data-i18n="d2.cta">abrir <span class="deck__arrow">→</span></span>
         </div>
       </a>
 
@@ -61,6 +68,25 @@
     </footer>
   </main>
 
+  <script>
+    // dicionário EN do hub — a lógica de troca vive em i18n.js
+    window.PAGE_META = { pt: "Presentations — Isaac Vianna", en: "Presentations — Isaac Vianna" };
+    window.PAGE_EN = {
+      "hub.kicker": "// pick a presentation",
+      "hub.sub": "Frontend engineering talks as interactive slide decks — navigate with the mouse wheel or the arrow keys.",
+      "d1.meta": "workshop · 5–7 min · PT/EN",
+      "d1.title": "The bug TypeScript would catch at 3 a.m.",
+      "d1.desc": "Why TypeScript isn't about writing types — it's about moving the error to the cheapest place: the editor, before the commit.",
+      "d1.tags": "<code>NaN</code> · cost of a bug · inference · <code>any</code>",
+      "d1.cta": "open <span class=\"deck__arrow\">→</span>",
+      "d2.meta": "frontend architecture · jul/2026",
+      "d2.title": "Tailwind CSS instead of Styled&nbsp;Components",
+      "d2.desc": "Technical case for adoption in React projects — data, benchmarks and real trade-offs. No hype, no legacy panic.",
+      "d2.tags": "−48% render · State of CSS · RSC · incremental migration",
+      "d2.cta": "open <span class=\"deck__arrow\">→</span>",
+    };
+  </script>
+  <script src="i18n.js"></script>
   <script src="vendor/gsap.min.js"></script>
   <script>
     if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

@@ -16,9 +16,14 @@
 
   <!-- Nav -->
   <nav class="nav">
-    <a class="nav__logo" href="../"><span class="nav__logo-mark">TW</span><span class="nav__logo-text">arquitetura</span></a>
+    <a class="nav__logo" href="../"><span class="nav__logo-mark">TW</span><span class="nav__logo-text" data-i18n="nav.logo">arquitetura</span></a>
     <div class="nav__right">
-      <div class="nav__tag">frontend &middot; jul/2026</div>
+      <button class="lang-switch" type="button" aria-label="Switch language">
+        <span class="lang-switch__opt is-active" data-lang="pt">PT</span>
+        <span class="lang-switch__sep">/</span>
+        <span class="lang-switch__opt" data-lang="en">EN</span>
+      </button>
+      <div class="nav__tag" data-i18n="nav.tag">frontend &middot; jul/2026</div>
     </div>
   </nav>
 
@@ -26,23 +31,23 @@
   <header class="hero">
     <div class="hero__bg-grid" aria-hidden="true"></div>
     <div class="hero__content">
-      <p class="hero__kicker reveal-hero">// arquitetura frontend · julho 2026</p>
+      <p class="hero__kicker reveal-hero" data-i18n="hero.kicker">// arquitetura frontend · julho 2026</p>
       <h1 class="hero__title">
-        <span class="hero__line"><span class="reveal-hero-line"><em>Tailwind CSS</em></span></span>
-        <span class="hero__line"><span class="reveal-hero-line">no lugar de</span></span>
-        <span class="hero__line"><span class="reveal-hero-line"><span class="hero__red">Styled Components</span></span></span>
+        <span class="hero__line"><span class="reveal-hero-line" data-i18n="hero.line1"><em>Tailwind CSS</em></span></span>
+        <span class="hero__line"><span class="reveal-hero-line" data-i18n="hero.line2">no lugar de</span></span>
+        <span class="hero__line"><span class="reveal-hero-line" data-i18n="hero.line3"><span class="hero__red">Styled Components</span></span></span>
       </h1>
       <div class="hero__terminal reveal-hero">
         <div class="terminal__bar">
           <span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span>
           <span class="terminal__title">terminal — npm</span>
         </div>
-        <pre class="terminal__body"><code><span class="t-cm">$ npm install styled-components</span>
+        <pre class="terminal__body"><code data-i18n="hero.termbody"><span class="t-cm">$ npm install styled-components</span>
 <span class="t-red">warn</span><span class="t-white"> styled-components entrou em </span><span class="t-red">maintenance mode</span><span class="t-white"> (mar/2025)</span>
 <span class="t-white">     o mantenedor desaconselha o uso em projetos novos</span><span class="terminal__cursor">▌</span></code></pre>
       </div>
-      <p class="hero__sub reveal-hero">Motivação técnica de adoção em projetos React — <strong>dados, benchmarks e trade-offs reais</strong>.<br />Sem modismo: três fatores objetivos, um caveat honesto e uma estratégia sem big bang.</p>
-      <div class="hero__scroll-hint reveal-hero">
+      <p class="hero__sub reveal-hero" data-i18n="hero.sub">Motivação técnica de adoção em projetos React — <strong>dados, benchmarks e trade-offs reais</strong>.<br />Sem modismo: três fatores objetivos, um caveat honesto e uma estratégia sem big bang.</p>
+      <div class="hero__scroll-hint reveal-hero" data-i18n="hero.hint">
         <span class="hero__scroll-arrow">↓</span> role para começar
       </div>
     </div>
@@ -51,7 +56,7 @@
   <!-- Marquee -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track">
-      <span>runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span>runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span>runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span>runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span>
+      <span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span>
     </div>
   </div>
 
@@ -63,26 +68,26 @@
       <article class="panel panel--wide" data-panel="01">
         <div class="panel__num">01</div>
         <div class="panel__inner">
-          <p class="panel__kicker anim">sumário executivo</p>
-          <h2 class="panel__title anim">Três fatores objetivos, <span class="u-red">não modismo</span></h2>
+          <p class="panel__kicker anim" data-i18n="p1.kicker">sumário executivo</p>
+          <h2 class="panel__title anim" data-i18n="p1.title">Três fatores objetivos, <span class="u-red">não modismo</span></h2>
           <div class="objections">
             <div class="objection anim">
-              <div class="objection__quote">−48% no tempo de render</div>
-              <p class="objection__answer">Benchmark de <strong>mantenedor do Emotion</strong>: mesmo componente, trocando CSS-in-JS runtime por CSS estático (Spot, 2022).</p>
-              <p class="objection__punch">É o autor da biblioteca medindo o próprio custo.</p>
+              <div class="objection__quote" data-i18n="p1.o1.quote">−48% no tempo de render</div>
+              <p class="objection__answer" data-i18n="p1.o1.answer">Benchmark de <strong>mantenedor do Emotion</strong>: mesmo componente, trocando CSS-in-JS runtime por CSS estático (Spot, 2022).</p>
+              <p class="objection__punch" data-i18n="p1.o1.punch">É o autor da biblioteca medindo o próprio custo.</p>
             </div>
             <div class="objection anim">
-              <div class="objection__quote">37% de uso ativo — 1º lugar</div>
-              <p class="objection__answer">Tailwind lidera o <strong>State of CSS 2025</strong>, contra 21,6% do Bootstrap. Retenção na faixa de <strong>70%+</strong>: quem experimenta, fica.</p>
-              <p class="objection__punch">Ecossistema em máxima histórica.</p>
+              <div class="objection__quote" data-i18n="p1.o2.quote">37% de uso ativo — 1º lugar</div>
+              <p class="objection__answer" data-i18n="p1.o2.answer">Tailwind lidera o <strong>State of CSS 2025</strong>, contra 21,6% do Bootstrap. Retenção na faixa de <strong>70%+</strong>: quem experimenta, fica.</p>
+              <p class="objection__punch" data-i18n="p1.o2.punch">Ecossistema em máxima histórica.</p>
             </div>
             <div class="objection anim">
-              <div class="objection__quote">mar/2025 — maintenance mode</div>
-              <p class="objection__answer">O mantenedor do styled-components <strong>desaconselha adoção em projetos novos</strong>. A retomada parcial em 2026 não muda o risco assimétrico.</p>
-              <p class="objection__punch">Projeto novo apostando em mantenedor solo é dívida no dia zero.</p>
+              <div class="objection__quote" data-i18n="p1.o3.quote">mar/2025 — maintenance mode</div>
+              <p class="objection__answer" data-i18n="p1.o3.answer">O mantenedor do styled-components <strong>desaconselha adoção em projetos novos</strong>. A retomada parcial em 2026 não muda o risco assimétrico.</p>
+              <p class="objection__punch" data-i18n="p1.o3.punch">Projeto novo apostando em mantenedor solo é dívida no dia zero.</p>
             </div>
           </div>
-          <p class="panel__text panel__text--rec anim"><strong>Recomendação:</strong> Tailwind (ou alternativa zero-runtime) para projetos novos · migração incremental para bases existentes · sem pânico no legado estável.</p>
+          <p class="panel__text panel__text--rec anim" data-i18n="p1.rec"><strong>Recomendação:</strong> Tailwind (ou alternativa zero-runtime) para projetos novos · migração incremental para bases existentes · sem pânico no legado estável.</p>
         </div>
       </article>
 
@@ -90,8 +95,8 @@
       <article class="panel panel--wide" data-panel="02">
         <div class="panel__num">02</div>
         <div class="panel__inner">
-          <p class="panel__kicker anim">fundamentos técnicos</p>
-          <h2 class="panel__title anim">A diferença é <span class="u-red">quando</span> o CSS é produzido</h2>
+          <p class="panel__kicker anim" data-i18n="p2.kicker">fundamentos técnicos</p>
+          <h2 class="panel__title anim" data-i18n="p2.title">A diferença é <span class="u-red">quando</span> o CSS é produzido</h2>
           <div class="versus">
             <div class="versus__col anim">
               <h3 class="versus__label versus__label--bad">Styled Components — runtime</h3>
@@ -105,7 +110,7 @@
   background: #e60000;
 `</span>;</code></pre>
               </div>
-              <ol class="steps">
+              <ol class="steps" data-i18n="p2.steps1">
                 <li>Template literal (JS) parseado <strong>no navegador</strong></li>
                 <li>Hashing do nome de classe a cada estilo</li>
                 <li>Injeção de <code class="inline-code">&lt;style&gt;</code> no <code class="inline-code">&lt;head&gt;</code> durante o render</li>
@@ -124,7 +129,7 @@
   Confirmar
 &lt;/<span class="t-fn">button</span>&gt;</code></pre>
               </div>
-              <ol class="steps">
+              <ol class="steps" data-i18n="p2.steps2">
                 <li>Engine Oxide (Rust) escaneia as classes <strong>no build</strong></li>
                 <li>Gera um <code class="inline-code">.css</code> estático, purgado (8–15 KB gzip)</li>
                 <li>Navegador recebe <code class="inline-code">&lt;link&gt;</code> cacheável, parse nativo</li>
@@ -132,7 +137,7 @@
               </ol>
             </div>
           </div>
-          <p class="panel__text panel__text--note anim">A serialização de props (<code class="inline-code">${props =&gt; ...}</code>) reexecuta <strong>a cada render</strong> — e é o padrão da documentação e o dominante nos times.</p>
+          <p class="panel__text panel__text--note anim" data-i18n="p2.note">A serialização de props (<code class="inline-code">${props =&gt; ...}</code>) reexecuta <strong>a cada render</strong> — e é o padrão da documentação e o dominante nos times.</p>
         </div>
       </article>
 
@@ -140,28 +145,28 @@
       <article class="panel" data-panel="03">
         <div class="panel__num">03</div>
         <div class="panel__inner">
-          <p class="panel__kicker anim">o fundamento menos citado</p>
-          <h2 class="panel__title anim">O modelo do React <span class="u-red">desaconselha</span> CSS em runtime</h2>
+          <p class="panel__kicker anim" data-i18n="p3.kicker">o fundamento menos citado</p>
+          <h2 class="panel__title anim" data-i18n="p3.title">O modelo do React <span class="u-red">desaconselha</span> CSS em runtime</h2>
           <div class="points">
             <div class="point anim">
               <span class="point__num">01</span>
               <div>
-                <h3 class="point__title">Concurrent rendering (React 18+)</h3>
-                <p class="point__text">Injetar regras CSS entre <em>yields</em> do React força recálculo de estilos contra a árvore inteira — padrão de <strong>layout thrashing</strong> documentado por Sebastian Markbåge (core team) e reproduzido em benchmark por Nolan Lawson.</p>
+                <h3 class="point__title" data-i18n="p3.p1.title">Concurrent rendering (React 18+)</h3>
+                <p class="point__text" data-i18n="p3.p1.text">Injetar regras CSS entre <em>yields</em> do React força recálculo de estilos contra a árvore inteira — padrão de <strong>layout thrashing</strong> documentado por Sebastian Markbåge (core team) e reproduzido em benchmark por Nolan Lawson.</p>
               </div>
             </div>
             <div class="point anim">
               <span class="point__num">02</span>
               <div>
-                <h3 class="point__title">React Server Components</h3>
-                <p class="point__text">styled-components depende de Context API e efeitos no render — exclusivamente client-side. Usar no App Router exige <code class="inline-code">'use client'</code> em tudo, abrindo mão do modelo server-first.</p>
+                <h3 class="point__title" data-i18n="p3.p2.title">React Server Components</h3>
+                <p class="point__text" data-i18n="p3.p2.text">styled-components depende de Context API e efeitos no render — exclusivamente client-side. Usar no App Router exige <code class="inline-code">'use client'</code> em tudo, abrindo mão do modelo server-first.</p>
               </div>
             </div>
             <div class="point anim">
               <span class="point__num">03</span>
               <div>
-                <h3 class="point__title">Recomendação oficial</h3>
-                <p class="point__text">Estilos estáticos via <code class="inline-code">&lt;link rel="stylesheet"&gt;</code>; valores dinâmicos via inline style. É exatamente o modelo do Tailwind — e o <strong>oposto</strong> do modelo do styled-components.</p>
+                <h3 class="point__title" data-i18n="p3.p3.title">Recomendação oficial</h3>
+                <p class="point__text" data-i18n="p3.p3.text">Estilos estáticos via <code class="inline-code">&lt;link rel="stylesheet"&gt;</code>; valores dinâmicos via inline style. É exatamente o modelo do Tailwind — e o <strong>oposto</strong> do modelo do styled-components.</p>
               </div>
             </div>
           </div>
@@ -172,31 +177,31 @@
       <article class="panel panel--wide" data-panel="04">
         <div class="panel__num">04</div>
         <div class="panel__inner">
-          <p class="panel__kicker anim">linha do tempo</p>
-          <h2 class="panel__title anim">Como o ecossistema virou — <span class="u-red">sem omitir 2026</span></h2>
+          <p class="panel__kicker anim" data-i18n="p4.kicker">linha do tempo</p>
+          <h2 class="panel__title anim" data-i18n="p4.title">Como o ecossistema virou — <span class="u-red">sem omitir 2026</span></h2>
           <div class="timeline">
             <div class="tl-item anim">
               <span class="tl-item__date">out/2022</span>
-              <p class="tl-item__text">Mantenedor do Emotion publica benchmark: <strong>−48% de render</strong> sem CSS-in-JS runtime.</p>
+              <p class="tl-item__text" data-i18n="p4.t1">Mantenedor do Emotion publica benchmark: <strong>−48% de render</strong> sem CSS-in-JS runtime.</p>
             </div>
             <div class="tl-item anim">
               <span class="tl-item__date">jan/2025</span>
-              <p class="tl-item__text">Tailwind v4: engine <strong>Oxide em Rust</strong> — builds completos 5× e incrementais 100× mais rápidos.</p>
+              <p class="tl-item__text" data-i18n="p4.t2">Tailwind v4: engine <strong>Oxide em Rust</strong> — builds completos 5× e incrementais 100× mais rápidos.</p>
             </div>
             <div class="tl-item tl-item--hot anim">
               <span class="tl-item__date">mar/2025</span>
-              <p class="tl-item__text">styled-components entra em <strong>maintenance mode</strong>; mantenedor desaconselha projetos novos.</p>
+              <p class="tl-item__text" data-i18n="p4.t3">styled-components entra em <strong>maintenance mode</strong>; mantenedor desaconselha projetos novos.</p>
             </div>
             <div class="tl-item anim">
               <span class="tl-item__date">jan/2026</span>
-              <p class="tl-item__text">Crise de funding na Tailwind Labs; <strong>Google e Vercel</strong> entram como patrocinadores em 48h.</p>
+              <p class="tl-item__text" data-i18n="p4.t4">Crise de funding na Tailwind Labs; <strong>Google e Vercel</strong> entram como patrocinadores em 48h.</p>
             </div>
             <div class="tl-item anim">
               <span class="tl-item__date">abr/2026</span>
-              <p class="tl-item__text">styled-components v6.4: retomada parcial (<code class="inline-code">createTheme</code>, RSC), dependente de financiamento.</p>
+              <p class="tl-item__text" data-i18n="p4.t5">styled-components v6.4: retomada parcial (<code class="inline-code">createTheme</code>, RSC), dependente de financiamento.</p>
             </div>
           </div>
-          <p class="panel__text panel__text--note anim"><strong>Leitura sóbria:</strong> a v6.4 alivia a pressão sobre bases legadas — mas um projeto novo seguiria apostando em mantenedor solo, funding incerto e um modelo runtime que o core team do React desaconselha.</p>
+          <p class="panel__text panel__text--note anim" data-i18n="p4.note"><strong>Leitura sóbria:</strong> a v6.4 alivia a pressão sobre bases legadas — mas um projeto novo seguiria apostando em mantenedor solo, funding incerto e um modelo runtime que o core team do React desaconselha.</p>
         </div>
       </article>
 
@@ -204,31 +209,31 @@
       <article class="panel panel--red" data-panel="05">
         <div class="panel__num">05</div>
         <div class="panel__inner">
-          <p class="panel__kicker anim">dados de mercado</p>
-          <h2 class="panel__title anim">Adoção e npm: curvas divergentes</h2>
+          <p class="panel__kicker anim" data-i18n="p5.kicker">dados de mercado</p>
+          <h2 class="panel__title anim" data-i18n="p5.title">Adoção e npm: curvas divergentes</h2>
           <div class="cost-ladder">
             <div class="cost anim">
-              <div class="cost__where"><strong>Tailwind</strong> — uso ativo</div>
-              <div class="cost__price">37% · 1º lugar no State of CSS 2025 · retenção 70%+</div>
+              <div class="cost__where" data-i18n="p5.c1.where"><strong>Tailwind</strong> — uso ativo</div>
+              <div class="cost__price" data-i18n="p5.c1.price">37% · 1º lugar no State of CSS 2025 · retenção 70%+</div>
               <div class="cost__bar" style="--w: 100%"></div>
             </div>
             <div class="cost anim">
-              <div class="cost__where"><strong>Bootstrap</strong> — uso ativo</div>
-              <div class="cost__price">21,6% · retenção ~45%</div>
+              <div class="cost__where" data-i18n="p5.c2.where"><strong>Bootstrap</strong> — uso ativo</div>
+              <div class="cost__price" data-i18n="p5.c2.price">21,6% · retenção ~45%</div>
               <div class="cost__bar" style="--w: 58%"></div>
             </div>
             <div class="cost anim">
-              <div class="cost__where"><strong>Tailwind</strong> no npm</div>
-              <div class="cost__price">+100% em 3 anos — dezenas de milhões de downloads/semana</div>
+              <div class="cost__where" data-i18n="p5.c3.where"><strong>Tailwind</strong> no npm</div>
+              <div class="cost__price" data-i18n="p5.c3.price">+100% em 3 anos — dezenas de milhões de downloads/semana</div>
               <div class="cost__bar" style="--w: 100%"></div>
             </div>
             <div class="cost anim">
-              <div class="cost__where"><strong>styled-components</strong> no npm</div>
-              <div class="cost__price">−20% em 3 anos — sobretudo legado e dependências transitivas (MUI → Emotion)</div>
+              <div class="cost__where" data-i18n="p5.c4.where"><strong>styled-components</strong> no npm</div>
+              <div class="cost__price" data-i18n="p5.c4.price">−20% em 3 anos — sobretudo legado e dependências transitivas (MUI → Emotion)</div>
               <div class="cost__bar" style="--w: 22%"></div>
             </div>
           </div>
-          <p class="panel__text anim"><strong>IA-first:</strong> shadcn/ui, Radix, Headless UI e as ferramentas de geração de código produzem Tailwind <strong>por padrão</strong>.</p>
+          <p class="panel__text anim" data-i18n="p5.text"><strong>IA-first:</strong> shadcn/ui, Radix, Headless UI e as ferramentas de geração de código produzem Tailwind <strong>por padrão</strong>.</p>
         </div>
       </article>
 
@@ -236,13 +241,13 @@
       <article class="panel panel--stat" data-panel="06">
         <div class="panel__num">06</div>
         <div class="panel__inner panel__inner--center">
-          <p class="panel__kicker anim">benchmark primário</p>
+          <p class="panel__kicker anim" data-i18n="p6.kicker">benchmark primário</p>
           <div class="stat anim">
             <span class="stat__value"><span class="stat__minus">−</span><span class="stat__counter" data-target="48">0</span><span class="stat__pct">%</span></span>
-            <p class="stat__label">no tempo de render — mesmo componente,<br /><strong>trocando CSS-in-JS runtime por CSS estático</strong></p>
+            <p class="stat__label" data-i18n="p6.label">no tempo de render — mesmo componente,<br /><strong>trocando CSS-in-JS runtime por CSS estático</strong></p>
           </div>
-          <p class="stat__source anim">Sam Magura, Spot (2022) — então 2º mantenedor mais ativo do Emotion. <em>É o autor da biblioteca medindo o próprio custo.</em></p>
-          <p class="stat__punch anim">Caveat do autor: o ganho vale para serialização <span class="u-red">dentro do render</span> — que é o padrão das docs e o dominante na prática.</p>
+          <p class="stat__source anim" data-i18n="p6.source">Sam Magura, Spot (2022) — então 2º mantenedor mais ativo do Emotion. <em>É o autor da biblioteca medindo o próprio custo.</em></p>
+          <p class="stat__punch anim" data-i18n="p6.punch">Caveat do autor: o ganho vale para serialização <span class="u-red">dentro do render</span> — que é o padrão das docs e o dominante na prática.</p>
         </div>
       </article>
 
@@ -250,26 +255,26 @@
       <article class="panel panel--wide" data-panel="07">
         <div class="panel__num">07</div>
         <div class="panel__inner">
-          <p class="panel__kicker anim">performance</p>
-          <h2 class="panel__title anim">Peso entregue ao navegador <span class="u-red">(app SaaS típico)</span></h2>
+          <p class="panel__kicker anim" data-i18n="p7.kicker">performance</p>
+          <h2 class="panel__title anim" data-i18n="p7.title">Peso entregue ao navegador <span class="u-red">(app SaaS típico)</span></h2>
           <div class="objections">
             <div class="objection objection--win anim">
-              <div class="objection__quote">Tailwind (purgado)</div>
+              <div class="objection__quote" data-i18n="p7.k1.name">Tailwind (purgado)</div>
               <p class="objection__kb">8–15 KB</p>
-              <p class="objection__answer">CSS gzip · <strong>zero</strong> runtime JS</p>
+              <p class="objection__answer" data-i18n="p7.k1.desc">CSS gzip · <strong>zero</strong> runtime JS</p>
             </div>
             <div class="objection anim">
               <div class="objection__quote">CSS Modules</div>
               <p class="objection__kb">12–25 KB</p>
-              <p class="objection__answer">CSS gzip · zero runtime JS</p>
+              <p class="objection__answer" data-i18n="p7.k2.desc">CSS gzip · zero runtime JS</p>
             </div>
             <div class="objection anim">
               <div class="objection__quote">styled-components</div>
               <p class="objection__kb objection__kb--bad">35–55 KB</p>
-              <p class="objection__answer">20–40 KB de CSS <strong>+ ~15 KB de runtime JS</strong> competindo pelo main thread</p>
+              <p class="objection__answer" data-i18n="p7.k3.desc">20–40 KB de CSS <strong>+ ~15 KB de runtime JS</strong> competindo pelo main thread</p>
             </div>
           </div>
-          <p class="panel__text panel__text--note anim"><strong>Por que importa:</strong> desde mar/2024 o INP substituiu o FID nos Core Web Vitals. Serialização de estilo em runtime compete pelo main thread exatamente nas interações — sobretudo em Android de entrada. <em>Contraponto justo (Sanity, 2025): entre as libs runtime, o styled-components ainda é a mais rápida — o problema é o modelo, não a implementação.</em></p>
+          <p class="panel__text panel__text--note anim" data-i18n="p7.note"><strong>Por que importa:</strong> desde mar/2024 o INP substituiu o FID nos Core Web Vitals. Serialização de estilo em runtime compete pelo main thread exatamente nas interações — sobretudo em Android de entrada. <em>Contraponto justo (Sanity, 2025): entre as libs runtime, o styled-components ainda é a mais rápida — o problema é o modelo, não a implementação.</em></p>
         </div>
       </article>
 
@@ -277,12 +282,12 @@
       <article class="panel panel--red panel--wide" data-panel="08">
         <div class="panel__num">08</div>
         <div class="panel__inner">
-          <p class="panel__kicker anim">avaliação honesta</p>
-          <h2 class="panel__title anim">Tailwind: o que entrega e o que custa</h2>
+          <p class="panel__kicker anim" data-i18n="p8.kicker">avaliação honesta</p>
+          <h2 class="panel__title anim" data-i18n="p8.title">Tailwind: o que entrega e o que custa</h2>
           <div class="honest">
             <div class="honest__col anim">
-              <h3 class="honest__label">Entrega</h3>
-              <ul class="lie-list list-check">
+              <h3 class="honest__label" data-i18n="p8.label1">Entrega</h3>
+              <ul class="lie-list list-check" data-i18n="p8.list1">
                 <li>Performance por arquitetura — zero JS de estilo, CSS purgado, RSC/streaming sem adaptação</li>
                 <li>Consistência por restrição — tokens em escala fechada; desvio vira exceção visível no review</li>
                 <li>Iteração rápida — sem nomear classes, sem CSS órfão; dead code impossível por construção</li>
@@ -290,8 +295,8 @@
               </ul>
             </div>
             <div class="honest__col anim">
-              <h3 class="honest__label">Custa</h3>
-              <ul class="lie-list">
+              <h3 class="honest__label" data-i18n="p8.label2">Custa</h3>
+              <ul class="lie-list" data-i18n="p8.list2">
                 <li>Curva real: <span>2–4 semanas até fluência do time</span></li>
                 <li>"Class soup" sem disciplina — <span>exige cva/tailwind-variants + prettier-plugin</span></li>
                 <li>Estilo dinâmico de dado vira <span>inline style / CSS variable — mudança de hábito</span></li>
@@ -306,32 +311,32 @@
       <article class="panel" data-panel="09">
         <div class="panel__num">09</div>
         <div class="panel__inner">
-          <p class="panel__kicker anim">sem invenção</p>
-          <h2 class="panel__title anim">Onde o styled-components <span class="u-red">ainda vence</span></h2>
+          <p class="panel__kicker anim" data-i18n="p9.kicker">sem invenção</p>
+          <h2 class="panel__title anim" data-i18n="p9.title">Onde o styled-components <span class="u-red">ainda vence</span></h2>
           <div class="points">
             <div class="point anim">
               <span class="point__num">01</span>
               <div>
-                <h3 class="point__title">Estilização dinâmica por props</h3>
-                <p class="point__text"><code class="inline-code">${props =&gt; ...}</code> é mais expressivo; o equivalente Tailwind (cva + mapas de variantes) funciona, mas com mais cerimônia.</p>
+                <h3 class="point__title" data-i18n="p9.p1.title">Estilização dinâmica por props</h3>
+                <p class="point__text" data-i18n="p9.p1.text"><code class="inline-code">${props =&gt; ...}</code> é mais expressivo; o equivalente Tailwind (cva + mapas de variantes) funciona, mas com mais cerimônia.</p>
               </div>
             </div>
             <div class="point anim">
               <span class="point__num">02</span>
               <div>
-                <h3 class="point__title">Theming em runtime (multi-tenant / white-label)</h3>
-                <p class="point__text">Caso natural do <code class="inline-code">ThemeProvider</code> — e a v6.4 trouxe <code class="inline-code">createTheme</code> via CSS variables, compatível com RSC.</p>
+                <h3 class="point__title" data-i18n="p9.p2.title">Theming em runtime (multi-tenant / white-label)</h3>
+                <p class="point__text" data-i18n="p9.p2.text">Caso natural do <code class="inline-code">ThemeProvider</code> — e a v6.4 trouxe <code class="inline-code">createTheme</code> via CSS variables, compatível com RSC.</p>
               </div>
             </div>
             <div class="point anim">
               <span class="point__num">03</span>
               <div>
-                <h3 class="point__title">CSS completo co-locado</h3>
-                <p class="point__text">Seletores complexos e animações elaboradas em sintaxe CSS real, no mesmo arquivo, sem escape hatches.</p>
+                <h3 class="point__title" data-i18n="p9.p3.title">CSS completo co-locado</h3>
+                <p class="point__text" data-i18n="p9.p3.text">Seletores complexos e animações elaboradas em sintaxe CSS real, no mesmo arquivo, sem escape hatches.</p>
               </div>
             </div>
           </div>
-          <blockquote class="punchline anim"><strong>Quando NÃO migrar:</strong> SPA client-side saudável, sem problema medido de INP. Migração por moda é <em>desperdício</em>.</blockquote>
+          <blockquote class="punchline anim" data-i18n="p9.punch"><strong>Quando NÃO migrar:</strong> SPA client-side saudável, sem problema medido de INP. Migração por moda é <em>desperdício</em>.</blockquote>
         </div>
       </article>
 
@@ -339,19 +344,19 @@
       <article class="panel panel--wide" data-panel="10">
         <div class="panel__num">10</div>
         <div class="panel__inner">
-          <p class="panel__kicker anim">recomendação</p>
-          <h2 class="panel__title anim">Estratégia: incremental, medida, <span class="u-red">sem big bang</span></h2>
+          <p class="panel__kicker anim" data-i18n="p10.kicker">recomendação</p>
+          <h2 class="panel__title anim" data-i18n="p10.title">Estratégia: incremental, medida, <span class="u-red">sem big bang</span></h2>
           <div class="versus">
             <div class="versus__col anim">
-              <h3 class="versus__label versus__label--good">Projetos novos</h3>
-              <p class="panel__text">Tailwind v4 + <code class="inline-code">cva</code>/tailwind-variants + prettier-plugin-tailwindcss + tokens via <code class="inline-code">@theme</code> + shadcn/ui ou Radix.</p>
-              <p class="panel__text">Se o time rejeitar utility-first: CSS Modules, vanilla-extract ou Panda CSS — <strong>o inegociável é build-time, não a sintaxe</strong>.</p>
-              <h3 class="versus__label versus__label--bad">Anti-recomendação</h3>
-              <p class="panel__text">Reescrita big bang de base grande: o custo excede o benefício em praticamente todos os cenários documentados. <strong>A v6.4 comprou tempo — use-o para migrar com calma, não para não migrar.</strong></p>
+              <h3 class="versus__label versus__label--good" data-i18n="p10.label1">Projetos novos</h3>
+              <p class="panel__text" data-i18n="p10.t1">Tailwind v4 + <code class="inline-code">cva</code>/tailwind-variants + prettier-plugin-tailwindcss + tokens via <code class="inline-code">@theme</code> + shadcn/ui ou Radix.</p>
+              <p class="panel__text" data-i18n="p10.t2">Se o time rejeitar utility-first: CSS Modules, vanilla-extract ou Panda CSS — <strong>o inegociável é build-time, não a sintaxe</strong>.</p>
+              <h3 class="versus__label versus__label--bad" data-i18n="p10.label2">Anti-recomendação</h3>
+              <p class="panel__text" data-i18n="p10.t3">Reescrita big bang de base grande: o custo excede o benefício em praticamente todos os cenários documentados. <strong>A v6.4 comprou tempo — use-o para migrar com calma, não para não migrar.</strong></p>
             </div>
             <div class="versus__col anim">
-              <h3 class="versus__label">Migração de base existente</h3>
-              <ol class="steps steps--big">
+              <h3 class="versus__label" data-i18n="p10.label3">Migração de base existente</h3>
+              <ol class="steps steps--big" data-i18n="p10.steps">
                 <li>Instalar Tailwind <strong>ao lado</strong> do styled-components — coexistem sem conflito</li>
                 <li>Todo componente <strong>novo</strong> nasce em Tailwind</li>
                 <li>Migrar componentes tocados por features (<em>regra do escoteiro</em>)</li>
@@ -369,18 +374,20 @@
   <!-- ============ FECHAMENTO ============ -->
   <section class="outro">
     <div class="outro__inner">
-      <p class="outro__line reveal-outro">A sintaxe é detalhe.</p>
-      <p class="outro__line outro__line--big reveal-outro">A decisão arquitetural é <span class="u-red">build-time</span>.</p>
-      <p class="outro__thanks reveal-outro">zero runtime · compatível com RSC · risco assimétrico <span class="outro__cursor">▌</span></p>
+      <p class="outro__line reveal-outro" data-i18n="outro.line1">A sintaxe é detalhe.</p>
+      <p class="outro__line outro__line--big reveal-outro" data-i18n="outro.line2">A decisão arquitetural é <span class="u-red">build-time</span>.</p>
+      <p class="outro__thanks reveal-outro" data-i18n="outro.thanks">zero runtime · compatível com RSC · risco assimétrico <span class="outro__cursor">▌</span></p>
     </div>
     <footer class="footer">
-      <span>arquitetura frontend · jul/2026</span>
-      <span class="footer__hint">fontes: State of CSS 2025 · PkgPulse mar/2026 · Spot 2022 · React WG · Sanity 2025</span>
+      <span data-i18n="footer.left">arquitetura frontend · jul/2026</span>
+      <span class="footer__hint" data-i18n="footer.right">fontes: State of CSS 2025 · PkgPulse mar/2026 · Spot 2022 · React WG · Sanity 2025</span>
     </footer>
   </section>
 
   <script src="../vendor/gsap.min.js"></script>
   <script src="../vendor/ScrollTrigger.min.js"></script>
+  <script src="lang.js"></script>
+  <script src="../i18n.js"></script>
   <script src="../main.js"></script>
 </body>
 </html>

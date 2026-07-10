@@ -9,7 +9,7 @@ A raiz é um **seletor de apresentações**; cada talk vive em sua própria past
 | Rota | Talk | Formato |
 |---|---|---|
 | `/typescript/` | O bug que o TypeScript pegaria às 3h da manhã | workshop · 5–7 min · PT/EN |
-| `/tailwind/` | Tailwind CSS no lugar de Styled Components | arquitetura frontend · jul/2026 |
+| `/tailwind/` | Tailwind CSS no lugar de Styled Components | arquitetura frontend · jul/2026 · PT/EN |
 
 ## Como rodar
 
@@ -25,11 +25,12 @@ python3 -m http.server 8000
 
 | Arquivo | O quê |
 |---|---|
-| `index.html` + `hub.css` | Seletor de apresentações (hub) |
+| `index.html` + `hub.css` | Seletor de apresentações (hub), com switch de idioma global |
 | `styles.css` | Tema compartilhado: hero, painéis, code cards, marquee, stat, outro |
 | `main.js` | Motor compartilhado: pin + scroll horizontal, navegação em slides (wheel/teclado), reveals, parallax, contador |
-| `typescript/` | LP do workshop TS (`index.html`, `i18n.js` com switch PT/EN, `roteiro.md` slide a slide) |
-| `tailwind/` | Deck Tailwind vs styled-components (`index.html`, `page.css` com timeline, versus, pontos) |
+| `i18n.js` | Lógica de idioma compartilhada — a escolha (chave `lp-lang`) vale para o hub e todos os decks |
+| `typescript/` | LP do workshop TS (`index.html`, `lang.js` com dicionário EN, `roteiro.md` slide a slide) |
+| `tailwind/` | Deck Tailwind vs styled-components (`index.html`, `lang.js`, `page.css` com timeline, versus, pontos) |
 | `vendor/` | GSAP 3.12 + fontes (Space Grotesk, Inter, JetBrains Mono) |
 | `.github/workflows/deploy-pages.yml` | Deploy automático no GitHub Pages a cada push |
 
