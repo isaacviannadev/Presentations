@@ -136,7 +136,12 @@ em { font-style: italic; }
   font-size: 0.85rem;
   font-weight: 700;
 }
-.nav__logo-text { letter-spacing: -0.02em; }
+.nav__logo-text {
+  letter-spacing: -0.02em;
+  /* visível sobre qualquer fundo (painéis vermelhos, fechamento escuro) */
+  color: #fff;
+  mix-blend-mode: difference;
+}
 .nav__right {
   display: flex;
   align-items: center;
@@ -187,7 +192,7 @@ em { font-style: italic; }
   display: grid;
   place-items: center;
   position: relative;
-  padding: 7rem 2rem 4rem;
+  padding: 7rem 2rem 6.5rem; /* folga p/ o marquee no bottom */
   background: var(--white);
   overflow: hidden;
 }
@@ -224,7 +229,13 @@ em { font-style: italic; }
 }
 /* EN é mais largo que PT — reduz um pouco p/ manter 1 frase por linha */
 html[lang="en"] .hero__title { font-size: clamp(2.3rem, 6.3vw, 5.3rem); }
-.hero__line { display: block; overflow: hidden; }
+.hero__line {
+  display: block;
+  overflow: hidden;
+  /* expande a caixa de clip do reveal p/ não cortar descendentes e itálico */
+  padding: 0.12em 0.15em;
+  margin: -0.12em -0.15em;
+}
 .hero__line > span { display: inline-block; }
 .hero__red {
   color: var(--red);
@@ -326,14 +337,17 @@ html[lang="en"] .hero__title { font-size: clamp(2.3rem, 6.3vw, 5.3rem); }
 .t-strike { position: relative; }
 .t-nan { color: #ff4d6d; font-weight: 700; }
 
-/* ---------- Marquee ---------- */
+/* ---------- Marquee (fixado no bottom do hero) ---------- */
 .marquee {
   background: var(--red);
   color: var(--white);
   overflow: hidden;
   padding: 0.9rem 0;
   transform: rotate(-1.2deg) scale(1.02);
-  position: relative;
+  position: absolute;
+  bottom: 0.6rem;
+  left: -2%;
+  right: -2%;
   z-index: 5;
 }
 .marquee__track {

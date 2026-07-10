@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tailwind CSS no lugar de Styled Components</title>
-  <meta name="description" content="Motivação técnica de adoção em projetos React — dados, benchmarks e trade-offs reais." />
+  <meta name="description" content="Motivação técnica de adoção em projetos React: dados, benchmarks e trade-offs reais." />
   <link rel="stylesheet" href="../styles.css" />
   <link rel="stylesheet" href="page.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23e4002b'/><text x='50' y='68' font-size='48' text-anchor='middle' fill='white' font-family='monospace' font-weight='bold'>TW</text></svg>" />
@@ -46,19 +46,20 @@
 <span class="t-red">warn</span><span class="t-white"> styled-components entrou em </span><span class="t-red">maintenance mode</span><span class="t-white"> (mar/2025)</span>
 <span class="t-white">     o mantenedor desaconselha o uso em projetos novos</span><span class="terminal__cursor">▌</span></code></pre>
       </div>
-      <p class="hero__sub reveal-hero" data-i18n="hero.sub">Motivação técnica de adoção em projetos React — <strong>dados, benchmarks e trade-offs reais</strong>.<br />Sem modismo: três fatores objetivos, um caveat honesto e uma estratégia sem big bang.</p>
+      <p class="hero__sub reveal-hero" data-i18n="hero.sub">Motivação técnica de adoção em projetos React: <strong>dados, benchmarks e trade-offs reais</strong>.<br />Sem modismo: três fatores objetivos, um caveat honesto e uma estratégia sem big bang.</p>
       <div class="hero__scroll-hint reveal-hero" data-i18n="hero.hint">
         <span class="hero__scroll-arrow">↓</span> role para começar
       </div>
     </div>
+
+    <!-- Marquee -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track">
+        <span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span>
+      </div>
+    </div>
   </header>
 
-  <!-- Marquee -->
-  <div class="marquee" aria-hidden="true">
-    <div class="marquee__track">
-      <span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span><span data-i18n="marquee">runtime é custo ✕ build-time é cache ✕ −48% no render ✕ maintenance mode ✕&nbsp;</span>
-    </div>
-  </div>
 
   <!-- ============ SCROLL HORIZONTAL ============ -->
   <section class="hwrap" id="horizontal">
@@ -137,7 +138,7 @@
               </ol>
             </div>
           </div>
-          <p class="panel__text panel__text--note anim" data-i18n="p2.note">A serialização de props (<code class="inline-code">${props =&gt; ...}</code>) reexecuta <strong>a cada render</strong> — e é o padrão da documentação e o dominante nos times.</p>
+          <p class="panel__text panel__text--note anim" data-i18n="p2.note">A serialização de props (<code class="inline-code">${props =&gt; ...}</code>) reexecuta <strong>a cada render</strong>, e é o padrão da documentação e o dominante nos times.</p>
         </div>
       </article>
 
@@ -152,21 +153,21 @@
               <span class="point__num">01</span>
               <div>
                 <h3 class="point__title" data-i18n="p3.p1.title">Concurrent rendering (React 18+)</h3>
-                <p class="point__text" data-i18n="p3.p1.text">Injetar regras CSS entre <em>yields</em> do React força recálculo de estilos contra a árvore inteira — padrão de <strong>layout thrashing</strong> documentado por Sebastian Markbåge (core team) e reproduzido em benchmark por Nolan Lawson.</p>
+                <p class="point__text" data-i18n="p3.p1.text">Injetar regras CSS entre <em>yields</em> do React força recálculo de estilos contra a árvore inteira: padrão de <strong>layout thrashing</strong> documentado por Sebastian Markbåge (core team) e reproduzido em benchmark por Nolan Lawson.</p>
               </div>
             </div>
             <div class="point anim">
               <span class="point__num">02</span>
               <div>
                 <h3 class="point__title" data-i18n="p3.p2.title">React Server Components</h3>
-                <p class="point__text" data-i18n="p3.p2.text">styled-components depende de Context API e efeitos no render — exclusivamente client-side. Usar no App Router exige <code class="inline-code">'use client'</code> em tudo, abrindo mão do modelo server-first.</p>
+                <p class="point__text" data-i18n="p3.p2.text">styled-components depende de Context API e efeitos no render, exclusivamente client-side. Usar no App Router exige <code class="inline-code">'use client'</code> em tudo, abrindo mão do modelo server-first.</p>
               </div>
             </div>
             <div class="point anim">
               <span class="point__num">03</span>
               <div>
                 <h3 class="point__title" data-i18n="p3.p3.title">Recomendação oficial</h3>
-                <p class="point__text" data-i18n="p3.p3.text">Estilos estáticos via <code class="inline-code">&lt;link rel="stylesheet"&gt;</code>; valores dinâmicos via inline style. É exatamente o modelo do Tailwind — e o <strong>oposto</strong> do modelo do styled-components.</p>
+                <p class="point__text" data-i18n="p3.p3.text">Estilos estáticos via <code class="inline-code">&lt;link rel="stylesheet"&gt;</code>; valores dinâmicos via inline style. É exatamente o modelo do Tailwind, e o <strong>oposto</strong> do modelo do styled-components.</p>
               </div>
             </div>
           </div>
@@ -186,7 +187,7 @@
             </div>
             <div class="tl-item anim">
               <span class="tl-item__date">jan/2025</span>
-              <p class="tl-item__text" data-i18n="p4.t2">Tailwind v4: engine <strong>Oxide em Rust</strong> — builds completos 5× e incrementais 100× mais rápidos.</p>
+              <p class="tl-item__text" data-i18n="p4.t2">Tailwind v4: engine <strong>Oxide em Rust</strong>, builds completos 5× e incrementais 100× mais rápidos.</p>
             </div>
             <div class="tl-item tl-item--hot anim">
               <span class="tl-item__date">mar/2025</span>
@@ -201,7 +202,7 @@
               <p class="tl-item__text" data-i18n="p4.t5">styled-components v6.4: retomada parcial (<code class="inline-code">createTheme</code>, RSC), dependente de financiamento.</p>
             </div>
           </div>
-          <p class="panel__text panel__text--note anim" data-i18n="p4.note"><strong>Leitura sóbria:</strong> a v6.4 alivia a pressão sobre bases legadas — mas um projeto novo seguiria apostando em mantenedor solo, funding incerto e um modelo runtime que o core team do React desaconselha.</p>
+          <p class="panel__text panel__text--note anim" data-i18n="p4.note"><strong>Leitura sóbria:</strong> a v6.4 alivia a pressão sobre bases legadas, mas um projeto novo seguiria apostando em mantenedor solo, funding incerto e um modelo runtime que o core team do React desaconselha.</p>
         </div>
       </article>
 
@@ -224,12 +225,12 @@
             </div>
             <div class="cost anim">
               <div class="cost__where" data-i18n="p5.c3.where"><strong>Tailwind</strong> no npm</div>
-              <div class="cost__price" data-i18n="p5.c3.price">+100% em 3 anos — dezenas de milhões de downloads/semana</div>
+              <div class="cost__price" data-i18n="p5.c3.price">+100% em 3 anos: dezenas de milhões de downloads/semana</div>
               <div class="cost__bar" style="--w: 100%"></div>
             </div>
             <div class="cost anim">
               <div class="cost__where" data-i18n="p5.c4.where"><strong>styled-components</strong> no npm</div>
-              <div class="cost__price" data-i18n="p5.c4.price">−20% em 3 anos — sobretudo legado e dependências transitivas (MUI → Emotion)</div>
+              <div class="cost__price" data-i18n="p5.c4.price">−20% em 3 anos: sobretudo legado e dependências transitivas (MUI → Emotion)</div>
               <div class="cost__bar" style="--w: 22%"></div>
             </div>
           </div>
@@ -244,10 +245,10 @@
           <p class="panel__kicker anim" data-i18n="p6.kicker">benchmark primário</p>
           <div class="stat anim">
             <span class="stat__value"><span class="stat__minus">−</span><span class="stat__counter" data-target="48">0</span><span class="stat__pct">%</span></span>
-            <p class="stat__label" data-i18n="p6.label">no tempo de render — mesmo componente,<br /><strong>trocando CSS-in-JS runtime por CSS estático</strong></p>
+            <p class="stat__label" data-i18n="p6.label">no tempo de render: mesmo componente,<br /><strong>trocando CSS-in-JS runtime por CSS estático</strong></p>
           </div>
-          <p class="stat__source anim" data-i18n="p6.source">Sam Magura, Spot (2022) — então 2º mantenedor mais ativo do Emotion. <em>É o autor da biblioteca medindo o próprio custo.</em></p>
-          <p class="stat__punch anim" data-i18n="p6.punch">Caveat do autor: o ganho vale para serialização <span class="u-red">dentro do render</span> — que é o padrão das docs e o dominante na prática.</p>
+          <p class="stat__source anim" data-i18n="p6.source">Sam Magura, Spot (2022), então 2º mantenedor mais ativo do Emotion. <em>É o autor da biblioteca medindo o próprio custo.</em></p>
+          <p class="stat__punch anim" data-i18n="p6.punch">Caveat do autor: o ganho vale para serialização <span class="u-red">dentro do render</span>, que é o padrão das docs e o dominante na prática.</p>
         </div>
       </article>
 
@@ -274,7 +275,7 @@
               <p class="objection__answer" data-i18n="p7.k3.desc">20–40 KB de CSS <strong>+ ~15 KB de runtime JS</strong> competindo pelo main thread</p>
             </div>
           </div>
-          <p class="panel__text panel__text--note anim" data-i18n="p7.note"><strong>Por que importa:</strong> desde mar/2024 o INP substituiu o FID nos Core Web Vitals. Serialização de estilo em runtime compete pelo main thread exatamente nas interações — sobretudo em Android de entrada. <em>Contraponto justo (Sanity, 2025): entre as libs runtime, o styled-components ainda é a mais rápida — o problema é o modelo, não a implementação.</em></p>
+          <p class="panel__text panel__text--note anim" data-i18n="p7.note"><strong>Por que importa:</strong> desde mar/2024 o INP substituiu o FID nos Core Web Vitals. Serialização de estilo em runtime compete pelo main thread exatamente nas interações, sobretudo em Android de entrada. <em>Contraponto justo (Sanity, 2025): entre as libs runtime, o styled-components ainda é a mais rápida — o problema é o modelo, não a implementação.</em></p>
         </div>
       </article>
 
@@ -288,19 +289,19 @@
             <div class="honest__col anim">
               <h3 class="honest__label" data-i18n="p8.label1">Entrega</h3>
               <ul class="lie-list list-check" data-i18n="p8.list1">
-                <li>Performance por arquitetura — zero JS de estilo, CSS purgado, RSC/streaming sem adaptação</li>
-                <li>Consistência por restrição — tokens em escala fechada; desvio vira exceção visível no review</li>
-                <li>Iteração rápida — sem nomear classes, sem CSS órfão; dead code impossível por construção</li>
-                <li>Ecossistema — shadcn/ui, Radix, Headless UI; IA gera Tailwind por padrão</li>
+                <li>Performance por arquitetura: zero JS de estilo, CSS purgado, RSC/streaming sem adaptação</li>
+                <li>Consistência por restrição: tokens em escala fechada; desvio vira exceção visível no review</li>
+                <li>Iteração rápida: sem nomear classes, sem CSS órfão; dead code impossível por construção</li>
+                <li>Ecossistema: shadcn/ui, Radix, Headless UI; IA gera Tailwind por padrão</li>
               </ul>
             </div>
             <div class="honest__col anim">
               <h3 class="honest__label" data-i18n="p8.label2">Custa</h3>
               <ul class="lie-list" data-i18n="p8.list2">
                 <li>Curva real: <span>2–4 semanas até fluência do time</span></li>
-                <li>"Class soup" sem disciplina — <span>exige cva/tailwind-variants + prettier-plugin</span></li>
-                <li>Estilo dinâmico de dado vira <span>inline style / CSS variable — mudança de hábito</span></li>
-                <li>Risco corporativo não nulo — <span>layoffs em jan/2026 (mitigado: output é CSS puro)</span></li>
+                <li>"Class soup" sem disciplina: <span>exige cva/tailwind-variants + prettier-plugin</span></li>
+                <li>Estilo dinâmico de dado vira <span>inline style / CSS variable, mudança de hábito</span></li>
+                <li>Risco corporativo não nulo: <span>layoffs em jan/2026 (mitigado: output é CSS puro)</span></li>
               </ul>
             </div>
           </div>
@@ -325,7 +326,7 @@
               <span class="point__num">02</span>
               <div>
                 <h3 class="point__title" data-i18n="p9.p2.title">Theming em runtime (multi-tenant / white-label)</h3>
-                <p class="point__text" data-i18n="p9.p2.text">Caso natural do <code class="inline-code">ThemeProvider</code> — e a v6.4 trouxe <code class="inline-code">createTheme</code> via CSS variables, compatível com RSC.</p>
+                <p class="point__text" data-i18n="p9.p2.text">Caso natural do <code class="inline-code">ThemeProvider</code>, e a v6.4 trouxe <code class="inline-code">createTheme</code> via CSS variables, compatível com RSC.</p>
               </div>
             </div>
             <div class="point anim">
@@ -350,18 +351,18 @@
             <div class="versus__col anim">
               <h3 class="versus__label versus__label--good" data-i18n="p10.label1">Projetos novos</h3>
               <p class="panel__text" data-i18n="p10.t1">Tailwind v4 + <code class="inline-code">cva</code>/tailwind-variants + prettier-plugin-tailwindcss + tokens via <code class="inline-code">@theme</code> + shadcn/ui ou Radix.</p>
-              <p class="panel__text" data-i18n="p10.t2">Se o time rejeitar utility-first: CSS Modules, vanilla-extract ou Panda CSS — <strong>o inegociável é build-time, não a sintaxe</strong>.</p>
+              <p class="panel__text" data-i18n="p10.t2">Se o time rejeitar utility-first: CSS Modules, vanilla-extract ou Panda CSS: <strong>o inegociável é build-time, não a sintaxe</strong>.</p>
               <h3 class="versus__label versus__label--bad" data-i18n="p10.label2">Anti-recomendação</h3>
-              <p class="panel__text" data-i18n="p10.t3">Reescrita big bang de base grande: o custo excede o benefício em praticamente todos os cenários documentados. <strong>A v6.4 comprou tempo — use-o para migrar com calma, não para não migrar.</strong></p>
+              <p class="panel__text" data-i18n="p10.t3">Reescrita big bang de base grande: o custo excede o benefício em praticamente todos os cenários documentados. <strong>A v6.4 comprou tempo: use-o para migrar com calma, não para não migrar.</strong></p>
             </div>
             <div class="versus__col anim">
               <h3 class="versus__label" data-i18n="p10.label3">Migração de base existente</h3>
               <ol class="steps steps--big" data-i18n="p10.steps">
-                <li>Instalar Tailwind <strong>ao lado</strong> do styled-components — coexistem sem conflito</li>
+                <li>Instalar Tailwind <strong>ao lado</strong> do styled-components: coexistem sem conflito</li>
                 <li>Todo componente <strong>novo</strong> nasce em Tailwind</li>
                 <li>Migrar componentes tocados por features (<em>regra do escoteiro</em>)</li>
                 <li>Usar codemods e o upgrade tooling oficial</li>
-                <li><strong>Medir INP/LCP antes e depois</strong> — justificar com dados do próprio produto</li>
+                <li><strong>Medir INP/LCP antes e depois</strong>: justificar com dados do próprio produto</li>
               </ol>
             </div>
           </div>

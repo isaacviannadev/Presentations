@@ -21,7 +21,7 @@ window.PAGE_EN = {
   "p1.kicker": "the opening",
   "p1.title": "“Raise your hand if you've ever <span class=\"u-red\">deployed on a Friday</span>.”",
   "p1.text1": "Now keep your hand up if you found out <strong>on Saturday</strong> that <code class=\"inline-code\">user.name</code> was <code class=\"inline-code\">undefined</code>.",
-  "p1.text2": "That error has a first name, a last name and a home address — plus a whole family of cousins. All of them avoidable <strong>before the code runs</strong>.",
+  "p1.text2": "That error has a first name, a last name and a home address, plus a whole family of cousins. All of them avoidable <strong>before the code runs</strong>.",
 
   "p2.kicker": "the thesis",
   "p2.title": "TypeScript isn't about writing types.<br />It's about <em>moving the error</em>.",
@@ -36,14 +36,14 @@ window.PAGE_EN = {
   "p3.kicker": "live example",
   "p3.title": "JavaScript <span class=\"u-red\">accepts everything</span>",
   "p3.text1": "JavaScript didn't complain. It <strong>cooperated with the bug</strong>.",
-  "p3.text2": "<code class=\"inline-code\">100 * undefined</code> is <code class=\"inline-code\">NaN</code> — and <code class=\"inline-code\">NaN</code> travels happily through the system until it shows up on an invoice.",
+  "p3.text2": "<code class=\"inline-code\">100 * undefined</code> is <code class=\"inline-code\">NaN</code>, and <code class=\"inline-code\">NaN</code> travels happily through the system until it shows up on an invoice.",
   "p3.code.cm1": "// Three months later, another dev calls it:",
   "p3.code.cm2": "// Result: <span class=\"t-nan\">NaN</span>. No error. No warning.",
   "p3.code.cm3": "// Just NaN in the customer's cart.",
 
   "p4.kicker": "the same code",
   "p4.title": "TypeScript <span class=\"u-red\">complains now</span>",
-  "p4.text": "The error shows up in the editor, with a suggested fix — before it becomes a commit, before it becomes an invoice.",
+  "p4.text": "The error shows up in the editor, with a suggested fix, before it becomes a commit, before it becomes an invoice.",
   "p4.punchline": "“Red in the editor is annoying.<br />Red in Sentry is <em>expensive</em>.”",
 
   "p5.kicker": "dismantling the objections",
@@ -75,7 +75,7 @@ window.PAGE_EN = {
 
   "p7.kicker": "for the numbers people",
   "p7.label": "of real-world bugs analyzed would have been<br /><strong>caught by a type checker</strong>",
-  "p7.source": "Microsoft + University College London, <em>“To Type or Not to Type”</em> — thousands of real bugs in public JavaScript projects on GitHub.",
+  "p7.source": "Microsoft + University College London, <em>“To Type or Not to Type”</em>: thousands of real bugs in public JavaScript projects on GitHub.",
   "p7.punch": "One in seven bugs. <span class=\"u-red\">For free.</span> Before the commit.",
 
   "outro.line1": "TypeScript isn't about trusting yourself <em>less</em>.",
