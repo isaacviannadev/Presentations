@@ -22,7 +22,7 @@ E abrir `http://localhost:8000`.
 | `styles.css` | Tema vermelho/branco, cards de código com syntax highlight manual |
 | `main.js` | Animações: pin + scroll horizontal, reveals por painel, parallax, contador do 15% |
 | `i18n.js` | Switch de idioma PT ⇄ EN (botão na nav; escolha persiste em `localStorage`) |
-| `roteiro.md` | Roteiro original da fala (5–7 min) |
+| `roteiro.md` | Roteiro falado, slide a slide (6–7 min), com deixas de avanço |
 | `vendor/` | GSAP 3.12 e fontes (Space Grotesk, Inter, JetBrains Mono) |
 
 ## Notas
