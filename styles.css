@@ -134,6 +134,11 @@ em { font-style: italic; }
   font-weight: 700;
 }
 .nav__logo-text { letter-spacing: -0.02em; }
+.nav__right {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
 .nav__tag {
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -144,6 +149,34 @@ em { font-style: italic; }
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(8px);
 }
+
+/* ---------- Language switch ---------- */
+.lang-switch {
+  pointer-events: auto; /* a nav é pointer-events: none */
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  border: 1px solid rgba(20, 9, 12, 0.15);
+  border-radius: 99px;
+  padding: 0.35rem 0.9rem;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+.lang-switch:hover {
+  border-color: var(--red);
+  box-shadow: 0 4px 16px -6px rgba(228, 0, 43, 0.4);
+}
+.lang-switch__opt {
+  color: rgba(20, 9, 12, 0.35);
+  transition: color 0.25s ease;
+}
+.lang-switch__opt.is-active { color: var(--red); }
+.lang-switch__sep { color: rgba(20, 9, 12, 0.2); font-weight: 400; }
 
 /* ---------- Hero ---------- */
 .hero {
@@ -728,5 +761,6 @@ em { font-style: italic; }
   .objections { grid-template-columns: 1fr; }
   .cost { grid-template-columns: 1fr; }
   .nav { padding: 1rem 1.2rem; }
+  .nav__tag { display: none; } /* sobra só o switch de idioma */
   .panel__num { font-size: 4.5rem; bottom: 0.8rem; right: 1.2rem; }
 }

@@ -21,6 +21,7 @@ E abrir `http://localhost:8000`.
 | `index.html` | Conteúdo — hero, 7 painéis horizontais (um por seção do roteiro) e fechamento |
 | `styles.css` | Tema vermelho/branco, cards de código com syntax highlight manual |
 | `main.js` | Animações: pin + scroll horizontal, reveals por painel, parallax, contador do 15% |
+| `i18n.js` | Switch de idioma PT ⇄ EN (botão na nav; escolha persiste em `localStorage`) |
 | `roteiro.md` | Roteiro original da fala (5–7 min) |
 | `vendor/` | GSAP 3.12 e fontes (Space Grotesk, Inter, JetBrains Mono) |
 
@@ -29,4 +30,5 @@ E abrir `http://localhost:8000`.
 - **Desktop (>900px):** a seção central vira um scroll horizontal pinado; cada painel anima ao entrar em cena.
 - **Mobile (≤900px):** os painéis empilham em scroll vertical normal.
 - **`prefers-reduced-motion`:** todas as animações são desativadas e o conteúdo fica visível.
+- **Idioma:** o PT vive no HTML (fonte da verdade) e o EN no dicionário de `i18n.js`; a troca reescreve os elementos `[data-i18n]` e recalcula o ScrollTrigger.
 - Os painéis seguem a ordem do roteiro: abertura → tese (custo do erro) → JS aceita tudo → o mesmo código em TS → objeções → documentação que não mente → o número (15%) → fechamento.
