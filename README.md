@@ -28,6 +28,7 @@ E abrir `http://localhost:8000`.
 ## Notas
 
 - **Desktop (>900px):** a seção central vira um scroll horizontal pinado; cada painel anima ao entrar em cena.
+- **Navegação em slides (desktop):** a roda do mouse e o teclado (←/→/↑/↓, PageUp/PageDown, espaço, Home/End) avançam/voltam exatamente uma seção com transição suave — hero, cada um dos 7 painéis e o fechamento são os "slides".
 - **Mobile (≤900px):** os painéis empilham em scroll vertical normal.
 - **`prefers-reduced-motion`:** todas as animações são desativadas e o conteúdo fica visível.
 - **Idioma:** o PT vive no HTML (fonte da verdade) e o EN no dicionário de `i18n.js`; a troca reescreve os elementos `[data-i18n]` e recalcula o ScrollTrigger.

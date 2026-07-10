@@ -15,7 +15,7 @@
     "hero.line2": "<em>TypeScript</em> would catch",
     "hero.line3": "at <span class=\"hero__red\">3 in the morning</span>",
     "hero.terminal": "sentry — production",
-    "hero.sub": "The most expensive error in JavaScript history is <strong>avoidable before the code runs</strong>.<br />Not with more tests. Not with more code review. With the compiler working for you, for free.",
+    "hero.sub": "The most expensive error in JavaScript history is <strong>avoidable before the code runs</strong>. Not with more tests. Not with more code review. With the compiler working for you, for free.",
     "hero.hint": "<span class=\"hero__scroll-arrow\">↓</span> scroll to start",
 
     "marquee": "friday deploy ✕ undefined on saturday ✕ NaN on the invoice ✕ sunday hotfix ✕&nbsp;",

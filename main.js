@@ -158,7 +158,108 @@ mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
   // Contador do 15%
   setupCounter(horizontalTween);
 
-  return () => {}; // cleanup gerido pelo matchMedia
+  /* ---------- Navegação em slides (wheel + teclado) ---------- */
+  // Cada "stop" é uma seção: hero, cada painel horizontal, fechamento.
+  // A roda do mouse e as setas avançam/voltam um stop com tween suave;
+  // o scrub do pin transforma a transição na própria animação do slide.
+
+  const st = horizontalTween.scrollTrigger;
+
+  function computeStops() {
+    const total = getScrollAmount();
+    const stops = [0]; // hero
+    panels.forEach((panel) => {
+      // centraliza o painel no viewport (painéis mais largos que 100vw
+      // são clampados aos limites do track)
+      let x = panel.offsetLeft + (panel.offsetWidth - window.innerWidth) / 2;
+      x = Math.max(0, Math.min(x, total));
+      stops.push(st.start + x);
+    });
+    stops.push(ScrollTrigger.maxScroll(window)); // fechamento
+    return stops;
+  }
+
+  let sliding = false;
+  let cooldownUntil = 0;
+  let wheelAcc = 0;
+  let lastWheelAt = 0;
+  const scrollProxy = { y: 0 };
+
+  function goToScroll(target) {
+    if (Math.abs(target - window.scrollY) < 2) return;
+    sliding = true;
+    scrollProxy.y = window.scrollY;
+    gsap.killTweensOf(scrollProxy);
+    gsap.to(scrollProxy, {
+      y: target,
+      duration: 1,
+      ease: "power2.inOut",
+      onUpdate: () => window.scrollTo(0, scrollProxy.y),
+      onComplete: () => {
+        sliding = false;
+        wheelAcc = 0;
+        // janela p/ engolir a inércia residual do trackpad
+        cooldownUntil = performance.now() + 350;
+      },
+    });
+  }
+
+  function step(dir) {
+    if (sliding) return;
+    const stops = computeStops();
+    const y = window.scrollY;
+    let target;
+    if (dir > 0) {
+      target = stops.find((s) => s > y + 2);
+      if (target === undefined) target = stops[stops.length - 1];
+    } else {
+      const before = stops.filter((s) => s < y - 2);
+      target = before.length ? before[before.length - 1] : stops[0];
+    }
+    goToScroll(target);
+  }
+
+  function onWheel(e) {
+    e.preventDefault(); // o scroll passa a ser 100% conduzido pelos slides
+    const now = performance.now();
+    if (sliding || now < cooldownUntil) return;
+    if (now - lastWheelAt > 200) wheelAcc = 0; // rajada nova zera o acumulador
+    lastWheelAt = now;
+    wheelAcc += e.deltaY;
+    if (Math.abs(wheelAcc) > 50) {
+      const dir = wheelAcc > 0 ? 1 : -1;
+      wheelAcc = 0;
+      step(dir);
+    }
+  }
+
+  function onKey(e) {
+    if (e.target.matches("input, textarea, select")) return;
+    const NEXT = ["ArrowDown", "ArrowRight", "PageDown", " "];
+    const PREV = ["ArrowUp", "ArrowLeft", "PageUp"];
+    if (NEXT.includes(e.key)) {
+      e.preventDefault();
+      step(1);
+    } else if (PREV.includes(e.key)) {
+      e.preventDefault();
+      step(-1);
+    } else if (e.key === "Home") {
+      e.preventDefault();
+      goToScroll(0);
+    } else if (e.key === "End") {
+      e.preventDefault();
+      goToScroll(ScrollTrigger.maxScroll(window));
+    }
+  }
+
+  window.addEventListener("wheel", onWheel, { passive: false });
+  window.addEventListener("keydown", onKey);
+
+  return () => {
+    window.removeEventListener("wheel", onWheel);
+    window.removeEventListener("keydown", onKey);
+    gsap.killTweensOf(scrollProxy);
+  };
 });
 
 /* ---------- Mobile / reduced motion: scroll vertical simples ---------- */

@@ -219,6 +219,8 @@ em { font-style: italic; }
   line-height: 1.02;
   letter-spacing: -0.03em;
 }
+/* EN é mais largo que PT — reduz um pouco p/ manter 1 frase por linha */
+html[lang="en"] .hero__title { font-size: clamp(2.3rem, 6.3vw, 5.3rem); }
 .hero__line { display: block; overflow: hidden; }
 .hero__line > span { display: inline-block; }
 .hero__red {
