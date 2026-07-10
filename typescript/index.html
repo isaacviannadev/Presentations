@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="no-js">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>O bug que o TypeScript pegaria às 3h da manhã</title>
+  <meta name="description" content="TypeScript não é sobre escrever tipos. É sobre mover o erro de lugar." />
+  <link rel="stylesheet" href="../styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23e4002b'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='monospace' font-weight='bold'>TS</text></svg>" />
+</head>
+<body>
+
+  <!-- Barra de progresso -->
+  <div class="progress-bar" aria-hidden="true"><div class="progress-bar__fill"></div></div>
+
+  <!-- Nav -->
+  <nav class="nav">
+    <a class="nav__logo" href="../"><span class="nav__logo-mark">TS</span><span class="nav__logo-text">workshop</span></a>
+    <div class="nav__right">
+      <button class="lang-switch" type="button" aria-label="Switch language">
+        <span class="lang-switch__opt is-active" data-lang="pt">PT</span>
+        <span class="lang-switch__sep">/</span>
+        <span class="lang-switch__opt" data-lang="en">EN</span>
+      </button>
+      <div class="nav__tag" data-i18n="nav.tag">5–7 min &middot; ao vivo</div>
+    </div>
+  </nav>
+
+  <!-- ============ HERO ============ -->
+  <header class="hero">
+    <div class="hero__bg-grid" aria-hidden="true"></div>
+    <div class="hero__content">
+      <p class="hero__kicker reveal-hero" data-i18n="hero.kicker">// deploy na sexta-feira, 18h04</p>
+      <h1 class="hero__title">
+        <span class="hero__line"><span class="reveal-hero-line" data-i18n="hero.line1">O bug que o</span></span>
+        <span class="hero__line"><span class="reveal-hero-line" data-i18n="hero.line2"><em>TypeScript</em> pegaria</span></span>
+        <span class="hero__line"><span class="reveal-hero-line" data-i18n="hero.line3">às <span class="hero__red">3h da manhã</span></span></span>
+      </h1>
+      <div class="hero__terminal reveal-hero">
+        <div class="terminal__bar">
+          <span class="terminal__dot"></span><span class="terminal__dot"></span><span class="terminal__dot"></span>
+          <span class="terminal__title" data-i18n="hero.terminal">sentry — produção</span>
+        </div>
+        <pre class="terminal__body"><code><span class="t-red">TypeError</span><span class="t-white">: Cannot read properties of </span><span class="t-red">undefined</span><span class="t-white"> (reading </span><span class="t-str">'name'</span><span class="t-white">)</span><span class="terminal__cursor">▌</span></code></pre>
+      </div>
+      <p class="hero__sub reveal-hero" data-i18n="hero.sub">O erro mais caro da história do JavaScript é <strong>evitável antes do código rodar</strong>.<br />Não com mais testes. Não com mais code review. Com o compilador trabalhando de graça pra você.</p>
+      <div class="hero__scroll-hint reveal-hero" data-i18n="hero.hint">
+        <span class="hero__scroll-arrow">↓</span> role para começar
+      </div>
+    </div>
+  </header>
+
+  <!-- Marquee -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span data-i18n="marquee">deploy na sexta ✕ undefined no sábado ✕ NaN no boleto ✕ hotfix no domingo ✕&nbsp;</span><span data-i18n="marquee">deploy na sexta ✕ undefined no sábado ✕ NaN no boleto ✕ hotfix no domingo ✕&nbsp;</span><span data-i18n="marquee">deploy na sexta ✕ undefined no sábado ✕ NaN no boleto ✕ hotfix no domingo ✕&nbsp;</span><span data-i18n="marquee">deploy na sexta ✕ undefined no sábado ✕ NaN no boleto ✕ hotfix no domingo ✕&nbsp;</span>
+    </div>
+  </div>
+
+  <!-- ============ SCROLL HORIZONTAL ============ -->
+  <section class="hwrap" id="horizontal">
+    <div class="htrack">
+
+      <!-- Painel 1 — Abertura -->
+      <article class="panel panel--intro" data-panel="01">
+        <div class="panel__num">01</div>
+        <div class="panel__inner">
+          <p class="panel__kicker anim" data-i18n="p1.kicker">a abertura</p>
+          <h2 class="panel__title anim" data-i18n="p1.title">“Levanta a mão quem já fez <span class="u-red">deploy na sexta</span>.”</h2>
+          <p class="panel__text anim" data-i18n="p1.text1">Agora deixa a mão levantada quem descobriu <strong>no sábado</strong> que <code class="inline-code">user.name</code> era <code class="inline-code">undefined</code>.</p>
+          <p class="panel__text anim" data-i18n="p1.text2">Esse erro tem nome, sobrenome e endereço — e uma família inteira de primos. Todos evitáveis <strong>antes do código rodar</strong>.</p>
+        </div>
+      </article>
+
+      <!-- Painel 2 — A tese -->
+      <article class="panel panel--red" data-panel="02">
+        <div class="panel__num">02</div>
+        <div class="panel__inner">
+          <p class="panel__kicker anim" data-i18n="p2.kicker">a tese</p>
+          <h2 class="panel__title panel__title--big anim" data-i18n="p2.title">TypeScript não é sobre escrever tipos.<br />É sobre <em>mover o erro de lugar</em>.</h2>
+          <div class="cost-ladder">
+            <div class="cost anim">
+              <div class="cost__where" data-i18n="p2.cost1.where">no <strong>editor</strong>, agora</div>
+              <div class="cost__price" data-i18n="p2.cost1.price">custa 10 segundos</div>
+              <div class="cost__bar" style="--w: 6%"></div>
+            </div>
+            <div class="cost anim">
+              <div class="cost__where" data-i18n="p2.cost2.where">no <strong>code review</strong></div>
+              <div class="cost__price" data-i18n="p2.cost2.price">custa 20 minutos e um comentário passivo-agressivo</div>
+              <div class="cost__bar" style="--w: 38%"></div>
+            </div>
+            <div class="cost anim">
+              <div class="cost__where" data-i18n="p2.cost3.where">em <strong>produção</strong></div>
+              <div class="cost__price" data-i18n="p2.cost3.price">custa Sentry lotado, hotfix, e o seu sábado</div>
+              <div class="cost__bar" style="--w: 100%"></div>
+            </div>
+          </div>
+          <p class="panel__text anim" data-i18n="p2.text">TypeScript desloca o erro pro lugar mais barato possível: <strong>o sublinhado vermelho, antes do commit</strong>.</p>
+        </div>
+      </article>
+
+      <!-- Painel 3 — JS aceita tudo -->
+      <article class="panel panel--code" data-panel="03">
+        <div class="panel__num">03</div>
+        <div class="panel__inner panel__inner--split">
+          <div class="panel__copy">
+            <p class="panel__kicker anim" data-i18n="p3.kicker">exemplo ao vivo</p>
+            <h2 class="panel__title anim" data-i18n="p3.title">JavaScript <span class="u-red">aceita tudo</span></h2>
+            <p class="panel__text anim" data-i18n="p3.text1">O JavaScript não reclamou. Ele <strong>cooperou com o bug</strong>.</p>
+            <p class="panel__text anim" data-i18n="p3.text2"><code class="inline-code">100 * undefined</code> é <code class="inline-code">NaN</code> — e <code class="inline-code">NaN</code> viaja feliz pelo sistema até aparecer num boleto.</p>
+          </div>
+          <div class="code-card anim">
+            <div class="code-card__bar">
+              <span class="code-card__lang code-card__lang--js">JS</span>
+              <span class="code-card__file">discount.js</span>
+            </div>
+            <pre class="code-card__body"><code><span class="t-kw">function</span> <span class="t-fn">calculateDiscount</span>(<span class="t-var">order</span>) {
+  <span class="t-kw">return</span> <span class="t-var">order</span>.<span class="t-prop">total</span> * <span class="t-var">order</span>.<span class="t-prop">discount</span>;
+}
+
+<span class="t-cm" data-i18n="p3.code.cm1">// Três meses depois, outro dev chama:</span>
+<span class="t-fn">calculateDiscount</span>({ <span class="t-prop">total</span>: <span class="t-num">100</span>, <span class="t-prop t-strike">discountPercent</span>: <span class="t-num">0.1</span> });
+
+<span class="t-cm" data-i18n="p3.code.cm2">// Resultado: <span class="t-nan">NaN</span>. Sem erro. Sem aviso.</span>
+<span class="t-cm" data-i18n="p3.code.cm3">// Só NaN no carrinho do cliente.</span></code></pre>
+          </div>
+        </div>
+      </article>
+
+      <!-- Painel 4 — O mesmo código em TS -->
+      <article class="panel panel--code" data-panel="04">
+        <div class="panel__num">04</div>
+        <div class="panel__inner panel__inner--split panel__inner--rev">
+          <div class="panel__copy">
+            <p class="panel__kicker anim" data-i18n="p4.kicker">o mesmo código</p>
+            <h2 class="panel__title anim" data-i18n="p4.title">TypeScript <span class="u-red">reclama agora</span></h2>
+            <p class="panel__text anim" data-i18n="p4.text">O erro aparece no editor, com sugestão de correção — antes de virar commit, antes de virar boleto.</p>
+            <blockquote class="punchline anim" data-i18n="p4.punchline">“O vermelho no editor é irritante.<br />O vermelho no Sentry é <em>caro</em>.”</blockquote>
+          </div>
+          <div class="code-card anim">
+            <div class="code-card__bar">
+              <span class="code-card__lang code-card__lang--ts">TS</span>
+              <span class="code-card__file">discount.ts</span>
+            </div>
+            <pre class="code-card__body"><code><span class="t-kw">interface</span> <span class="t-type">Order</span> {
+  <span class="t-prop">total</span>: <span class="t-type">number</span>;
+  <span class="t-prop">discount</span>: <span class="t-type">number</span>;
+}
+
+<span class="t-kw">function</span> <span class="t-fn">calculateDiscount</span>(<span class="t-var">order</span>: <span class="t-type">Order</span>) {
+  <span class="t-kw">return</span> <span class="t-var">order</span>.<span class="t-prop">total</span> * <span class="t-var">order</span>.<span class="t-prop">discount</span>;
+}
+
+<span class="t-fn">calculateDiscount</span>({ <span class="t-prop">total</span>: <span class="t-num">100</span>, <span class="t-err">discountPercent</span>: <span class="t-num">0.1</span> });</code></pre>
+            <div class="code-card__error">
+              <span class="code-card__error-x">✕</span>
+              <div>
+                <strong>'discountPercent' does not exist in type 'Order'.</strong><br />
+                <span class="code-card__error-hint">Did you mean 'discount'?</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Painel 5 — Objeções -->
+      <article class="panel panel--wide" data-panel="05">
+        <div class="panel__num">05</div>
+        <div class="panel__inner">
+          <p class="panel__kicker anim" data-i18n="p5.kicker">desmontando as objeções</p>
+          <h2 class="panel__title anim" data-i18n="p5.title">“Tá, mas…”</h2>
+          <div class="objections">
+            <div class="objection anim">
+              <div class="objection__quote" data-i18n="p5.o1.quote">“TS me deixa mais lento”</div>
+              <p class="objection__answer" data-i18n="p5.o1.answer">Verdade. Você perde <strong>10 segundos</strong> escrevendo o tipo. Em troca, deixa de perder <strong>2 horas</strong> debugando por que <code class="inline-code">NaN</code> apareceu num boleto.</p>
+              <p class="objection__punch" data-i18n="p5.o1.punch">É o pior trade da história… pra quem gosta de debugar.</p>
+            </div>
+            <div class="objection anim">
+              <div class="objection__quote" data-i18n="p5.o2.quote">“TS é verboso”</div>
+              <p class="objection__answer" data-i18n="p5.o2.answer">Isso era verdade em 2016. TypeScript moderno <strong>infere</strong> quase tudo:</p>
+              <pre class="objection__code"><code><span class="t-kw">const</span> <span class="t-var">users</span> = [<span class="t-str">"Ana"</span>, <span class="t-str">"Bruno"</span>];
+<span class="t-cm" data-i18n="p5.o2.cm1">// ↑ TS já sabe: string[]</span>
+
+<span class="t-kw">const</span> <span class="t-var">total</span> = <span class="t-var">users</span>.<span class="t-prop">length</span> * <span class="t-num">2</span>;
+<span class="t-cm" data-i18n="p5.o2.cm2">// ↑ TS já sabe: number</span>
+
+<span class="t-var">users</span>.<span class="t-fn">map</span>(<span class="t-var">u</span> <span class="t-kw">=&gt;</span> <span class="t-var">u</span>.<span class="t-fn">toUpperCase</span>());
+<span class="t-cm" data-i18n="p5.o2.cm3">// autocomplete, zero anotação</span></code></pre>
+              <p class="objection__punch" data-i18n="p5.o2.punch">Zero anotações. 100% tipado.</p>
+            </div>
+            <div class="objection anim">
+              <div class="objection__quote" data-i18n="p5.o3.quote">“Quando dá problema eu uso <code class="inline-code">any</code>”</div>
+              <p class="objection__answer" data-i18n="p5.o3.answer"><code class="inline-code">any</code> é o TypeScript em <strong>modo avião</strong>. Tá instalado, tá bonito no package.json, mas não faz absolutamente nada.</p>
+              <p class="objection__punch" data-i18n="p5.o3.punch">Cada <code class="inline-code">any</code> é uma promessa: “confia, eu sei o que tô fazendo”. Daqui a 6 meses, quem lê essa promessa é você.</p>
+            </div>
+          </div>
+        </div>
+      </article>
+
+      <!-- Painel 6 — Documentação que não mente -->
+      <article class="panel panel--red panel--code" data-panel="06">
+        <div class="panel__num">06</div>
+        <div class="panel__inner panel__inner--split">
+          <div class="panel__copy">
+            <p class="panel__kicker anim" data-i18n="p6.kicker">júnior vs sênior</p>
+            <h2 class="panel__title anim" data-i18n="p6.title">Tipo é documentação<br />que <em>não mente</em></h2>
+            <ul class="lie-list">
+              <li class="anim" data-i18n="p6.lie1">Comentário desatualiza <span>em silêncio</span></li>
+              <li class="anim" data-i18n="p6.lie2">README desatualiza <span>em silêncio</span></li>
+              <li class="anim" data-i18n="p6.lie3">JSDoc desatualiza <span>em silêncio</span></li>
+              <li class="lie-list__truth anim" data-i18n="p6.truth">Tipo errado <strong>quebra o build</strong></li>
+            </ul>
+          </div>
+          <div class="code-card code-card--on-red anim">
+            <div class="code-card__bar">
+              <span class="code-card__lang code-card__lang--ts">TS</span>
+              <span class="code-card__file">contract.ts</span>
+            </div>
+            <pre class="code-card__body"><code><span class="t-cm" data-i18n="p6.code.cm1">// Isso aqui é um comentário.</span>
+<span class="t-cm" data-i18n="p6.code.cm2">// Pode estar mentindo agora mesmo.</span>
+<span class="t-cm" data-i18n="p6.code.cm3">// @param discount — valor entre 0 e 1</span>
+
+<span class="t-cm t-cm--strong" data-i18n="p6.code.cm4">// Isso aqui é um contrato.</span>
+<span class="t-cm t-cm--strong" data-i18n="p6.code.cm5">// Se mentir, não compila.</span>
+<span class="t-kw">function</span> <span class="t-fn">apply</span>(<span class="t-var">discount</span>: <span class="t-type">number</span>): <span class="t-type">Price</span> { <span class="t-cm">...</span> }</code></pre>
+          </div>
+        </div>
+      </article>
+
+      <!-- Painel 7 — O número -->
+      <article class="panel panel--stat" data-panel="07">
+        <div class="panel__num">07</div>
+        <div class="panel__inner panel__inner--center">
+          <p class="panel__kicker anim" data-i18n="p7.kicker">pra quem gosta de número</p>
+          <div class="stat anim">
+            <span class="stat__value"><span class="stat__counter" data-target="15">0</span><span class="stat__pct">%</span></span>
+            <p class="stat__label" data-i18n="p7.label">dos bugs reais analisados teriam sido<br /><strong>detectados por um verificador de tipos</strong></p>
+          </div>
+          <p class="stat__source anim" data-i18n="p7.source">Microsoft + University College London, <em>“To Type or Not to Type”</em> — milhares de bugs reais em projetos JavaScript públicos no GitHub.</p>
+          <p class="stat__punch anim" data-i18n="p7.punch">Um em cada sete bugs. <span class="u-red">De graça.</span> Antes do commit.</p>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ============ FECHAMENTO ============ -->
+  <section class="outro">
+    <div class="outro__inner">
+      <p class="outro__line reveal-outro" data-i18n="outro.line1">TypeScript não é sobre confiar <em>menos</em> em você.</p>
+      <p class="outro__line outro__line--big reveal-outro" data-i18n="outro.line2">É sobre não precisar confiar na sua <span class="u-red">memória</span><br />às 18h de uma sexta-feira.</p>
+      <p class="outro__thanks reveal-outro" data-i18n="outro.thanks">obrigado <span class="outro__cursor">▌</span></p>
+    </div>
+    <footer class="footer">
+      <span data-i18n="footer.left">workshop typescript · o porquê</span>
+      <span class="footer__hint" data-i18n="footer.right">o “como” fica com o próximo dev →</span>
+    </footer>
+  </section>
+
+  <script src="../vendor/gsap.min.js"></script>
+  <script src="../vendor/ScrollTrigger.min.js"></script>
+  <script src="i18n.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

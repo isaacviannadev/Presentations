@@ -1,0 +1,197 @@
+/* ============================================================
+   Tailwind vs Styled Components — componentes específicos
+   Reusa o tema de ../styles.css
+   ============================================================ */
+
+/* Badge TW nos code cards */
+.code-card__lang--tw { background: var(--red); color: var(--white); }
+
+/* Notas e recomendações no rodapé dos painéis */
+.panel__text--rec,
+.panel__text--note {
+  max-width: 56rem;
+  font-size: 0.92rem;
+  border-top: 1px dashed rgba(228, 0, 43, 0.25);
+  padding-top: 1rem;
+  margin-top: 1.6rem;
+}
+
+/* ---------- Versus (duas colunas com code cards / listas) ---------- */
+.versus {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2.4rem;
+  margin-top: 0.6rem;
+  align-items: start;
+}
+.versus__label {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-bottom: 0.9rem;
+  color: var(--ink-soft);
+}
+.versus__label--bad::before { content: "✕ "; color: var(--red); }
+.versus__label--good::before { content: "✓ "; color: var(--red); }
+.versus__col > .versus__label:not(:first-child) { margin-top: 1.4rem; }
+.versus__col .panel__text { font-size: 0.95rem; margin-bottom: 0.7rem; }
+
+/* Passos numerados */
+.steps {
+  list-style: none;
+  counter-reset: step;
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  margin-top: 1rem;
+}
+.steps li {
+  counter-increment: step;
+  position: relative;
+  padding-left: 2.2rem;
+  font-size: 0.88rem;
+  line-height: 1.5;
+  color: var(--ink-soft);
+}
+.steps li strong { color: var(--ink); }
+.steps li::before {
+  content: counter(step, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0.1em;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: var(--red);
+}
+.steps--big li { font-size: 1rem; padding-left: 2.6rem; line-height: 1.55; }
+.steps--big li::before { font-size: 0.8rem; }
+
+/* ---------- Pontos numerados (painéis 03 e 09) ---------- */
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 52rem;
+}
+.point {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr;
+  gap: 1.1rem;
+  align-items: start;
+}
+.point__num {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.9rem;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1.3px var(--red);
+  padding-top: 0.15rem;
+}
+.point__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin-bottom: 0.35rem;
+}
+.point__text {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.point__text strong { color: var(--ink); }
+
+/* ---------- Linha do tempo ---------- */
+.timeline {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1.4rem;
+  margin-top: 1.8rem;
+  position: relative;
+  padding-top: 1.4rem;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  top: 0.32rem;
+  left: 0.5rem;
+  right: 18%;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(228, 0, 43, 0.25), var(--red));
+}
+.tl-item { position: relative; }
+.tl-item::before {
+  content: "";
+  position: absolute;
+  top: -1.4rem;
+  left: 0;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2.5px solid var(--red);
+}
+.tl-item--hot::before { background: var(--red); box-shadow: 0 0 0 5px rgba(228, 0, 43, 0.18); }
+.tl-item__date {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.78rem;
+  color: var(--red);
+  display: block;
+  margin-bottom: 0.4rem;
+}
+.tl-item__text {
+  font-size: 0.84rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+}
+.tl-item__text strong { color: var(--ink); }
+
+/* ---------- Cards de peso (KB) ---------- */
+.objection__kb {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 2.4rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+  line-height: 1;
+}
+.objection__kb--bad { color: var(--red); }
+.objection--win { border-color: var(--red); box-shadow: 0 24px 55px -18px rgba(228, 0, 43, 0.35); }
+.objection--win .objection__kb { color: var(--red); }
+
+/* ---------- Avaliação honesta (painel vermelho) ---------- */
+.honest {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 3rem;
+  margin-top: 0.6rem;
+}
+.honest__label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 1rem;
+}
+.honest .lie-list { font-size: 0.98rem; gap: 0.8rem; }
+.list-check li::before { content: "✓" !important; color: var(--white) !important; }
+
+/* ---------- Stat com sinal negativo ---------- */
+.stat__minus { font-size: 0.7em; margin-right: 0.05em; }
+
+/* ---------- Mobile ---------- */
+@media (max-width: 900px) {
+  .versus, .honest { grid-template-columns: 1fr; gap: 1.8rem; }
+  .timeline { grid-template-columns: 1fr; padding-top: 0; padding-left: 1.6rem; }
+  .timeline::before {
+    top: 0.3rem; bottom: 0.3rem; left: 0.32rem; right: auto;
+    width: 2px; height: auto;
+    background: linear-gradient(180deg, rgba(228, 0, 43, 0.25), var(--red));
+  }
+  .tl-item::before { top: 0.15rem; left: -1.6rem; }
+  .point { grid-template-columns: 2.4rem 1fr; }
+}

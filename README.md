@@ -1,10 +1,19 @@
-# O bug que o TypeScript pegaria às 3h da manhã
+# Presentations
 
-Landing page da apresentação do workshop de TypeScript — tema vermelho e branco, com scroll horizontal e animações sincronizadas ao scroll (GSAP + ScrollTrigger).
+Site de apresentações em formato de slides interativos — tema vermelho e branco, scroll horizontal pinado e animações GSAP. Publicado em **https://isaacviannadev.github.io/Presentations/**.
+
+A raiz é um **seletor de apresentações**; cada talk vive em sua própria pasta e reusa o motor compartilhado.
+
+## Apresentações
+
+| Rota | Talk | Formato |
+|---|---|---|
+| `/typescript/` | O bug que o TypeScript pegaria às 3h da manhã | workshop · 5–7 min · PT/EN |
+| `/tailwind/` | Tailwind CSS no lugar de Styled Components | arquitetura frontend · jul/2026 |
 
 ## Como rodar
 
-É um site 100% estático e **funciona offline** (GSAP e fontes estão vendorizados em `vendor/`). Basta servir a pasta:
+Site 100% estático e **offline-ready** (GSAP e fontes vendorizados em `vendor/`). Basta servir a raiz:
 
 ```bash
 npx serve .
@@ -12,24 +21,21 @@ npx serve .
 python3 -m http.server 8000
 ```
 
-E abrir `http://localhost:8000`.
-
 ## Estrutura
 
 | Arquivo | O quê |
 |---|---|
-| `index.html` | Conteúdo — hero, 7 painéis horizontais (um por seção do roteiro) e fechamento |
-| `styles.css` | Tema vermelho/branco, cards de código com syntax highlight manual |
-| `main.js` | Animações: pin + scroll horizontal, reveals por painel, parallax, contador do 15% |
-| `i18n.js` | Switch de idioma PT ⇄ EN (botão na nav; escolha persiste em `localStorage`) |
-| `roteiro.md` | Roteiro falado, slide a slide (6–7 min), com deixas de avanço |
-| `vendor/` | GSAP 3.12 e fontes (Space Grotesk, Inter, JetBrains Mono) |
+| `index.html` + `hub.css` | Seletor de apresentações (hub) |
+| `styles.css` | Tema compartilhado: hero, painéis, code cards, marquee, stat, outro |
+| `main.js` | Motor compartilhado: pin + scroll horizontal, navegação em slides (wheel/teclado), reveals, parallax, contador |
+| `typescript/` | LP do workshop TS (`index.html`, `i18n.js` com switch PT/EN, `roteiro.md` slide a slide) |
+| `tailwind/` | Deck Tailwind vs styled-components (`index.html`, `page.css` com timeline, versus, pontos) |
+| `vendor/` | GSAP 3.12 + fontes (Space Grotesk, Inter, JetBrains Mono) |
+| `.github/workflows/deploy-pages.yml` | Deploy automático no GitHub Pages a cada push |
 
-## Notas
+## Comportamento
 
-- **Desktop (>900px):** a seção central vira um scroll horizontal pinado; cada painel anima ao entrar em cena.
-- **Navegação em slides (desktop):** a roda do mouse e o teclado (←/→/↑/↓, PageUp/PageDown, espaço, Home/End) avançam/voltam exatamente uma seção com transição suave — hero, cada um dos 7 painéis e o fechamento são os "slides".
-- **Mobile (≤900px):** os painéis empilham em scroll vertical normal.
-- **`prefers-reduced-motion`:** todas as animações são desativadas e o conteúdo fica visível.
-- **Idioma:** o PT vive no HTML (fonte da verdade) e o EN no dicionário de `i18n.js`; a troca reescreve os elementos `[data-i18n]` e recalcula o ScrollTrigger.
-- Os painéis seguem a ordem do roteiro: abertura → tese (custo do erro) → JS aceita tudo → o mesmo código em TS → objeções → documentação que não mente → o número (15%) → fechamento.
+- **Desktop (>900px):** navegação em slides — roda do mouse e teclado (←/→/↑/↓, PageUp/PageDown, espaço, Home/End) avançam exatamente uma seção com transição suave.
+- **Mobile (≤900px):** painéis empilham em scroll vertical normal.
+- **`prefers-reduced-motion`:** animações desativadas, conteúdo visível.
+- **Logo na nav** de cada apresentação volta ao seletor.
