@@ -93,6 +93,7 @@ em { font-style: italic; }
   height: 4px;
   background: transparent;
   z-index: 1000;
+  pointer-events: none; /* não pode interceptar o probe de fundo da nav */
 }
 .progress-bar__fill {
   height: 100%;
@@ -138,9 +139,24 @@ em { font-style: italic; }
 }
 .nav__logo-text {
   letter-spacing: -0.02em;
-  /* visível sobre qualquer fundo (painéis vermelhos, fechamento escuro) */
-  color: #fff;
-  mix-blend-mode: difference;
+  color: var(--ink);
+  transition: color 0.3s ease;
+}
+
+/* Nav ciente do fundo: main.js marca body[data-nav-theme] conforme a
+   seção sob a nav (clara → texto preto; vermelha/escura → texto branco) */
+body[data-nav-theme="dark"] .nav__logo-text { color: var(--white); }
+body[data-nav-theme="dark"] .nav__tag,
+body[data-nav-theme="dark"] .lang-switch {
+  color: rgba(255, 255, 255, 0.85);
+  background: rgba(20, 9, 12, 0.22);
+  border-color: rgba(255, 255, 255, 0.32);
+}
+body[data-nav-theme="dark"] .lang-switch__opt { color: rgba(255, 255, 255, 0.45); }
+body[data-nav-theme="dark"] .lang-switch__opt.is-active { color: var(--white); }
+body[data-nav-theme="dark"] .lang-switch__sep { color: rgba(255, 255, 255, 0.3); }
+.nav__tag, .lang-switch, .lang-switch__opt, .lang-switch__sep {
+  transition: color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease;
 }
 .nav__right {
   display: flex;

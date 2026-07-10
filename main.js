@@ -8,6 +8,28 @@ gsap.registerPlugin(ScrollTrigger);
 
 const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+/* ---------- Nav ciente do fundo ---------- */
+// Sonda qual seção está sob a nav e marca body[data-nav-theme]:
+// seções vermelhas/escuras pedem texto branco; as claras, preto.
+function probeNavTheme() {
+  const el = document.elementFromPoint(Math.round(window.innerWidth / 2), 12);
+  const dark = !!(el && el.closest(".panel--red, .outro"));
+  document.body.dataset.navTheme = dark ? "dark" : "light";
+}
+let navThemeRaf = 0;
+function queueNavTheme() {
+  if (navThemeRaf) return;
+  navThemeRaf = requestAnimationFrame(() => {
+    navThemeRaf = 0;
+    probeNavTheme();
+  });
+}
+window.addEventListener("resize", queueNavTheme);
+// o scrub do pin move os painéis depois do evento de scroll,
+// então a sonda acompanha o ticker do GSAP (deduplicada por rAF)
+gsap.ticker.add(queueNavTheme);
+probeNavTheme();
+
 /* ---------- Barra de progresso global ---------- */
 gsap.to(".progress-bar__fill", {
   scaleX: 1,
