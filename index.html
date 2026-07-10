@@ -46,7 +46,7 @@
   <!-- Marquee -->
   <div class="marquee" aria-hidden="true">
     <div class="marquee__track">
-      <span>deploy na sexta ✕ undefined no sábado ✕ NaN no boleto ✕ hotfix no domingo ✕ </span><span>deploy na sexta ✕ undefined no sábado ✕ NaN no boleto ✕ hotfix no domingo ✕ </span>
+      <span>deploy na sexta ✕ undefined no sábado ✕ NaN no boleto ✕ hotfix no domingo ✕&nbsp;</span><span>deploy na sexta ✕ undefined no sábado ✕ NaN no boleto ✕ hotfix no domingo ✕&nbsp;</span><span>deploy na sexta ✕ undefined no sábado ✕ NaN no boleto ✕ hotfix no domingo ✕&nbsp;</span><span>deploy na sexta ✕ undefined no sábado ✕ NaN no boleto ✕ hotfix no domingo ✕&nbsp;</span>
     </div>
   </div>
 
@@ -171,11 +171,14 @@
             <div class="objection anim">
               <div class="objection__quote">“TS é verboso”</div>
               <p class="objection__answer">Isso era verdade em 2016. TypeScript moderno <strong>infere</strong> quase tudo:</p>
-              <pre class="objection__code"><code><span class="t-kw">const</span> <span class="t-var">usuarios</span> = [<span class="t-str">"Ana"</span>, <span class="t-str">"Bruno"</span>]; <span class="t-cm">// string[]</span>
-<span class="t-kw">const</span> <span class="t-var">total</span> = <span class="t-var">usuarios</span>.<span class="t-prop">length</span> * <span class="t-num">2</span>; <span class="t-cm">// number</span>
+              <pre class="objection__code"><code><span class="t-kw">const</span> <span class="t-var">usuarios</span> = [<span class="t-str">"Ana"</span>, <span class="t-str">"Bruno"</span>];
+<span class="t-cm">// ↑ TS já sabe: string[]</span>
+
+<span class="t-kw">const</span> <span class="t-var">total</span> = <span class="t-var">usuarios</span>.<span class="t-prop">length</span> * <span class="t-num">2</span>;
+<span class="t-cm">// ↑ TS já sabe: number</span>
 
 <span class="t-var">usuarios</span>.<span class="t-fn">map</span>(<span class="t-var">u</span> <span class="t-kw">=&gt;</span> <span class="t-var">u</span>.<span class="t-fn">toUpperCase</span>());
-<span class="t-cm">// autocomplete completo, zero anotação</span></code></pre>
+<span class="t-cm">// autocomplete, zero anotação</span></code></pre>
               <p class="objection__punch">Zero anotações. 100% tipado.</p>
             </div>
             <div class="objection anim">

@@ -300,6 +300,7 @@ em { font-style: italic; }
 }
 .marquee__track {
   display: flex;
+  width: max-content; /* largura do conteúdo, p/ o loop de -50% fechar sem emenda */
   white-space: nowrap;
   font-family: var(--font-display);
   font-weight: 500;
@@ -307,7 +308,7 @@ em { font-style: italic; }
   letter-spacing: 0.04em;
   will-change: transform;
 }
-.marquee__track span { padding-right: 2rem; }
+.marquee__track span { flex-shrink: 0; }
 
 /* ---------- Scroll horizontal ---------- */
 .hwrap {
@@ -530,10 +531,11 @@ em { font-style: italic; }
 /* ---------- Objeções (painel 05) ---------- */
 .objections {
   display: grid;
-  grid-template-columns: repeat(3, minmax(18rem, 1fr));
+  grid-template-columns: repeat(3, minmax(21rem, 1fr));
   gap: 1.6rem;
   margin-top: 1rem;
 }
+.panel--wide .panel__inner { max-width: 76rem; }
 .objection {
   background: var(--white);
   border: 1px solid rgba(228, 0, 43, 0.14);
@@ -575,7 +577,7 @@ em { font-style: italic; }
   border-radius: 0.7rem;
   padding: 0.9rem 1rem;
   font-family: var(--font-mono);
-  font-size: 0.68rem;
+  font-size: clamp(0.62rem, 0.55vw + 0.35rem, 0.74rem);
   line-height: 1.7;
   overflow-x: auto;
 }

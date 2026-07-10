@@ -57,11 +57,24 @@ if (!prefersReducedMotion) {
 }
 
 /* ---------- Marquee ---------- */
-if (!prefersReducedMotion) {
-  gsap.to(".marquee__track", {
+const marqueeTrack = document.querySelector(".marquee__track");
+if (marqueeTrack && !prefersReducedMotion) {
+  // clona cópias (em pares, p/ as duas metades ficarem idênticas) até a
+  // metade do track cobrir qualquer viewport — o loop de -50% fecha sem vão
+  const template = marqueeTrack.children[0];
+  while (
+    marqueeTrack.scrollWidth < window.innerWidth * 2.4 ||
+    marqueeTrack.children.length % 2 !== 0
+  ) {
+    marqueeTrack.appendChild(template.cloneNode(true));
+  }
+
+  // duração proporcional à largura → velocidade constante em qualquer tela
+  const speed = 110; // px/s
+  gsap.to(marqueeTrack, {
     xPercent: -50,
     ease: "none",
-    duration: 18,
+    duration: marqueeTrack.scrollWidth / 2 / speed,
     repeat: -1,
   });
 }
