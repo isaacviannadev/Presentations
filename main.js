@@ -38,28 +38,37 @@ probeNavTheme();
 const narration = (() => {
   if (!document.body.hasAttribute("data-narration")) {
     const noop = () => {};
-    return { play: noop, stop: noop, setIndexProvider: noop, isEnabled: () => false, setEnabled: noop };
+    return { play: noop, stop: noop, setIndexProvider: noop, isEnabled: () => false, setEnabled: noop, refreshLanguage: noop };
   }
   // resolve a partir da URL do próprio main.js — o deck vive em subpasta
   const scriptBase = document.currentScript ? document.currentScript.src : window.location.href;
   const files = [
-    "narration/slide-0-hero.mp3",
-    "narration/slide-1-opening.mp3",
-    "narration/slide-2-thesis.mp3",
-    "narration/slide-3-js-accepts.mp3",
-    "narration/slide-4-ts-complains.mp3",
-    "narration/slide-5-objections.mp3",
-    "narration/slide-6-docs.mp3",
-    "narration/slide-7-number.mp3",
-    "narration/slide-8-closing.mp3",
+    "slide-0-hero.mp3",
+    "slide-1-opening.mp3",
+    "slide-2-thesis.mp3",
+    "slide-3-js-accepts.mp3",
+    "slide-4-ts-complains.mp3",
+    "slide-5-objections.mp3",
+    "slide-6-docs.mp3",
+    "slide-7-number.mp3",
+    "slide-8-closing.mp3",
   ];
-  const players = files.map((src) => {
-    const audio = new Audio(new URL(src, scriptBase).href);
-    audio.preload = "auto";
-    return audio;
+  // um conjunto por idioma — a narração acompanha o switch PT/EN
+  const players = {};
+  ["pt", "en"].forEach((lang) => {
+    players[lang] = files.map((name) => {
+      const audio = new Audio(new URL(`narration/${lang}/${name}`, scriptBase).href);
+      audio.preload = "auto";
+      return audio;
+    });
   });
+
+  function currentLang() {
+    return document.documentElement.lang.toLowerCase().startsWith("pt") ? "pt" : "en";
+  }
   let current = null;
   let armed = false;
+  let lastIndex = -1;
   // cada layout (desktop/mobile) informa como descobrir o slide atual
   let currentIndex = () => 0;
   // preferência do apresentador, lembrada entre visitas
@@ -96,8 +105,9 @@ const narration = (() => {
   function play(index) {
     stop();
     if (!enabled) return;
-    const audio = players[index];
+    const audio = players[currentLang()][index];
     if (!audio) return;
+    lastIndex = index;
     current = audio;
     audio.currentTime = 0;
     audio.onended = () => {
@@ -128,7 +138,19 @@ const narration = (() => {
     window.addEventListener("keydown", onGesture, true);
   }
 
-  return { play, stop, setIndexProvider, isEnabled, setEnabled };
+  // trocou de idioma no meio de uma fala? recomeça ela no idioma novo
+  function refreshLanguage() {
+    if (current) play(lastIndex);
+  }
+
+  return { play, stop, setIndexProvider, isEnabled, setEnabled, refreshLanguage };
+})();
+
+// Trocar o idioma troca também a narração em andamento
+// (o handler do i18n.js roda antes — o idioma novo já está aplicado aqui)
+(function () {
+  const langBtn = document.querySelector(".lang-switch:not(.voice-toggle)");
+  if (langBtn) langBtn.addEventListener("click", () => narration.refreshLanguage());
 })();
 
 // Botão VOZ ON/OFF na nav (só existe no deck com narração)
