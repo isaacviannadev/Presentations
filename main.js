@@ -30,6 +30,85 @@ window.addEventListener("resize", queueNavTheme);
 gsap.ticker.add(queueNavTheme);
 probeNavTheme();
 
+/* ---------- Narração por slide ---------- */
+// Um áudio por slide (0 = hero … 8 = fechamento). Toca quando o slide
+// entra, para sozinho no fim, e é cortado se o slide mudar antes.
+// Só ativa no deck que declarar data-narration no <body> (os áudios são
+// do deck de TypeScript); main.js também roda no deck de Tailwind.
+const narration = (() => {
+  if (!document.body.hasAttribute("data-narration")) {
+    const noop = () => {};
+    return { play: noop, stop: noop, setIndexProvider: noop };
+  }
+  // resolve a partir da URL do próprio main.js — o deck vive em subpasta
+  const scriptBase = document.currentScript ? document.currentScript.src : window.location.href;
+  const files = [
+    "narration/slide-0-hero.mp3",
+    "narration/slide-1-opening.mp3",
+    "narration/slide-2-thesis.mp3",
+    "narration/slide-3-js-accepts.mp3",
+    "narration/slide-4-ts-complains.mp3",
+    "narration/slide-5-objections.mp3",
+    "narration/slide-6-docs.mp3",
+    "narration/slide-7-number.mp3",
+    "narration/slide-8-closing.mp3",
+  ];
+  const players = files.map((src) => {
+    const audio = new Audio(new URL(src, scriptBase).href);
+    audio.preload = "auto";
+    return audio;
+  });
+  let current = null;
+  let armed = false;
+  // cada layout (desktop/mobile) informa como descobrir o slide atual
+  let currentIndex = () => 0;
+
+  function setIndexProvider(fn) {
+    currentIndex = fn;
+  }
+
+  function stop() {
+    if (!current) return;
+    current.pause();
+    current.currentTime = 0;
+    current = null;
+  }
+
+  function play(index) {
+    stop();
+    const audio = players[index];
+    if (!audio) return;
+    current = audio;
+    audio.currentTime = 0;
+    audio.onended = () => {
+      if (current === audio) current = null;
+    };
+    // antes do 1º gesto o browser bloqueia autoplay com som — nesse caso,
+    // rearma pro áudio começar na primeira interação
+    audio.play().catch(() => {
+      if (current === audio) current = null;
+      armFirstGesture();
+    });
+  }
+
+  function armFirstGesture() {
+    if (armed) return;
+    armed = true;
+    const NAV_KEYS = ["ArrowDown", "ArrowRight", "PageDown", " ", "ArrowUp", "ArrowLeft", "PageUp", "Home", "End"];
+    const onGesture = (e) => {
+      window.removeEventListener("pointerdown", onGesture, true);
+      window.removeEventListener("keydown", onGesture, true);
+      // tecla de navegação troca de slide, e a troca já toca o áudio novo
+      if (e.type === "keydown" && NAV_KEYS.includes(e.key)) return;
+      if (!current) play(currentIndex());
+    };
+    window.addEventListener("pointerdown", onGesture, true);
+    window.addEventListener("keydown", onGesture, true);
+  }
+
+  return { play, stop, setIndexProvider };
+})();
+
 /* ---------- Barra de progresso global ---------- */
 gsap.to(".progress-bar__fill", {
   scaleX: 1,
@@ -209,6 +288,7 @@ mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
 
   function goToScroll(target) {
     if (Math.abs(target - window.scrollY) < 2) return;
+    narration.stop(); // o slide vai mudar — corta a narração atual
     sliding = true;
     scrollProxy.y = window.scrollY;
     gsap.killTweensOf(scrollProxy);
@@ -222,6 +302,10 @@ mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
         wheelAcc = 0;
         // janela p/ engolir a inércia residual do trackpad
         cooldownUntil = performance.now() + 350;
+        // slide assentou — toca a narração dele
+        const stops = computeStops();
+        const idx = stops.findIndex((s) => Math.abs(s - target) < 2);
+        if (idx >= 0) narration.play(idx);
       },
     });
   }
@@ -277,16 +361,64 @@ mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
   window.addEventListener("wheel", onWheel, { passive: false });
   window.addEventListener("keydown", onKey);
 
+  // slide atual = stop mais próximo do scroll
+  narration.setIndexProvider(() => {
+    const stops = computeStops();
+    let best = 0;
+    stops.forEach((s, i) => {
+      if (Math.abs(s - window.scrollY) < Math.abs(stops[best] - window.scrollY)) best = i;
+    });
+    return best;
+  });
+
+  // slide inicial: tenta narrar já no load (bloqueado? começa no 1º gesto)
+  if (window.scrollY < 4) narration.play(0);
+
   return () => {
     window.removeEventListener("wheel", onWheel);
     window.removeEventListener("keydown", onKey);
     gsap.killTweensOf(scrollProxy);
+    narration.stop();
   };
 });
 
 /* ---------- Mobile / reduced motion: scroll vertical simples ---------- */
 mm.add("(max-width: 900px), (prefers-reduced-motion: reduce)", () => {
   const panels = gsap.utils.toArray(".panel");
+
+  // Narração: sem os "stops" do desktop, o gatilho é a seção dominar a
+  // viewport; o debounce evita disparos em série num scroll longo.
+  const sections = [document.querySelector(".hero"), ...panels, document.querySelector(".outro")];
+  let narrationTimer;
+
+  // slide atual = seção mais próxima do centro da viewport
+  narration.setIndexProvider(() => {
+    let best = 0;
+    let bestDist = Infinity;
+    sections.forEach((section, i) => {
+      if (!section) return;
+      const r = section.getBoundingClientRect();
+      const dist = Math.abs(r.top + r.height / 2 - window.innerHeight / 2);
+      if (dist < bestDist) {
+        bestDist = dist;
+        best = i;
+      }
+    });
+    return best;
+  });
+  sections.forEach((section, idx) => {
+    if (!section) return;
+    ScrollTrigger.create({
+      trigger: section,
+      start: "top 60%",
+      end: "bottom 40%",
+      onToggle: (self) => {
+        if (!self.isActive) return;
+        clearTimeout(narrationTimer);
+        narrationTimer = setTimeout(() => narration.play(idx), 250);
+      },
+    });
+  });
 
   panels.forEach((panel) => {
     const items = panel.querySelectorAll(".anim");
@@ -322,6 +454,11 @@ mm.add("(max-width: 900px), (prefers-reduced-motion: reduce)", () => {
   });
 
   setupCounter(null);
+
+  return () => {
+    clearTimeout(narrationTimer);
+    narration.stop();
+  };
 });
 
 /* ---------- Contador 15% ---------- */
