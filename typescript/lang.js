@@ -7,6 +7,7 @@ window.PAGE_META = {
 
 window.PAGE_EN = {
   "nav.tag": "5–7 min &middot; live",
+  "nav.voice": "VOICE",
 
   "hero.kicker": "// deployed on a Friday, 6:04 pm",
   "hero.line1": "The bug that",

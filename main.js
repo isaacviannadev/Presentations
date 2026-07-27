@@ -38,7 +38,7 @@ probeNavTheme();
 const narration = (() => {
   if (!document.body.hasAttribute("data-narration")) {
     const noop = () => {};
-    return { play: noop, stop: noop, setIndexProvider: noop };
+    return { play: noop, stop: noop, setIndexProvider: noop, isEnabled: () => false, setEnabled: noop };
   }
   // resolve a partir da URL do próprio main.js — o deck vive em subpasta
   const scriptBase = document.currentScript ? document.currentScript.src : window.location.href;
@@ -62,9 +62,28 @@ const narration = (() => {
   let armed = false;
   // cada layout (desktop/mobile) informa como descobrir o slide atual
   let currentIndex = () => 0;
+  // preferência do apresentador, lembrada entre visitas
+  let enabled = true;
+  try {
+    enabled = localStorage.getItem("lp-narration") !== "off";
+  } catch (_) {}
 
   function setIndexProvider(fn) {
     currentIndex = fn;
+  }
+
+  function isEnabled() {
+    return enabled;
+  }
+
+  function setEnabled(on) {
+    enabled = on;
+    try {
+      localStorage.setItem("lp-narration", on ? "on" : "off");
+    } catch (_) {}
+    // desligou? corta na hora. ligou? já narra o slide atual.
+    if (!on) stop();
+    else play(currentIndex());
   }
 
   function stop() {
@@ -76,6 +95,7 @@ const narration = (() => {
 
   function play(index) {
     stop();
+    if (!enabled) return;
     const audio = players[index];
     if (!audio) return;
     current = audio;
@@ -100,13 +120,33 @@ const narration = (() => {
       window.removeEventListener("keydown", onGesture, true);
       // tecla de navegação troca de slide, e a troca já toca o áudio novo
       if (e.type === "keydown" && NAV_KEYS.includes(e.key)) return;
+      // clique no próprio toggle: quem decide é o handler do botão
+      if (e.target && e.target.closest && e.target.closest(".voice-toggle")) return;
       if (!current) play(currentIndex());
     };
     window.addEventListener("pointerdown", onGesture, true);
     window.addEventListener("keydown", onGesture, true);
   }
 
-  return { play, stop, setIndexProvider };
+  return { play, stop, setIndexProvider, isEnabled, setEnabled };
+})();
+
+// Botão VOZ ON/OFF na nav (só existe no deck com narração)
+(function () {
+  const toggle = document.querySelector(".voice-toggle");
+  if (!toggle) return;
+  const state = toggle.querySelector(".voice-toggle__state");
+  const render = () => {
+    const on = narration.isEnabled();
+    toggle.setAttribute("aria-pressed", String(on));
+    state.textContent = on ? "ON" : "OFF";
+    state.classList.toggle("is-active", on);
+  };
+  toggle.addEventListener("click", () => {
+    narration.setEnabled(!narration.isEnabled());
+    render();
+  });
+  render();
 })();
 
 /* ---------- Barra de progresso global ---------- */

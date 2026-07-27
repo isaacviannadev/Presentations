@@ -202,6 +202,19 @@ body[data-nav-theme="dark"] .lang-switch__sep { color: rgba(255, 255, 255, 0.3);
 .lang-switch__opt.is-active { color: var(--red); }
 .lang-switch__sep { color: rgba(20, 9, 12, 0.2); font-weight: 400; }
 
+/* ---------- Narração on/off ---------- */
+.voice-toggle__label { color: rgba(20, 9, 12, 0.35); }
+.voice-toggle__state {
+  color: rgba(20, 9, 12, 0.35);
+  min-width: 3ch;
+  text-align: center;
+  transition: color 0.25s ease;
+}
+.voice-toggle__state.is-active { color: var(--red); }
+body[data-nav-theme="dark"] .voice-toggle__label { color: rgba(255, 255, 255, 0.45); }
+body[data-nav-theme="dark"] .voice-toggle__state { color: rgba(255, 255, 255, 0.45); }
+body[data-nav-theme="dark"] .voice-toggle__state.is-active { color: var(--white); }
+
 /* ---------- Hero ---------- */
 .hero {
   min-height: 100vh;
