@@ -1,0 +1,81 @@
+.coverage-main {
+  max-width: 90rem;
+  margin: 0 auto;
+  padding: 9rem 3rem 4rem;
+}
+.coverage-main h1 {
+  font: 700 clamp(2.5rem, 5vw, 5rem)/1.06 var(--font-display);
+  letter-spacing: -0.04em;
+  max-width: 50rem;
+}
+.coverage-main header > p:last-of-type {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink-soft);
+  max-width: 44rem;
+  margin-top: 1.5rem;
+}
+.coverage-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 2rem 0;
+  font: 0.7rem var(--font-mono);
+}
+.coverage a {
+  color: var(--red-dark);
+}
+.coverage table {
+  min-width: 52rem;
+}
+.coverage td {
+  padding-top: 1.2rem;
+  padding-bottom: 1.2rem;
+}
+.coverage td:nth-child(2) > span {
+  display: block;
+  color: var(--ink-soft);
+  font: 0.6rem var(--font-mono);
+  margin-bottom: 0.4rem;
+}
+.coverage td:nth-child(2) strong {
+  font-weight: 600;
+  display: block;
+}
+.coverage td:nth-child(3) {
+  min-width: 10rem;
+}
+.coverage td:last-child {
+  min-width: 9rem;
+  line-height: 2;
+}
+.decision-badge {
+  display: inline-block;
+  border: 1px solid var(--line);
+  background: white;
+  border-radius: 99px;
+  padding: 0.2rem 0.5rem;
+  font-size: 0.7rem;
+}
+.coverage-id {
+  font-family: var(--font-mono);
+  color: var(--red-dark);
+}
+.coverage-main footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1.5rem;
+  padding-top: 2rem;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  color: var(--ink-soft);
+}
+.coverage-main footer p {
+  max-width: 45rem;
+}
+@media (max-width: 900px) {
+  .coverage-main {
+    padding: 7rem 1.2rem 3rem;
+  }
+}

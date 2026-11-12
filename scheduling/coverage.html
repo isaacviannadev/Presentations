@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TARS · Cobertura funcional</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="page.css" />
+    <link rel="stylesheet" href="coverage.css" />
+  </head>
+  <body class="scheduling coverage">
+    <nav class="nav">
+      <a class="nav__logo" href="./#decisions"
+        ><span class="nav__logo-mark">TA</span
+        ><span data-i18n="nav" class="nav__logo-text">voltar à apresentação</span></a
+      >
+      <div class="nav__right">
+        <button class="lang-switch" type="button" aria-label="Switch language">
+          <span class="lang-switch__opt is-active" data-lang="pt">PT</span
+          ><span class="lang-switch__sep">/</span
+          ><span class="lang-switch__opt" data-lang="en">EN</span>
+        </button>
+      </div>
+    </nav>
+    <main class="coverage-main">
+      <header>
+        <p class="panel__kicker">TARS · SUITE SCHEDULING</p>
+        <h1 data-i18n="title">Do artefato ao produto.</h1>
+        <p data-i18n="intro">
+          43 decisões rastreáveis: o que foi mantido, alterado, acrescentado ou removido, com motivo
+          e referência à tela.
+        </p>
+        <div class="coverage-meta">
+          <a
+            href="https://claude.ai/artifact/BPGRuSR7Ti5nANaWSVtbnF"
+            target="_blank"
+            rel="noopener noreferrer"
+            ><span data-i18n="source">Artefato de origem</span> ↗</a
+          ><span>11 Nov 2026</span>
+        </div>
+      </header>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th data-i18n="h0" scope="col">#</th>
+              <th data-i18n="h1" scope="col">Área / funcionalidade</th>
+              <th data-i18n="h2" scope="col">Decisão</th>
+              <th data-i18n="h3" scope="col">Motivo</th>
+              <th data-i18n="h4" scope="col">Telas</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="coverage-id">01</td>
+              <td>
+                <span data-i18n="v0">Lista</span
+                ><strong data-i18n="f0">Pesquisa, filtros, ordenação e paginação</strong>
+              </td>
+              <td><span data-i18n="d0" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r0">Separar filtros de regra e de ocorrência.</span></td>
+              <td><a href="./#HF-01">HF-01</a> · <a href="./#HF-04">HF-04</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">02</td>
+              <td>
+                <span data-i18n="v1">Lista</span
+                ><strong data-i18n="f1">Uma linha por agendamento com Gantt</strong>
+              </td>
+              <td><span data-i18n="d1" class="decision-badge">Alterado</span></td>
+              <td>
+                <span data-i18n="r1"
+                  >Mantido como Timeline opcional; lista continua a ser a entrada inicial.</span
+                >
+              </td>
+              <td><a href="./#HF-22">HF-22</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">03</td>
+              <td>
+                <span data-i18n="v2">Lista</span
+                ><strong data-i18n="f2">Densidade de todos os resultados filtrados</strong>
+              </td>
+              <td><span data-i18n="d2" class="decision-badge">Mantido</span></td>
+              <td>
+                <span data-i18n="r2"
+                  >Independente da página; volume de inícios não representa capacidade.</span
+                >
+              </td>
+              <td><a href="./#HF-22">HF-22</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">04</td>
+              <td>
+                <span data-i18n="v3">Lista</span
+                ><strong data-i18n="f3">Janela 24h/3d/7d/custom e linha now</strong>
+              </td>
+              <td><span data-i18n="d3" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r3">Escala temporal explícita e data/hora no detalhe.</span></td>
+              <td><a href="./#HF-22">HF-22</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">05</td>
+              <td>
+                <span data-i18n="v4">Lista</span
+                ><strong data-i18n="f4"
+                  >Resultados históricos, ocorrências fora da janela e regra pausada</strong
+                >
+              </td>
+              <td><span data-i18n="d4" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r4">Próxima data legível e histórico preservado.</span></td>
+              <td>
+                <a href="./#HF-01">HF-01</a> · <a href="./#HF-02">HF-02</a> ·
+                <a href="./#HF-22">HF-22</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="coverage-id">06</td>
+              <td>
+                <span data-i18n="v5">Semana</span
+                ><strong data-i18n="f5">Heatmap hora × dia, intensidade e seleção</strong>
+              </td>
+              <td><span data-i18n="d5" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r5">Mesmo conjunto filtrado; seleção abre Dia/hora.</span></td>
+              <td><a href="./#HF-06">HF-06</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">07</td>
+              <td>
+                <span data-i18n="v6">Semana</span
+                ><strong data-i18n="f6">Resumo da hora, falhadas/perdidas e atalhos</strong>
+              </td>
+              <td><span data-i18n="d6" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r6">Estado/resultado separados; totais coerentes.</span></td>
+              <td><a href="./#HF-06">HF-06</a> · <a href="./#HF-05">HF-05</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">08</td>
+              <td>
+                <span data-i18n="v7">Dia</span
+                ><strong data-i18n="f7"
+                  >24 horas, distribuição por resultado e expansão paginada</strong
+                >
+              </td>
+              <td><span data-i18n="d7" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r7">Barra por resultado e lista detalhada da hora.</span></td>
+              <td><a href="./#HF-05">HF-05</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">09</td>
+              <td>
+                <span data-i18n="v8">Dia</span
+                ><strong data-i18n="f8">Ocorrências individuais com baixo volume</strong>
+              </td>
+              <td><span data-i18n="d8" class="decision-badge">Acrescentado</span></td>
+              <td>
+                <span data-i18n="r8">Uma Suite filtrada não precisa de uma agregação densa.</span>
+              </td>
+              <td><a href="./#HF-31">HF-31</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">10</td>
+              <td>
+                <span data-i18n="v9">Inspector</span
+                ><strong data-i18n="f9">Suite, worker, timezone, devices e opções</strong>
+              </td>
+              <td><span data-i18n="d9" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r9">Tempo previsto e real separados.</span></td>
+              <td>
+                <a href="./#HF-08">HF-08</a> · <a href="./#HF-09">HF-09</a> ·
+                <a href="./#HF-26">HF-26</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="coverage-id">11</td>
+              <td>
+                <span data-i18n="v10">Inspector</span
+                ><strong data-i18n="f10">Ocorrências vizinhas e toda a série</strong>
+              </td>
+              <td><span data-i18n="d10" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r10">Seleção por identidade mantém o contexto.</span></td>
+              <td><a href="./#HF-26">HF-26</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">12</td>
+              <td>
+                <span data-i18n="v11">Inspector</span
+                ><strong data-i18n="f11">Run again numa ocorrência concluída</strong>
+              </td>
+              <td><span data-i18n="d11" class="decision-badge">Relocalizado</span></td>
+              <td>
+                <span data-i18n="r11"
+                  >Entrada por Executions/Quick Run, com nova verificação; não alterar a ocorrência
+                  passada.</span
+                >
+              </td>
+              <td><a href="./#HF-26">HF-26</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">13</td>
+              <td>
+                <span data-i18n="v12">Inspector</span
+                ><strong data-i18n="f12">Editar/cancelar ocorrência passada</strong>
+              </td>
+              <td><span data-i18n="d12" class="decision-badge">Removido</span></td>
+              <td>
+                <span data-i18n="r12"
+                  >Passado apenas de leitura; mudanças futuras a partir da regra.</span
+                >
+              </td>
+              <td><a href="./#HF-09">HF-09</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">14</td>
+              <td>
+                <span data-i18n="v13">Mês</span
+                ><strong data-i18n="f13"
+                  >Totais, distribuição de resultados e falhas por dia</strong
+                >
+              </td>
+              <td><span data-i18n="d13" class="decision-badge">Mantido</span></td>
+              <td>
+                <span data-i18n="r13"
+                  >Abrir Dia preservando filtros; não carregar não significa zero.</span
+                >
+              </td>
+              <td><a href="./#HF-07">HF-07</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">15</td>
+              <td>
+                <span data-i18n="v14">Intervalo</span
+                ><strong data-i18n="f14">Gráfico por dia + lista agrupada e paginada</strong>
+              </td>
+              <td><span data-i18n="d14" class="decision-badge">Mantido</span></td>
+              <td>
+                <span data-i18n="r14"
+                  >Corrigir as somas do exemplo; não trocar a entidade silenciosamente.</span
+                >
+              </td>
+              <td><a href="./#HF-23">HF-23</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">16</td>
+              <td>
+                <span data-i18n="v15">Intervalo</span
+                ><strong data-i18n="f15">Trocar regras por ocorrências ao selecionar range</strong>
+              </td>
+              <td><span data-i18n="d15" class="decision-badge">Removido</span></td>
+              <td>
+                <span data-i18n="r15"
+                  >Agenda é a entidade explícita antes de aplicar o filtro.</span
+                >
+              </td>
+              <td>
+                <a href="./#HF-04">HF-04</a> · <a href="./#HF-21">HF-21</a> ·
+                <a href="./#HF-23">HF-23</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="coverage-id">17</td>
+              <td>
+                <span data-i18n="v16">Entrada</span
+                ><strong data-i18n="f16">Agendar a partir da Suite</strong>
+              </td>
+              <td><span data-i18n="d16" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r16">Suite, worker, TestCases e devices herdados.</span></td>
+              <td><a href="./#HF-10">HF-10</a> · <a href="./#HF-12">HF-12</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">18</td>
+              <td>
+                <span data-i18n="v17">Entrada</span
+                ><strong data-i18n="f17">Open Suites como único caminho do overview</strong>
+              </td>
+              <td><span data-i18n="d17" class="decision-badge">Alterado</span></td>
+              <td>
+                <span data-i18n="r17"
+                  >Schedule a Suite seleciona uma Suite e usa o mesmo formulário.</span
+                >
+              </td>
+              <td><a href="./#HF-11">HF-11</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">19</td>
+              <td>
+                <span data-i18n="v18">Formulário</span
+                ><strong data-i18n="f18">Data, hora, timezone e contexto da Suite</strong>
+              </td>
+              <td><span data-i18n="d18" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r18">Não voltar a escolher worker.</span></td>
+              <td><a href="./#HF-12">HF-12</a> · <a href="./#HF-33">HF-33</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">20</td>
+              <td>
+                <span data-i18n="v19">Formulário</span
+                ><strong data-i18n="f19">Maximum runtime</strong>
+              </td>
+              <td><span data-i18n="d19" class="decision-badge">Mantido com ressalva</span></td>
+              <td>
+                <span data-i18n="r19"
+                  >Não equiparar estimativa, timeout e duração de reserva; enforcement
+                  pendente.</span
+                >
+              </td>
+              <td><a href="./#HF-24">HF-24</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">21</td>
+              <td>
+                <span data-i18n="v20">Recorrência</span
+                ><strong data-i18n="f20">Once, Daily, Weekly e dias da semana</strong>
+              </td>
+              <td><span data-i18n="d20" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r20">Controlo explícito, não texto resumido.</span></td>
+              <td><a href="./#HF-25">HF-25</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">22</td>
+              <td>
+                <span data-i18n="v21">Recorrência</span
+                ><strong data-i18n="f21">Never, N ocorrências, data final</strong>
+              </td>
+              <td><span data-i18n="d21" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r21">Fim visível na revisão.</span></td>
+              <td><a href="./#HF-25">HF-25</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">23</td>
+              <td>
+                <span data-i18n="v22">Recorrência</span
+                ><strong data-i18n="f22">Cron com tradução e validação</strong>
+              </td>
+              <td><span data-i18n="d22" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r22">Dialeto e política DST dependem do scheduler.</span></td>
+              <td><a href="./#HF-13">HF-13</a> · <a href="./#HF-34">HF-34</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">24</td>
+              <td>
+                <span data-i18n="v23">Recorrência</span
+                ><strong data-i18n="f23">Conversão Simple/Cron preservando expressão</strong>
+              </td>
+              <td><span data-i18n="d23" class="decision-badge">Alterado</span></td>
+              <td>
+                <span data-i18n="r23">Pedir confirmação quando não há conversão sem perda.</span>
+              </td>
+              <td><a href="./#HF-25">HF-25</a> · <a href="./#HF-29">HF-29</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">25</td>
+              <td>
+                <span data-i18n="v24">Opções</span
+                ><strong data-i18n="f24">Repeat on fail, Capture trace, Release</strong>
+              </td>
+              <td><span data-i18n="d24" class="decision-badge">Mantido</span></td>
+              <td>
+                <span data-i18n="r24">Controlo explícito e revalidação quando necessário.</span>
+              </td>
+              <td><a href="./#HF-24">HF-24</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">26</td>
+              <td>
+                <span data-i18n="v25">Disponibilidade</span
+                ><strong data-i18n="f25">Timeline com uma linha por device</strong>
+              </td>
+              <td><span data-i18n="d25" class="decision-badge">Mantido</span></td>
+              <td>
+                <span data-i18n="r25">Devices da Suite; intervalos dados pelo scheduler.</span>
+              </td>
+              <td><a href="./#HF-12">HF-12</a> · <a href="./#HF-33">HF-33</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">27</td>
+              <td>
+                <span data-i18n="v26">Disponibilidade</span
+                ><strong data-i18n="f26"
+                  >Bookings, ongoing runs, Quick Runs, outros domínios</strong
+                >
+              </td>
+              <td><span data-i18n="d26" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r26">Sem expor dados do outro domínio.</span></td>
+              <td>
+                <a href="./#HF-12">HF-12</a> · <a href="./#HF-27">HF-27</a> ·
+                <a href="./#HF-29">HF-29</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="coverage-id">28</td>
+              <td>
+                <span data-i18n="v27">Disponibilidade</span
+                ><strong data-i18n="f27">Sugestão de horário e reverificação</strong>
+              </td>
+              <td><span data-i18n="d27" class="decision-badge">Alterado</span></td>
+              <td>
+                <span data-i18n="r27">Não afirmar que resolve todas as datas sem recalcular.</span>
+              </td>
+              <td><a href="./#HF-12">HF-12</a> · <a href="./#HF-33">HF-33</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">29</td>
+              <td>
+                <span data-i18n="v28">Disponibilidade</span
+                ><strong data-i18n="f28">10 ocorrências, fim previsto e conflitos por data</strong>
+              </td>
+              <td><span data-i18n="d28" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r28">Inspecionar também a quinta data em conflito.</span></td>
+              <td><a href="./#HF-27">HF-27</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">30</td>
+              <td>
+                <span data-i18n="v29">Disponibilidade</span
+                ><strong data-i18n="f29">Horizonte limitado e futuro não verificado</strong>
+              </td>
+              <td><span data-i18n="d29" class="decision-badge">Mantido</span></td>
+              <td>
+                <span data-i18n="r29">Regra infinita não é garantida por amostra finita.</span>
+              </td>
+              <td><a href="./#HF-13">HF-13</a> · <a href="./#HF-34">HF-34</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">31</td>
+              <td>
+                <span data-i18n="v30">Submissão</span
+                ><strong data-i18n="f30">Bloqueio por sobreposição no criar/editar</strong>
+              </td>
+              <td><span data-i18n="d30" class="decision-badge">Mantido</span></td>
+              <td>
+                <span data-i18n="r30"
+                  >Validação autoritativa e exclusão concorrente requeridas.</span
+                >
+              </td>
+              <td><a href="./#HF-12">HF-12</a> · <a href="./#HF-17">HF-17</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">32</td>
+              <td>
+                <span data-i18n="v31">Gestão</span
+                ><strong data-i18n="f31">Editar/cancelar com escopo</strong>
+              </td>
+              <td><span data-i18n="d31" class="decision-badge">Mantido</span></td>
+              <td>
+                <span data-i18n="r31">Apenas esta ou esta e futuras; passado preservado.</span>
+              </td>
+              <td><a href="./#HF-16">HF-16</a> · <a href="./#HF-18">HF-18</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">33</td>
+              <td>
+                <span data-i18n="v32">Gestão</span><strong data-i18n="f32">Pause/Resume</strong>
+              </td>
+              <td><span data-i18n="d32" class="decision-badge">Detalhado</span></td>
+              <td>
+                <span data-i18n="r32">Retomar verifica futuro e não repete datas perdidas.</span>
+              </td>
+              <td><a href="./#HF-19">HF-19</a> · <a href="./#HF-30">HF-30</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">34</td>
+              <td>
+                <span data-i18n="v33">Estados</span
+                ><strong data-i18n="f33">Loading, vazio, sem resultados e erro</strong>
+              </td>
+              <td><span data-i18n="d33" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r33">Preservar consulta e seleção.</span></td>
+              <td><a href="./#HF-20">HF-20</a> · <a href="./#HF-28">HF-28</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">35</td>
+              <td>
+                <span data-i18n="v34">Estados</span
+                ><strong data-i18n="f34">Creating, conflito tardio e confirmado</strong>
+              </td>
+              <td><span data-i18n="d34" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r34">Sem repetição automática do pedido.</span></td>
+              <td>
+                <a href="./#HF-28">HF-28</a> · <a href="./#HF-20">HF-20</a> ·
+                <a href="./#HF-15">HF-15</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="coverage-id">36</td>
+              <td>
+                <span data-i18n="v35">Estados</span><strong data-i18n="f35">Cron inválido</strong>
+              </td>
+              <td><span data-i18n="d35" class="decision-badge">Mantido</span></td>
+              <td><span data-i18n="r35">Mensagem específica mantendo o valor.</span></td>
+              <td><a href="./#HF-20">HF-20</a> · <a href="./#HF-29">HF-29</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">37</td>
+              <td>
+                <span data-i18n="v36">Estados</span
+                ><strong data-i18n="f36">Resultado não confirmado da criação</strong>
+              </td>
+              <td><span data-i18n="d36" class="decision-badge">Acrescentado</span></td>
+              <td><span data-i18n="r36">Reconciliar antes de permitir duplicação.</span></td>
+              <td><a href="./#HF-20">HF-20</a> · <a href="./#HF-28">HF-28</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">38</td>
+              <td>
+                <span data-i18n="v37">Estados</span
+                ><strong data-i18n="f37"
+                  >Sessão, permissões, composição e devices indisponíveis</strong
+                >
+              </td>
+              <td><span data-i18n="d37" class="decision-badge">Acrescentado</span></td>
+              <td><span data-i18n="r37">Bloqueios e recuperação explícitos.</span></td>
+              <td><a href="./#HF-29">HF-29</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">39</td>
+              <td>
+                <span data-i18n="v38">Estados</span
+                ><strong data-i18n="f38">Saída e troca de domínio com alterações</strong>
+              </td>
+              <td><span data-i18n="d38" class="decision-badge">Acrescentado</span></td>
+              <td><span data-i18n="r38">Escolher manter edição ou descartar.</span></td>
+              <td><a href="./#HF-32">HF-32</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">40</td>
+              <td>
+                <span data-i18n="v39">Estados</span
+                ><strong data-i18n="f39">Atualização stale/partial e seleção estável</strong>
+              </td>
+              <td><span data-i18n="d39" class="decision-badge">Detalhado</span></td>
+              <td><span data-i18n="r39">Não reordenar a página/foco silenciosamente.</span></td>
+              <td><a href="./#HF-05">HF-05</a> · <a href="./#HF-20">HF-20</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">41</td>
+              <td>
+                <span data-i18n="v40">Dados</span
+                ><strong data-i18n="f40">Running como estado da regra</strong>
+              </td>
+              <td><span data-i18n="d40" class="decision-badge">Removido</span></td>
+              <td><span data-i18n="r40">Running pertence à ocorrência/execução.</span></td>
+              <td><a href="./#HF-01">HF-01</a> · <a href="./#HF-02">HF-02</a></td>
+            </tr>
+            <tr>
+              <td class="coverage-id">42</td>
+              <td>
+                <span data-i18n="v41">Dados</span
+                ><strong data-i18n="f41">Duração misturada com progresso e motivo de falha</strong>
+              </td>
+              <td><span data-i18n="d41" class="decision-badge">Removido</span></td>
+              <td><span data-i18n="r41">Separar duração, estado e resultado.</span></td>
+              <td>
+                <a href="./#HF-04">HF-04</a> · <a href="./#HF-09">HF-09</a> ·
+                <a href="./#HF-23">HF-23</a>
+              </td>
+            </tr>
+            <tr>
+              <td class="coverage-id">43</td>
+              <td>
+                <span data-i18n="v42">Dados</span
+                ><strong data-i18n="f42">Datas/dias da semana e totais contraditórios</strong>
+              </td>
+              <td><span data-i18n="d42" class="decision-badge">Corrigido</span></td>
+              <td>
+                <span data-i18n="r42"
+                  >Cenários ilustrativos reconciliados para novembro de 2026.</span
+                >
+              </td>
+              <td><span data-i18n="all.42">Todas as telas</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <footer>
+        <p data-i18n="note">
+          Os cenários são propostas de design. As capacidades e os contratos do scheduler precisam
+          de implementação e validação.
+        </p>
+        <a href="./#contracts"><span data-i18n="contracts">Ver contratos em aberto</span> →</a>
+      </footer>
+    </main>
+    <script src="coverage-lang.js"></script>
+    <script src="../i18n.js"></script>
+  </body>
+</html>

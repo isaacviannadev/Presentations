@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Presentations — Isaac Vianna</title>
-  <meta name="description" content="Seletor de apresentações: workshops e talks de engenharia frontend." />
+  <meta name="description" content="Seletor de apresentações: engenharia frontend, arquitetura e design de produto." />
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="hub.css" />
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='16' fill='%23e4002b'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='monospace' font-weight='bold'>▶</text></svg>" />
@@ -29,7 +29,7 @@
     <header class="hub__header">
       <p class="hub__kicker" data-i18n="hub.kicker">// escolha a apresentação</p>
       <h1 class="hub__title">Presentations</h1>
-      <p class="hub__sub" data-i18n="hub.sub">Talks de engenharia frontend em formato de slides interativos: navegue com a roda do mouse ou as setas do teclado.</p>
+      <p class="hub__sub" data-i18n="hub.sub">Engenharia, arquitetura e design de produto em slides interativos: navegue com a roda do mouse ou as setas do teclado.</p>
     </header>
 
     <div class="deck-list">
@@ -60,6 +60,13 @@
         </div>
       </a>
 
+      <a class="deck" href="scheduling/">
+        <div class="deck__head"><span class="deck__badge deck__badge--tars">TA</span><span class="deck__meta" data-i18n="d3.meta">design de produto · nov/2026 · PT/EN</span></div>
+        <h2 class="deck__title" data-i18n="d3.title">TARS · Suite Scheduling</h2>
+        <p class="deck__desc" data-i18n="d3.desc">Da Suite à Agenda: fluxos completos de criação e edição, conflitos por device e as decisões que sustentam cada tela.</p>
+        <div class="deck__foot"><span class="deck__tags" data-i18n="d3.tags">35 telas · 42 seções · componentes · estados</span><span class="deck__cta" data-i18n="d3.cta">abrir <span class="deck__arrow">→</span></span></div>
+      </a>
+
     </div>
 
     <footer class="hub__footer">
@@ -73,7 +80,7 @@
     window.PAGE_META = { pt: "Presentations — Isaac Vianna", en: "Presentations — Isaac Vianna" };
     window.PAGE_EN = {
       "hub.kicker": "// pick a presentation",
-      "hub.sub": "Frontend engineering talks as interactive slide decks: navigate with the mouse wheel or the arrow keys.",
+      "hub.sub": "Engineering, architecture and product design as interactive slide decks: navigate with the mouse wheel or the arrow keys.",
       "d1.meta": "workshop · 5–7 min · PT/EN",
       "d1.title": "The bug TypeScript would catch at 3 a.m.",
       "d1.desc": "Why TypeScript isn't about writing types, but about moving the error to the cheapest place: the editor, before the commit.",
@@ -84,6 +91,11 @@
       "d2.desc": "Technical case for adoption in React projects: data, benchmarks and real trade-offs. No hype, no legacy panic.",
       "d2.tags": "−48% render · State of CSS · RSC · incremental migration",
       "d2.cta": "open <span class=\"deck__arrow\">→</span>",
+      "d3.meta": "product design · nov/2026 · PT/EN",
+      "d3.title": "TARS · Suite Scheduling",
+      "d3.desc": "From Suite to Agenda: complete creation and editing journeys, device conflicts and the decisions behind each screen.",
+      "d3.tags": "35 screens · 42 sections · components · states",
+      "d3.cta": "open <span class=\"deck__arrow\">→</span>",
     };
   </script>
   <script src="i18n.js"></script>
