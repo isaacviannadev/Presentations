@@ -51,10 +51,10 @@
 .deck-list {
   position: relative;
   display: grid;
-  grid-template-columns: repeat(2, minmax(20rem, 27rem));
+  grid-template-columns: repeat(3, minmax(0, 27rem));
   gap: 1.8rem;
   width: 100%;
-  max-width: 60rem;
+  max-width: 85rem;
   justify-content: center;
 }
 
@@ -94,6 +94,7 @@
 }
 .deck__badge--ts { background: #3178c6; }
 .deck__badge--tw { background: var(--red); }
+.deck__badge--tars { background: var(--ink); }
 .deck__meta {
   font-family: var(--font-mono);
   font-size: 0.7rem;
@@ -143,7 +144,7 @@
 .hub__footer {
   position: relative;
   width: 100%;
-  max-width: 60rem;
+  max-width: 85rem;
   display: flex;
   justify-content: space-between;
   font-family: var(--font-mono);
@@ -152,6 +153,9 @@
   opacity: 0;
 }
 
+@media (max-width: 1100px) {
+  .deck-list { grid-template-columns: minmax(0, 36rem); }
+}
 @media (max-width: 900px) {
   .deck-list { grid-template-columns: minmax(0, 27rem); }
   .hub__main { padding-top: 6rem; }

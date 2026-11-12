@@ -338,7 +338,7 @@ mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
       x = Math.max(0, Math.min(x, total));
       stops.push(st.start + x);
     });
-    stops.push(ScrollTrigger.maxScroll(window)); // fechamento
+    if (document.querySelector(".outro")) stops.push(ScrollTrigger.maxScroll(window)); // fechamento opcional
     return stops;
   }
 
@@ -388,6 +388,7 @@ mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
   }
 
   function onWheel(e) {
+    if (document.querySelector("dialog[open]")) return;
     e.preventDefault(); // o scroll passa a ser 100% conduzido pelos slides
     const now = performance.now();
     if (sliding || now < cooldownUntil) return;
@@ -402,7 +403,8 @@ mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
   }
 
   function onKey(e) {
-    if (e.target.matches("input, textarea, select")) return;
+    if (document.querySelector("dialog[open]") || e.target.closest("input, textarea, select, [contenteditable]")) return;
+    if (e.key === " " && e.target.closest("button, a")) return;
     const NEXT = ["ArrowDown", "ArrowRight", "PageDown", " "];
     const PREV = ["ArrowUp", "ArrowLeft", "PageUp"];
     if (NEXT.includes(e.key)) {
@@ -420,6 +422,12 @@ mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
     }
   }
 
+  function onNavigate(event) {
+    const stops = computeStops();
+    const index = event.detail?.index;
+    if (Number.isInteger(index) && index >= 0 && index < stops.length) goToScroll(stops[index]);
+  }
+  window.addEventListener("presentation:navigate", onNavigate);
   window.addEventListener("wheel", onWheel, { passive: false });
   window.addEventListener("keydown", onKey);
 
@@ -437,6 +445,7 @@ mm.add("(min-width: 901px) and (prefers-reduced-motion: no-preference)", () => {
   if (window.scrollY < 4) narration.play(0);
 
   return () => {
+    window.removeEventListener("presentation:navigate", onNavigate);
     window.removeEventListener("wheel", onWheel);
     window.removeEventListener("keydown", onKey);
     gsap.killTweensOf(scrollProxy);
@@ -451,6 +460,12 @@ mm.add("(max-width: 900px), (prefers-reduced-motion: reduce)", () => {
   // Narração: sem os "stops" do desktop, o gatilho é a seção dominar a
   // viewport; o debounce evita disparos em série num scroll longo.
   const sections = [document.querySelector(".hero"), ...panels, document.querySelector(".outro")];
+  function onNavigate(event) {
+    const index = event.detail?.index;
+    if (!Number.isInteger(index)) return;
+    sections[index]?.scrollIntoView({ behavior: prefersReducedMotion ? "instant" : "smooth", block: "start" });
+  }
+  window.addEventListener("presentation:navigate", onNavigate);
   let narrationTimer;
 
   // slide atual = seção mais próxima do centro da viewport
@@ -518,6 +533,7 @@ mm.add("(max-width: 900px), (prefers-reduced-motion: reduce)", () => {
   setupCounter(null);
 
   return () => {
+    window.removeEventListener("presentation:navigate", onNavigate);
     clearTimeout(narrationTimer);
     narration.stop();
   };

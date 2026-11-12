@@ -1,0 +1,3286 @@
+<!doctype html>
+<html lang="pt-BR" class="no-js">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TARS · Scheduling de Suites</title>
+    <meta
+      name="description"
+      content="Suite Scheduling: 35 telas, fluxos, decisões e componentes. Uma proposta de experiência para o TARS, em português e inglês."
+    />
+    <link rel="stylesheet" href="../styles.css" />
+    <link rel="stylesheet" href="page.css" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23e4002b'/%3E%3Ctext x='50' y='65' fill='white' text-anchor='middle' font-family='monospace' font-size='40'%3ETA%3C/text%3E%3C/svg%3E"
+    />
+  </head>
+  <body class="scheduling">
+    <div class="progress-bar" aria-hidden="true"><div class="progress-bar__fill"></div></div>
+    <nav class="nav" aria-label="Presentation">
+      <a class="nav__logo" href="../"
+        ><span class="nav__logo-mark">TA</span
+        ><span data-i18n="nav.logo" class="nav__logo-text">produto</span></a
+      >
+      <div class="nav__right">
+        <button class="index-toggle pill" type="button" data-open-index>
+          <span data-i18n="nav.index">Índice</span></button
+        ><button class="lang-switch" type="button" aria-label="Switch language">
+          <span class="lang-switch__opt is-active" data-lang="pt">PT</span
+          ><span class="lang-switch__sep">/</span
+          ><span class="lang-switch__opt" data-lang="en">EN</span>
+        </button>
+        <div class="nav__tag">TARS · 2026</div>
+      </div>
+    </nav>
+    <header class="hero" id="start" data-chapter="TARS · Suite Scheduling">
+      <div class="hero__bg-grid" aria-hidden="true"></div>
+      <div class="hero__content">
+        <p class="hero__kicker reveal-hero">// TARS · PRODUCT DESIGN</p>
+        <h1 class="hero__title">
+          <span class="hero__line"><span class="reveal-hero-line">Suite</span></span
+          ><span class="hero__line"
+            ><span class="reveal-hero-line hero__red">Scheduling.</span></span
+          >
+        </h1>
+        <p data-i18n="hero.sub" class="hero__sub reveal-hero">
+          Agendar a Suite. Ver a ocupação. Resolver o conflito.
+        </p>
+        <div class="hero__facts">
+          <span data-i18n="hero.screens">35 telas e estados</span
+          ><span data-i18n="hero.flows">2 fluxos completos</span
+          ><span data-i18n="hero.lang">PT / EN</span>
+        </div>
+        <button class="primary hero__start" data-go="create" type="button">
+          <span data-i18n="hero.start">Explorar os fluxos</span> <span aria-hidden="true">→</span>
+        </button>
+        <p data-i18n="hero.note" class="hero__note">
+          Proposta de design · dados ilustrativos · novembro 2026
+        </p>
+      </div>
+      <div class="hero__visual">
+        <figure class="capture">
+          <button
+            type="button"
+            class="capture__open"
+            data-zoom="HF-12"
+            aria-haspopup="dialog"
+            aria-label="HF-12 — Formulário com conflito"
+          >
+            <img
+              src="assets/HF-12.webp"
+              width="1216"
+              height="970"
+              alt="HF-12 — Formulário com conflito"
+              fetchpriority="high"
+              decoding="async"
+            />
+          </button>
+          <figcaption>
+            <span class="screen-id">HF-12</span
+            ><span data-i18n="img.HF-12">Formulário com conflito</span
+            ><span class="capture__zoom" aria-hidden="true">↗</span>
+          </figcaption>
+        </figure>
+        <div class="hero__stamp">
+          <span data-i18n="hero.stamp"
+            >A Suite define o contexto.<br />O device define o conflito.</span
+          >
+        </div>
+      </div>
+    </header>
+    <main class="hwrap" id="horizontal">
+      <div class="htrack">
+        <article
+          id="create"
+          class="panel journey-panel"
+          data-panel="01"
+          data-chapter="Fluxos / Journeys"
+        >
+          <div class="panel__inner">
+            <p data-i18n="create.kicker" class="panel__kicker">01 / Fluxos</p>
+            <h2 data-i18n="create.title" class="panel__title">Criar um agendamento, tela a tela</h2>
+            <p data-i18n="create.desc" class="panel__text">
+              O conflito preserva os valores e pede uma nova verificação.
+            </p>
+            <div class="journey">
+              <button class="journey-step" type="button" data-go="HF-10">
+                <span class="journey-step__top"><span>01</span><span>HF-10 ↗</span></span
+                ><img
+                  src="assets/HF-10.webp"
+                  width="1216"
+                  height="552"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><strong data-i18n="create.0.label">Suite</strong
+                ><span data-i18n="create.0.action">Agendar esta Suite</span></button
+              ><button class="journey-step" type="button" data-go="HF-12">
+                <span class="journey-step__top"><span>02</span><span>HF-12 ↗</span></span
+                ><img
+                  src="assets/HF-12.webp"
+                  width="1216"
+                  height="970"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><strong data-i18n="create.1.label">Conflito</strong
+                ><span data-i18n="create.1.action">Inspecionar o device</span></button
+              ><button class="journey-step" type="button" data-go="HF-33">
+                <span class="journey-step__top"><span>03</span><span>HF-33 ↗</span></span
+                ><img
+                  src="assets/HF-33.webp"
+                  width="1216"
+                  height="970"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><strong data-i18n="create.2.label">Novo horário</strong
+                ><span data-i18n="create.2.action">Tentar 11:30 e verificar</span></button
+              ><button class="journey-step" type="button" data-go="HF-14">
+                <span class="journey-step__top"><span>04</span><span>HF-14 ↗</span></span
+                ><img
+                  src="assets/HF-14.webp"
+                  width="1216"
+                  height="757"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><strong data-i18n="create.3.label">Revisão</strong
+                ><span data-i18n="create.3.action">Conferir e criar</span></button
+              ><button class="journey-step" type="button" data-go="HF-15">
+                <span class="journey-step__top"><span>05</span><span>HF-15 ↗</span></span
+                ><img
+                  src="assets/HF-15.webp"
+                  width="1216"
+                  height="468"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><strong data-i18n="create.4.label">Confirmado</strong
+                ><span data-i18n="create.4.action">Abrir Agenda ou regra</span>
+              </button>
+            </div>
+            <p data-i18n="create.hint" class="subtle">
+              Selecione uma etapa para ir à tela e entender entrada, ação, saída e regra.
+            </p>
+          </div>
+          <span class="panel__num" aria-hidden="true">01</span>
+        </article>
+        <article
+          id="edit"
+          class="panel journey-panel"
+          data-panel="02"
+          data-chapter="Fluxos / Journeys"
+        >
+          <div class="panel__inner">
+            <p data-i18n="edit.kicker" class="panel__kicker">02 / Fluxos</p>
+            <h2 data-i18n="edit.title" class="panel__title">Alterar apenas uma ocorrência</h2>
+            <p data-i18n="edit.desc" class="panel__text">
+              O utilizador escolhe o alcance antes de alterar o horário.
+            </p>
+            <div class="journey">
+              <button class="journey-step" type="button" data-go="HF-08">
+                <span class="journey-step__top"><span>01</span><span>HF-08 ↗</span></span
+                ><img
+                  src="assets/HF-08.webp"
+                  width="1216"
+                  height="704"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><strong data-i18n="edit.0.label">Ocorrência</strong
+                ><span data-i18n="edit.0.action">Abrir Edit</span></button
+              ><button class="journey-step" type="button" data-go="HF-16">
+                <span class="journey-step__top"><span>02</span><span>HF-16 ↗</span></span
+                ><img
+                  src="assets/HF-16.webp"
+                  width="1216"
+                  height="641"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><strong data-i18n="edit.1.label">Escopo</strong
+                ><span data-i18n="edit.1.action">Escolher só esta data</span></button
+              ><button class="journey-step" type="button" data-go="HF-17">
+                <span class="journey-step__top"><span>03</span><span>HF-17 ↗</span></span
+                ><img
+                  src="assets/HF-17.webp"
+                  width="1216"
+                  height="826"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><strong data-i18n="edit.2.label">Conflito</strong
+                ><span data-i18n="edit.2.action">A reserva anterior fica</span></button
+              ><button class="journey-step" type="button" data-go="HF-35">
+                <span class="journey-step__top"><span>04</span><span>HF-35 ↗</span></span
+                ><img
+                  src="assets/HF-35.webp"
+                  width="1216"
+                  height="826"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><strong data-i18n="edit.3.label">Validado</strong
+                ><span data-i18n="edit.3.action">Guardar a alteração</span></button
+              ><button class="journey-step" type="button" data-go="HF-36">
+                <span class="journey-step__top"><span>05</span><span>HF-36 ↗</span></span
+                ><img
+                  src="assets/HF-36.webp"
+                  width="1216"
+                  height="445"
+                  alt=""
+                  loading="lazy"
+                  decoding="async"
+                /><strong data-i18n="edit.4.label">Atualizado</strong
+                ><span data-i18n="edit.4.action">Outras datas mantêm-se</span>
+              </button>
+            </div>
+            <p data-i18n="edit.hint" class="subtle">
+              Selecione uma etapa para ir à tela e entender entrada, ação, saída e regra.
+            </p>
+          </div>
+          <span class="panel__num" aria-hidden="true">02</span>
+        </article>
+        <article
+          id="HF-10"
+          class="panel screen-panel"
+          data-panel="03"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-10.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-10.title" class="panel__title">Entrada pela Suite</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-10.entry">Suites / detalhe</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-10.interaction">
+                      Inspecionar composição e escolher Schedule this Suite
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-10.exit">Formulário já contextualizado</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-10.rule">
+                    Worker e devices são herdados da Suite; TestCases são compatíveis com o worker.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1097-68340"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-10"
+                    aria-haspopup="dialog"
+                    aria-label="HF-10 — Entrada pela Suite"
+                  >
+                    <img
+                      src="assets/HF-10.webp"
+                      width="1216"
+                      height="552"
+                      alt="HF-10 — Entrada pela Suite"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-10</span
+                    ><span data-i18n="img.HF-10">Entrada pela Suite</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">03</span>
+        </article>
+        <article
+          id="HF-11"
+          class="panel screen-panel"
+          data-panel="04"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-11.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-11.title" class="panel__title">Entrada pelo overview</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-11.entry">Schedule a Suite em Schedules</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-11.interaction">
+                      Pesquisar e selecionar uma Suite do domínio
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-11.exit">Mesmo formulário com Suite selecionada</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-11.rule">
+                    A seleção tem paginação; não se escolhe worker novamente.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1097-68572"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-11"
+                    aria-haspopup="dialog"
+                    aria-label="HF-11 — Entrada pelo overview"
+                  >
+                    <img
+                      src="assets/HF-11.webp"
+                      width="1216"
+                      height="664"
+                      alt="HF-11 — Entrada pelo overview"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-11</span
+                    ><span data-i18n="img.HF-11">Entrada pelo overview</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">04</span>
+        </article>
+        <article
+          id="HF-12"
+          class="panel screen-panel"
+          data-panel="05"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-12.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-12.title" class="panel__title">Formulário com conflito</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-12.entry">Suite selecionada ou edição de horário</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-12.interaction">
+                      Definir quando e recorrência; inspecionar sobreposição
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-12.exit">
+                      Nova tentativa de horário, opções ou preview completo
+                    </dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-12.rule">
+                    Conflito conhecido bloqueia criação/edição; valores são preservados.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1097-68823"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-12"
+                    aria-haspopup="dialog"
+                    aria-label="HF-12 — Formulário com conflito"
+                  >
+                    <img
+                      src="assets/HF-12.webp"
+                      width="1216"
+                      height="970"
+                      alt="HF-12 — Formulário com conflito"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-12</span
+                    ><span data-i18n="img.HF-12">Formulário com conflito</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">05</span>
+        </article>
+        <article
+          id="HF-33"
+          class="panel screen-panel"
+          data-panel="06"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-33.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-33.title" class="panel__title">Formulário sem conflito</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-33.entry">Try new time and recheck</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-33.interaction">Rever as datas recalculadas e continuar</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-33.exit">Revisão de criação</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-33.rule">
+                    A sugestão altera o escopo escolhido; não limpa conflitos sem nova verificação.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1097-69164"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-33"
+                    aria-haspopup="dialog"
+                    aria-label="HF-33 — Formulário sem conflito"
+                  >
+                    <img
+                      src="assets/HF-33.webp"
+                      width="1216"
+                      height="970"
+                      alt="HF-33 — Formulário sem conflito"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-33</span
+                    ><span data-i18n="img.HF-33">Formulário sem conflito</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">06</span>
+        </article>
+        <article
+          id="HF-13"
+          class="panel screen-panel"
+          data-panel="07"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-13.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-13.title" class="panel__title">Recorrência Cron</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-13.entry">Alternador Simple / Cron</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-13.interaction">
+                      Editar expressão e ler a interpretação; selecionar data prevista
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-13.exit">Preview e revisão Cron</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-13.rule">
+                    Datas previstas e disponibilidade verificada têm horizontes diferentes.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1097-69506"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-13"
+                    aria-haspopup="dialog"
+                    aria-label="HF-13 — Recorrência Cron"
+                  >
+                    <img
+                      src="assets/HF-13.webp"
+                      width="1216"
+                      height="989"
+                      alt="HF-13 — Recorrência Cron"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-13</span
+                    ><span data-i18n="img.HF-13">Recorrência Cron</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">07</span>
+        </article>
+        <article
+          id="HF-24"
+          class="panel screen-panel"
+          data-panel="08"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-24.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-24.title" class="panel__title">Opções de execução</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-24.entry">Advanced execution options</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-24.interaction">
+                      Definir retry, trace, release e limite de runtime
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-24.exit">Formulário com opções aplicadas</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-24.rule">
+                    Runtime estimado, timeout e janela reservada são conceitos distintos; política
+                    depende do contrato.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1097-69842"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-24"
+                    aria-haspopup="dialog"
+                    aria-label="HF-24 — Opções de execução"
+                  >
+                    <img
+                      src="assets/HF-24.webp"
+                      width="1216"
+                      height="634"
+                      alt="HF-24 — Opções de execução"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-24</span
+                    ><span data-i18n="img.HF-24">Opções de execução</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">08</span>
+        </article>
+        <article
+          id="HF-25"
+          class="panel screen-panel"
+          data-panel="09"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-25.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-25.title" class="panel__title">Modos e finais da recorrência</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-25.entry">Editar Repeat / Ends</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-25.interaction">
+                      Once, Daily ou Weekly; Nunca, N ocorrências ou data final
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-25.exit">Preview recalculado</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-25.rule">
+                    Conversões Cron → Simple não representáveis pedem decisão explícita.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1098-69108"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-25"
+                    aria-haspopup="dialog"
+                    aria-label="HF-25 — Modos e finais da recorrência"
+                  >
+                    <img
+                      src="assets/HF-25.webp"
+                      width="1216"
+                      height="757"
+                      alt="HF-25 — Modos e finais da recorrência"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-25</span
+                    ><span data-i18n="img.HF-25">Modos e finais da recorrência</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">09</span>
+        </article>
+        <article
+          id="HF-27"
+          class="panel screen-panel"
+          data-panel="10"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-27.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-27.title" class="panel__title">Preview completo e outra data</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-27.entry">Selecionar ocorrência ou abrir todas as datas</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-27.interaction">
+                      Consultar dez datas e escolher a segunda data em conflito
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-27.exit">Timeline daquela data, novo horário ou revisão</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-27.rule">
+                    Os conflitos da primeira e da quinta ocorrência são independentes.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1098-69406"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-27"
+                    aria-haspopup="dialog"
+                    aria-label="HF-27 — Preview completo e outra data"
+                  >
+                    <img
+                      src="assets/HF-27.webp"
+                      width="1216"
+                      height="761"
+                      alt="HF-27 — Preview completo e outra data"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-27</span
+                    ><span data-i18n="img.HF-27">Preview completo e outra data</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">10</span>
+        </article>
+        <article
+          id="HF-14"
+          class="panel screen-panel"
+          data-panel="11"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-14.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-14.title" class="panel__title">Revisão Simple</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-14.entry">Review schedule</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-14.interaction">
+                      Confirmar Suite, datas, timezone e disponibilidade
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-14.exit">Criando, confirmado ou conflito tardio</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-14.rule">
+                    Revalidação na confirmação; concorrência é responsabilidade do scheduler.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1098-69712"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-14"
+                    aria-haspopup="dialog"
+                    aria-label="HF-14 — Revisão Simple"
+                  >
+                    <img
+                      src="assets/HF-14.webp"
+                      width="1216"
+                      height="757"
+                      alt="HF-14 — Revisão Simple"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-14</span
+                    ><span data-i18n="img.HF-14">Revisão Simple</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">11</span>
+        </article>
+        <article
+          id="HF-34"
+          class="panel screen-panel"
+          data-panel="12"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-34.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-34.title" class="panel__title">Revisão Cron aberta</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-34.entry">Review schedule no modo Cron</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-34.interaction">
+                      Distinguir previsão, janela verificada e continuação da regra
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-34.exit">Verificar política/horizonte ou voltar à edição</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-34.rule">
+                    Não apresentar uma regra infinita como inteiramente livre após verificar dez
+                    datas.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1098-70360"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-34"
+                    aria-haspopup="dialog"
+                    aria-label="HF-34 — Revisão Cron aberta"
+                  >
+                    <img
+                      src="assets/HF-34.webp"
+                      width="1216"
+                      height="757"
+                      alt="HF-34 — Revisão Cron aberta"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-34</span
+                    ><span data-i18n="img.HF-34">Revisão Cron aberta</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">12</span>
+        </article>
+        <article
+          id="HF-15"
+          class="panel screen-panel"
+          data-panel="13"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-15.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-15.title" class="panel__title">Criação confirmada</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-15.entry">Resposta confirmada da criação</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-15.interaction">
+                      Consultar identidade, primeira ocorrência e escopo
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-15.exit">Agenda, detalhe da regra ou Suite</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-15.rule">
+                    Uma resposta ambígua não é uma confirmação; não duplicar o pedido.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1098-69989"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-15"
+                    aria-haspopup="dialog"
+                    aria-label="HF-15 — Criação confirmada"
+                  >
+                    <img
+                      src="assets/HF-15.webp"
+                      width="1216"
+                      height="468"
+                      alt="HF-15 — Criação confirmada"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-15</span
+                    ><span data-i18n="img.HF-15">Criação confirmada</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">13</span>
+        </article>
+        <article
+          id="HF-32"
+          class="panel screen-panel"
+          data-panel="14"
+          data-chapter="03 / Criar um agendamento"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-32.chapter" class="panel__kicker">03 / Criar um agendamento</p>
+                <h2 data-i18n="HF-32.title" class="panel__title">Saída com alterações</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-32.entry">Cancelar, navegar ou trocar domínio</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-32.interaction">
+                      Continuar a editar ou descartar alterações
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-32.exit">Mesmo formulário ou destino escolhido</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-32.rule">
+                    Suite/worker não atravessam domínios silenciosamente.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1098-70171"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-32"
+                    aria-haspopup="dialog"
+                    aria-label="HF-32 — Saída com alterações"
+                  >
+                    <img
+                      src="assets/HF-32.webp"
+                      width="1216"
+                      height="465"
+                      alt="HF-32 — Saída com alterações"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-32</span
+                    ><span data-i18n="img.HF-32">Saída com alterações</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">14</span>
+        </article>
+        <article
+          id="HF-01"
+          class="panel screen-panel"
+          data-panel="15"
+          data-chapter="04 / Overview e Agenda"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-01.chapter" class="panel__kicker">04 / Overview e Agenda</p>
+                <h2 data-i18n="HF-01.title" class="panel__title">Agendamentos</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-01.entry">Menu Schedules</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-01.interaction">
+                      Pesquisar, filtrar, ordenar e paginar regras
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-01.exit">Detalhe da regra, timeline ou seleção de Suite</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-01.rule">
+                    Estado da regra separado da execução; não aplicar Result ao histórico
+                    implicitamente.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1094-67300"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-01"
+                    aria-haspopup="dialog"
+                    aria-label="HF-01 — Agendamentos"
+                  >
+                    <img
+                      src="assets/HF-01.webp"
+                      width="1216"
+                      height="1065"
+                      alt="HF-01 — Agendamentos"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-01</span
+                    ><span data-i18n="img.HF-01">Agendamentos</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">15</span>
+        </article>
+        <article
+          id="HF-02"
+          class="panel screen-panel"
+          data-panel="16"
+          data-chapter="04 / Overview e Agenda"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-02.chapter" class="panel__kicker">04 / Overview e Agenda</p>
+                <h2 data-i18n="HF-02.title" class="panel__title">Detalhe do agendamento</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-02.entry">Linha da lista de regras</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-02.interaction">
+                      Consultar recorrência, próximas datas e histórico; editar ou pausar
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-02.exit">
+                      Ocorrência, edição de regra ou confirmação de pausa
+                    </dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-02.rule">
+                    Uma execução em curso não transforma a regra em Running.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1094-67631"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-02"
+                    aria-haspopup="dialog"
+                    aria-label="HF-02 — Detalhe do agendamento"
+                  >
+                    <img
+                      src="assets/HF-02.webp"
+                      width="1216"
+                      height="999"
+                      alt="HF-02 — Detalhe do agendamento"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-02</span
+                    ><span data-i18n="img.HF-02">Detalhe do agendamento</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">16</span>
+        </article>
+        <article
+          id="HF-22"
+          class="panel screen-panel"
+          data-panel="17"
+          data-chapter="04 / Overview e Agenda"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-22.chapter" class="panel__kicker">04 / Overview e Agenda</p>
+                <h2 data-i18n="HF-22.title" class="panel__title">Timeline opcional</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-22.entry">Alternador List / Timeline</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-22.interaction">
+                      Escolher janela, consultar densidade e selecionar um início
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-22.exit">Inspector da ocorrência ou zoom temporal</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-22.rule">
+                    Densidade conta todos os resultados filtrados, não apenas a página; não mede
+                    capacidade.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1094-67887"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-22"
+                    aria-haspopup="dialog"
+                    aria-label="HF-22 — Timeline opcional"
+                  >
+                    <img
+                      src="assets/HF-22.webp"
+                      width="1216"
+                      height="895"
+                      alt="HF-22 — Timeline opcional"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-22</span
+                    ><span data-i18n="img.HF-22">Timeline opcional</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">17</span>
+        </article>
+        <article
+          id="HF-04"
+          class="panel screen-panel"
+          data-panel="18"
+          data-chapter="04 / Overview e Agenda"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-04.chapter" class="panel__kicker">04 / Overview e Agenda</p>
+                <h2 data-i18n="HF-04.title" class="panel__title">Lista de ocorrências</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-04.entry">Separador Agenda</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-04.interaction">
+                      Filtrar por período, Suite, worker, device, estado ou resultado
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-04.exit">Inspector futuro/concluído; execução</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-04.rule">
+                    O intervalo mantém a entidade ocorrência e os filtros.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1095-67647"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-04"
+                    aria-haspopup="dialog"
+                    aria-label="HF-04 — Lista de ocorrências"
+                  >
+                    <img
+                      src="assets/HF-04.webp"
+                      width="1216"
+                      height="927"
+                      alt="HF-04 — Lista de ocorrências"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-04</span
+                    ><span data-i18n="img.HF-04">Lista de ocorrências</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">18</span>
+        </article>
+        <article
+          id="HF-05"
+          class="panel screen-panel"
+          data-panel="19"
+          data-chapter="04 / Overview e Agenda"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-05.chapter" class="panel__kicker">04 / Overview e Agenda</p>
+                <h2 data-i18n="HF-05.title" class="panel__title">Agenda diária agregada</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-05.entry">Dia ou aprofundamento do calendário</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-05.interaction">
+                      Selecionar uma hora e paginar as ocorrências dessa hora
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-05.exit">Inspector ou execução</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-05.rule">
+                    Agregação suporta o cenário ilustrativo de mil ocorrências/dia.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1095-67992"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-05"
+                    aria-haspopup="dialog"
+                    aria-label="HF-05 — Agenda diária agregada"
+                  >
+                    <img
+                      src="assets/HF-05.webp"
+                      width="1216"
+                      height="1040"
+                      alt="HF-05 — Agenda diária agregada"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-05</span
+                    ><span data-i18n="img.HF-05">Agenda diária agregada</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">19</span>
+        </article>
+        <article
+          id="HF-06"
+          class="panel screen-panel"
+          data-panel="20"
+          data-chapter="04 / Overview e Agenda"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-06.chapter" class="panel__kicker">04 / Overview e Agenda</p>
+                <h2 data-i18n="HF-06.title" class="panel__title">Semana</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-06.entry">Agenda / Week</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-06.interaction">
+                      Ler volume por hora e selecionar uma célula
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-06.exit">Dia nessa data/hora ou lista filtrada</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-06.rule">
+                    Intensidade é número de inícios; falhas aparecem como informação adicional.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1095-68359"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-06"
+                    aria-haspopup="dialog"
+                    aria-label="HF-06 — Semana"
+                  >
+                    <img
+                      src="assets/HF-06.webp"
+                      width="1216"
+                      height="995"
+                      alt="HF-06 — Semana"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-06</span><span data-i18n="img.HF-06">Semana</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">20</span>
+        </article>
+        <article
+          id="HF-07"
+          class="panel screen-panel"
+          data-panel="21"
+          data-chapter="04 / Overview e Agenda"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-07.chapter" class="panel__kicker">04 / Overview e Agenda</p>
+                <h2 data-i18n="HF-07.title" class="panel__title">Mês</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-07.entry">Agenda / Month</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-07.interaction">
+                      Selecionar dia e consultar totais/resultados
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-07.exit">Vista diária da data selecionada</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-07.rule">
+                    Zero, não carregado e futuro projetado têm representações distintas.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1095-68967"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-07"
+                    aria-haspopup="dialog"
+                    aria-label="HF-07 — Mês"
+                  >
+                    <img
+                      src="assets/HF-07.webp"
+                      width="1216"
+                      height="1105"
+                      alt="HF-07 — Mês"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-07</span><span data-i18n="img.HF-07">Mês</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">21</span>
+        </article>
+        <article
+          id="HF-23"
+          class="panel screen-panel"
+          data-panel="22"
+          data-chapter="04 / Overview e Agenda"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-23.chapter" class="panel__kicker">04 / Overview e Agenda</p>
+                <h2 data-i18n="HF-23.title" class="panel__title">Intervalo personalizado</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-23.entry">Alterar período na Agenda</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-23.interaction">
+                      Comparar volumes por dia e investigar a lista agrupada
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-23.exit">Dia, ocorrência ou execução</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-23.rule">
+                    O gráfico e a lista usam a mesma consulta e totais consistentes.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1095-69315"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-23"
+                    aria-haspopup="dialog"
+                    aria-label="HF-23 — Intervalo personalizado"
+                  >
+                    <img
+                      src="assets/HF-23.webp"
+                      width="1216"
+                      height="930"
+                      alt="HF-23 — Intervalo personalizado"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-23</span
+                    ><span data-i18n="img.HF-23">Intervalo personalizado</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">22</span>
+        </article>
+        <article
+          id="HF-31"
+          class="panel screen-panel"
+          data-panel="23"
+          data-chapter="04 / Overview e Agenda"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-31.chapter" class="panel__kicker">04 / Overview e Agenda</p>
+                <h2 data-i18n="HF-31.title" class="panel__title">Dia com poucas ocorrências</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-31.entry">Filtrar a Agenda por Suite</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-31.interaction">Selecionar ocorrências individuais</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-31.exit">Mesmo inspector da lista ou do dia agregado</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-31.rule">
+                    A apresentação adapta-se à densidade sem trocar de recurso ou consulta.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1095-69637"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-31"
+                    aria-haspopup="dialog"
+                    aria-label="HF-31 — Dia com poucas ocorrências"
+                  >
+                    <img
+                      src="assets/HF-31.webp"
+                      width="1216"
+                      height="1062"
+                      alt="HF-31 — Dia com poucas ocorrências"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-31</span
+                    ><span data-i18n="img.HF-31">Dia com poucas ocorrências</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">23</span>
+        </article>
+        <article
+          id="HF-21"
+          class="panel screen-panel"
+          data-panel="24"
+          data-chapter="04 / Overview e Agenda"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-21.chapter" class="panel__kicker">04 / Overview e Agenda</p>
+                <h2 data-i18n="HF-21.title" class="panel__title">Período e filtros</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-21.entry">Date range / More filters</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-21.interaction">
+                      Aplicar datas inclusivas e filtros explícitos
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-21.exit">Mesma vista e consulta atualizada</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-21.rule">
+                    Histórico não desaparece porque a regra foi pausada depois.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1100-70939"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-21"
+                    aria-haspopup="dialog"
+                    aria-label="HF-21 — Período e filtros"
+                  >
+                    <img
+                      src="assets/HF-21.webp"
+                      width="1216"
+                      height="858"
+                      alt="HF-21 — Período e filtros"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-21</span
+                    ><span data-i18n="img.HF-21">Período e filtros</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">24</span>
+        </article>
+        <article
+          id="HF-08"
+          class="panel screen-panel"
+          data-panel="25"
+          data-chapter="05 / Gerir ocorrências"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-08.chapter" class="panel__kicker">05 / Gerir ocorrências</p>
+                <h2 data-i18n="HF-08.title" class="panel__title">Ocorrência futura</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-08.entry">Linha, marcador, hora ou dia</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-08.interaction">
+                      Inspecionar datas, devices e disponibilidade; editar/cancelar
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-08.exit">Escopo, regra ou regresso à Agenda</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-08.rule">
+                    As ações referem-se ao futuro; cancelamento não para uma execução.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1099-69828"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-08"
+                    aria-haspopup="dialog"
+                    aria-label="HF-08 — Ocorrência futura"
+                  >
+                    <img
+                      src="assets/HF-08.webp"
+                      width="1216"
+                      height="704"
+                      alt="HF-08 — Ocorrência futura"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-08</span
+                    ><span data-i18n="img.HF-08">Ocorrência futura</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">25</span>
+        </article>
+        <article
+          id="HF-09"
+          class="panel screen-panel"
+          data-panel="26"
+          data-chapter="05 / Gerir ocorrências"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-09.chapter" class="panel__kicker">05 / Gerir ocorrências</p>
+                <h2 data-i18n="HF-09.title" class="panel__title">Ocorrência concluída</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-09.entry">Lista, dia ou histórico</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-09.interaction">
+                      Consultar horário real, duração e resultado
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-09.exit">Execução ou regra para mudanças futuras</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-09.rule">A ocorrência passada é apenas de leitura.</p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1099-70092"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-09"
+                    aria-haspopup="dialog"
+                    aria-label="HF-09 — Ocorrência concluída"
+                  >
+                    <img
+                      src="assets/HF-09.webp"
+                      width="1216"
+                      height="662"
+                      alt="HF-09 — Ocorrência concluída"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-09</span
+                    ><span data-i18n="img.HF-09">Ocorrência concluída</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">26</span>
+        </article>
+        <article
+          id="HF-26"
+          class="panel screen-panel"
+          data-panel="27"
+          data-chapter="05 / Gerir ocorrências"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-26.chapter" class="panel__kicker">05 / Gerir ocorrências</p>
+                <h2 data-i18n="HF-26.title" class="panel__title">Contexto da série</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-26.entry">Inspector da ocorrência</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-26.interaction">Consultar vizinhas e opções da execução</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-26.exit">Outra ocorrência, toda a série ou execução</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-26.rule">
+                    Repetir execução fica no fluxo de Executions/Quick Run com nova verificação.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1099-70349"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-26"
+                    aria-haspopup="dialog"
+                    aria-label="HF-26 — Contexto da série"
+                  >
+                    <img
+                      src="assets/HF-26.webp"
+                      width="1216"
+                      height="627"
+                      alt="HF-26 — Contexto da série"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-26</span
+                    ><span data-i18n="img.HF-26">Contexto da série</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">27</span>
+        </article>
+        <article
+          id="HF-16"
+          class="panel screen-panel"
+          data-panel="28"
+          data-chapter="05 / Gerir ocorrências"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-16.chapter" class="panel__kicker">05 / Gerir ocorrências</p>
+                <h2 data-i18n="HF-16.title" class="panel__title">Escopo da edição</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-16.entry">Edit numa ocorrência futura</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-16.interaction">Escolher só esta ou esta e futuras</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-16.exit">Formulário com escopo fixado</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-16.rule">Histórico e execuções em curso não são reescritos.</p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1099-70582"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-16"
+                    aria-haspopup="dialog"
+                    aria-label="HF-16 — Escopo da edição"
+                  >
+                    <img
+                      src="assets/HF-16.webp"
+                      width="1216"
+                      height="641"
+                      alt="HF-16 — Escopo da edição"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-16</span
+                    ><span data-i18n="img.HF-16">Escopo da edição</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">28</span>
+        </article>
+        <article
+          id="HF-17"
+          class="panel screen-panel"
+          data-panel="29"
+          data-chapter="05 / Gerir ocorrências"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-17.chapter" class="panel__kicker">05 / Gerir ocorrências</p>
+                <h2 data-i18n="HF-17.title" class="panel__title">Edição bloqueada</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-17.entry">Alterar horário da ocorrência</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-17.interaction">Ver conflito e tentar alternativa</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-17.exit">Nova verificação ou descarte</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-17.rule">
+                    Reserva anterior permanece até a substituição ser aceite.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1099-70769"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-17"
+                    aria-haspopup="dialog"
+                    aria-label="HF-17 — Edição bloqueada"
+                  >
+                    <img
+                      src="assets/HF-17.webp"
+                      width="1216"
+                      height="826"
+                      alt="HF-17 — Edição bloqueada"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-17</span
+                    ><span data-i18n="img.HF-17">Edição bloqueada</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">29</span>
+        </article>
+        <article
+          id="HF-35"
+          class="panel screen-panel"
+          data-panel="30"
+          data-chapter="05 / Gerir ocorrências"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-35.chapter" class="panel__kicker">05 / Gerir ocorrências</p>
+                <h2 data-i18n="HF-35.title" class="panel__title">Edição pronta para guardar</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-35.entry">Alternativa de horário após conflito</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-35.interaction">
+                      Reverificar a ocorrência escolhida e guardar
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-35.exit">Confirmação da alteração ou conflito tardio</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-35.rule">
+                    O escopo continua fixado. Só a confirmação substitui a reserva anterior.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1116-71728"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-35"
+                    aria-haspopup="dialog"
+                    aria-label="HF-35 — Edição pronta para guardar"
+                  >
+                    <img
+                      src="assets/HF-35.webp"
+                      width="1216"
+                      height="826"
+                      alt="HF-35 — Edição pronta para guardar"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-35</span
+                    ><span data-i18n="img.HF-35">Edição pronta para guardar</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">30</span>
+        </article>
+        <article
+          id="HF-36"
+          class="panel screen-panel"
+          data-panel="31"
+          data-chapter="05 / Gerir ocorrências"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-36.chapter" class="panel__kicker">05 / Gerir ocorrências</p>
+                <h2 data-i18n="HF-36.title" class="panel__title">Alteração confirmada</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-36.entry">Resposta confirmada da edição</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-36.interaction">
+                      Conferir o novo horário e o alcance da alteração
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-36.exit">Agenda ou regra</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-36.rule">
+                    A alteração afeta apenas a ocorrência de 18 Nov. As restantes datas mantêm-se.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1116-72103"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-36"
+                    aria-haspopup="dialog"
+                    aria-label="HF-36 — Alteração confirmada"
+                  >
+                    <img
+                      src="assets/HF-36.webp"
+                      width="1216"
+                      height="445"
+                      alt="HF-36 — Alteração confirmada"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-36</span
+                    ><span data-i18n="img.HF-36">Alteração confirmada</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">31</span>
+        </article>
+        <article
+          id="HF-18"
+          class="panel screen-panel"
+          data-panel="32"
+          data-chapter="05 / Gerir ocorrências"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-18.chapter" class="panel__kicker">05 / Gerir ocorrências</p>
+                <h2 data-i18n="HF-18.title" class="panel__title">Escopo do cancelamento</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-18.entry">Cancel numa ocorrência futura</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-18.interaction">
+                      Rever identidade, datas afetadas e confirmar
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-18.exit">Resultado do cancelamento</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-18.rule">
+                    Regra aberta usa todas as futuras, sem inventar uma contagem finita.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1099-71028"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-18"
+                    aria-haspopup="dialog"
+                    aria-label="HF-18 — Escopo do cancelamento"
+                  >
+                    <img
+                      src="assets/HF-18.webp"
+                      width="1216"
+                      height="655"
+                      alt="HF-18 — Escopo do cancelamento"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-18</span
+                    ><span data-i18n="img.HF-18">Escopo do cancelamento</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">32</span>
+        </article>
+        <article
+          id="HF-19"
+          class="panel screen-panel"
+          data-panel="33"
+          data-chapter="05 / Gerir ocorrências"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-19.chapter" class="panel__kicker">05 / Gerir ocorrências</p>
+                <h2 data-i18n="HF-19.title" class="panel__title">Resultados de gestão</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-19.entry">Cancelar ou pausar</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-19.interaction">Confirmar o que mudou e o próximo destino</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-19.exit">Agenda, regra ou retomada</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-19.rule">Pausar/cancelar não interrompe execuções em curso.</p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1100-70528"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-19"
+                    aria-haspopup="dialog"
+                    aria-label="HF-19 — Resultados de gestão"
+                  >
+                    <img
+                      src="assets/HF-19.webp"
+                      width="1216"
+                      height="494"
+                      alt="HF-19 — Resultados de gestão"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-19</span
+                    ><span data-i18n="img.HF-19">Resultados de gestão</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">33</span>
+        </article>
+        <article
+          id="HF-30"
+          class="panel screen-panel"
+          data-panel="34"
+          data-chapter="05 / Gerir ocorrências"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-30.chapter" class="panel__kicker">05 / Gerir ocorrências</p>
+                <h2 data-i18n="HF-30.title" class="panel__title">Retomar uma regra</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-30.entry">Resume numa regra pausada</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-30.interaction">
+                      Reverificar datas futuras antes de reativar
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-30.exit">Regra ativa ou pausa mantida por conflito</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-30.rule">Não reproduzir automaticamente ocorrências perdidas.</p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1100-70723"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-30"
+                    aria-haspopup="dialog"
+                    aria-label="HF-30 — Retomar uma regra"
+                  >
+                    <img
+                      src="assets/HF-30.webp"
+                      width="1216"
+                      height="679"
+                      alt="HF-30 — Retomar uma regra"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-30</span
+                    ><span data-i18n="img.HF-30">Retomar uma regra</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">34</span>
+        </article>
+        <article
+          id="HF-20"
+          class="panel screen-panel"
+          data-panel="35"
+          data-chapter="06 / Recuperar e continuar"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-20.chapter" class="panel__kicker">06 / Recuperar e continuar</p>
+                <h2 data-i18n="HF-20.title" class="panel__title">Recuperação e dados incertos</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-20.entry">Vazio, erro, stale ou resposta ambígua</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-20.interaction">
+                      Limpar filtros, atualizar ou reconciliar pedido
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-20.exit">Consulta/formulário restaurado ou confirmação</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-20.rule">
+                    Não verificado, falha de consulta e zero não são equivalentes.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1100-71237"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-20"
+                    aria-haspopup="dialog"
+                    aria-label="HF-20 — Recuperação e dados incertos"
+                  >
+                    <img
+                      src="assets/HF-20.webp"
+                      width="1216"
+                      height="967"
+                      alt="HF-20 — Recuperação e dados incertos"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-20</span
+                    ><span data-i18n="img.HF-20">Recuperação e dados incertos</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">35</span>
+        </article>
+        <article
+          id="HF-28"
+          class="panel screen-panel"
+          data-panel="36"
+          data-chapter="06 / Recuperar e continuar"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-28.chapter" class="panel__kicker">06 / Recuperar e continuar</p>
+                <h2 data-i18n="HF-28.title" class="panel__title">Carregamento e submissão</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-28.entry">Abrir consulta, verificar ou confirmar</dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-28.interaction">
+                      Aguardar sem repetir o pedido; manter contexto
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-28.exit">Resultado ou recuperação</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-28.rule">
+                    Bloquear duplicação e manter valores ao longo da transição.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1100-71461"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-28"
+                    aria-haspopup="dialog"
+                    aria-label="HF-28 — Carregamento e submissão"
+                  >
+                    <img
+                      src="assets/HF-28.webp"
+                      width="1216"
+                      height="407"
+                      alt="HF-28 — Carregamento e submissão"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-28</span
+                    ><span data-i18n="img.HF-28">Carregamento e submissão</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">36</span>
+        </article>
+        <article
+          id="HF-29"
+          class="panel screen-panel"
+          data-panel="37"
+          data-chapter="06 / Recuperar e continuar"
+        >
+          <div class="panel__inner">
+            <div class="screen-layout">
+              <div class="screen-copy">
+                <p data-i18n="HF-29.chapter" class="panel__kicker">06 / Recuperar e continuar</p>
+                <h2 data-i18n="HF-29.title" class="panel__title">Exceções operacionais</h2>
+                <dl class="screen-flow">
+                  <div>
+                    <dt data-i18n="label.entry">Entrada</dt>
+                    <dd data-i18n="HF-29.entry">
+                      Permissão, sessão, Suite, device ou DST alterados
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.interaction">Ação</dt>
+                    <dd data-i18n="HF-29.interaction">
+                      Explicar o bloqueio e oferecer recuperação específica
+                    </dd>
+                  </div>
+                  <div>
+                    <dt data-i18n="label.exit">Saída</dt>
+                    <dd data-i18n="HF-29.exit">Autenticação, refresh, recheck ou edição</dd>
+                  </div>
+                </dl>
+                <div class="design-rule">
+                  <span data-i18n="label.rule" class="eyebrow">Regra</span>
+                  <p data-i18n="HF-29.rule">
+                    Os estados definem comportamento proposto; não comprovam endpoints disponíveis.
+                  </p>
+                </div>
+                <a
+                  class="source-link"
+                  href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1100-71645"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  ><span data-i18n="source.figma">Abrir tela no Figma</span> ↗</a
+                >
+              </div>
+              <div class="screen-visual">
+                <figure class="capture">
+                  <button
+                    type="button"
+                    class="capture__open"
+                    data-zoom="HF-29"
+                    aria-haspopup="dialog"
+                    aria-label="HF-29 — Exceções operacionais"
+                  >
+                    <img
+                      src="assets/HF-29.webp"
+                      width="1216"
+                      height="725"
+                      alt="HF-29 — Exceções operacionais"
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </button>
+                  <figcaption>
+                    <span class="screen-id">HF-29</span
+                    ><span data-i18n="img.HF-29">Exceções operacionais</span
+                    ><span class="capture__zoom" aria-hidden="true">↗</span>
+                  </figcaption>
+                </figure>
+                <p data-i18n="screen.hint" class="screen-hint">
+                  Selecione a captura para ampliar. Interface do produto em inglês.
+                </p>
+              </div>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">37</span>
+        </article>
+        <article
+          id="decisions"
+          class="panel appendix-panel"
+          data-panel="38"
+          data-chapter="07 / Decisões de produto"
+        >
+          <div class="panel__inner">
+            <p data-i18n="a0.kicker" class="panel__kicker">07 / Decisões de produto</p>
+            <h2 data-i18n="a0.title" class="panel__title">
+              O que mudou do artefato para o produto
+            </h2>
+            <p data-i18n="a0.desc" class="appendix-intro">
+              As funcionalidades mantidas aparecem nas telas. As alterações têm um motivo explícito.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="a0.0.0" scope="col">Parte</th>
+                    <th data-i18n="a0.0.1" scope="col">Decisão</th>
+                    <th data-i18n="a0.0.2" scope="col">Referência</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-i18n="a0.1.0">Overview</td>
+                    <td data-i18n="a0.1.1">
+                      Lista inicial de regras. Timeline permanece como opção.
+                    </td>
+                    <td data-i18n="a0.1.2">HF-01, HF-22</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a0.2.0">Calendário</td>
+                    <td data-i18n="a0.2.1">
+                      Dia, semana e mês mostram ocorrências. Range mantém essa entidade.
+                    </td>
+                    <td data-i18n="a0.2.2">HF-04 a HF-07, HF-23</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a0.3.0">Agendamento</td>
+                    <td data-i18n="a0.3.1">
+                      A Suite leva worker, TestCases e devices no domínio atual.
+                    </td>
+                    <td data-i18n="a0.3.2">HF-10 a HF-13</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a0.4.0">Conflito</td>
+                    <td data-i18n="a0.4.1">
+                      Uso simultâneo do mesmo device bloqueia criar e editar.
+                    </td>
+                    <td data-i18n="a0.4.2">HF-12, HF-17, HF-27</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a0.5.0">Recorrência</td>
+                    <td data-i18n="a0.5.1">
+                      Simple e cron, com finais e datas futuras não verificadas explícitos.
+                    </td>
+                    <td data-i18n="a0.5.2">HF-13, HF-25, HF-34</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a0.6.0">Histórico</td>
+                    <td data-i18n="a0.6.1">
+                      Ocorrências concluídas são de leitura. Para repetir, abrir a execução.
+                    </td>
+                    <td data-i18n="a0.6.2">HF-09, HF-26</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a0.7.0">Gestão</td>
+                    <td data-i18n="a0.7.1">
+                      Escopo explícito, reserva anterior mantida até confirmar e retomada sem
+                      replay.
+                    </td>
+                    <td data-i18n="a0.7.2">HF-16 a HF-19, HF-30, HF-35, HF-36</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p data-i18n="a0.note0" class="appendix-note">
+              Worker orquestra. A execução acontece no node, que testa o device. Domínios e workers
+              têm relação muitos para muitos.
+            </p>
+            <a class="source-link" href="coverage.html"
+              ><span data-i18n="coverage.link">Ver as 43 decisões, feature a feature</span> →</a
+            >
+          </div>
+          <span class="panel__num" aria-hidden="true">38</span>
+        </article>
+        <article
+          id="components"
+          class="panel appendix-panel"
+          data-panel="39"
+          data-chapter="07 / Decisões de produto"
+        >
+          <div class="panel__inner">
+            <p data-i18n="a1.kicker" class="panel__kicker">07 / Decisões de produto</p>
+            <h2 data-i18n="a1.title" class="panel__title">Componentes e responsabilidade</h2>
+            <p data-i18n="a1.desc" class="appendix-intro">
+              Os controles TARS permanecem reutilizados. As regras de Scheduling ficam na
+              funcionalidade.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="a1.0.0" scope="col">Camada</th>
+                    <th data-i18n="a1.0.1" scope="col">Estrutura</th>
+                    <th data-i18n="a1.0.2" scope="col">Destino</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-i18n="a1.1.0">TARS existente</td>
+                    <td data-i18n="a1.1.1">
+                      Header, Sidebar, Button, Input e tokens de cor, espaçamento e raio.
+                    </td>
+                    <td data-i18n="a1.1.2">Biblioteca existente</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a1.2.0">Regras e contexto</td>
+                    <td data-i18n="a1.2.1">
+                      RuleRow, RuleInspector, SuitePickerRow, SuiteTestCaseRow e SuiteContextStrip.
+                    </td>
+                    <td data-i18n="a1.2.2">Scheduling</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a1.3.0">Editor</td>
+                    <td data-i18n="a1.3.1">
+                      WhenFields, RecurrenceEditor, ExecutionOptionsForm, DeviceOccupancyRow e
+                      AvailabilityRow.
+                    </td>
+                    <td data-i18n="a1.3.2">Scheduling</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a1.4.0">Agenda</td>
+                    <td data-i18n="a1.4.1">
+                      AgendaToolbar, OccurrenceRow, CalendarDay, OccurrenceCard, DensityCell e
+                      TimelineStartMarker.
+                    </td>
+                    <td data-i18n="a1.4.2">Scheduling</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a1.5.0">Gestão</td>
+                    <td data-i18n="a1.5.1">
+                      OccurrenceInspector, ScopeChoice, ScheduleReview e FeedbackPanel.
+                    </td>
+                    <td data-i18n="a1.5.2">Scheduling</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a1.6.0">Candidatos genéricos</td>
+                    <td data-i18n="a1.6.1">
+                      DateRangePicker e ResourceTimelineRow. Exigem outro consumidor e validação de
+                      contrato.
+                    </td>
+                    <td data-i18n="a1.6.2">DS, propostas não publicadas</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p data-i18n="a1.note0" class="appendix-note">
+              20 famílias no produto. Dois candidatos genéricos permanecem sem publicação.
+            </p>
+            <div class="resource-links">
+              <a
+                href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1110-69112"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Scheduling · Figma ↗</a
+              ><a
+                href="https://www.figma.com/design/768aLZeg5iy40TrtN5Ssc2/TARS-Design-System?node-id=302-3"
+                target="_blank"
+                rel="noopener noreferrer"
+                >DS · <span data-i18n="ds.proposals">propostas</span> ↗</a
+              >
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">39</span>
+        </article>
+        <article
+          id="states"
+          class="panel appendix-panel"
+          data-panel="40"
+          data-chapter="07 / Decisões de produto"
+        >
+          <div class="panel__inner">
+            <p data-i18n="a2.kicker" class="panel__kicker">07 / Decisões de produto</p>
+            <h2 data-i18n="a2.title" class="panel__title">Estados que mudam as ações</h2>
+            <p data-i18n="a2.desc" class="appendix-intro">
+              Regra, ocorrência, resultado e disponibilidade têm significados próprios.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="a2.0.0" scope="col">Entidade</th>
+                    <th data-i18n="a2.0.1" scope="col">Estados</th>
+                    <th data-i18n="a2.0.2" scope="col">Efeito na experiência</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-i18n="a2.1.0">Regra</td>
+                    <td data-i18n="a2.1.1">Active, Paused, Completed e Cancelled.</td>
+                    <td data-i18n="a2.1.2">Editar ou retomar afeta datas futuras.</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a2.2.0">Ocorrência</td>
+                    <td data-i18n="a2.2.1">
+                      Scheduled, Running, Completed, Cancelled e Missed. Queued depende do contrato.
+                    </td>
+                    <td data-i18n="a2.2.2">Passado fica em leitura. Running abre execução.</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a2.3.0">Resultado</td>
+                    <td data-i18n="a2.3.1">Passed, Failed ou sem resultado confirmado.</td>
+                    <td data-i18n="a2.3.2">Exibe resultado e motivo sem substituir o estado.</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a2.4.0">Disponibilidade</td>
+                    <td data-i18n="a2.4.1">
+                      Not checked, Checking, Available, Conflict, Failed, Stale e Unavailable.
+                    </td>
+                    <td data-i18n="a2.4.2">Só uma verificação válida permite continuar.</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a2.5.0">Alteração</td>
+                    <td data-i18n="a2.5.1">
+                      Dirty, Submitting, Confirmed, Rejected e Unknown outcome.
+                    </td>
+                    <td data-i18n="a2.5.2">Preservar valores. Reconciliar antes de repetir.</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a2.6.0">Contexto</td>
+                    <td data-i18n="a2.6.1">
+                      Read-only, sessão expirada, Suite alterada e exceção de timezone.
+                    </td>
+                    <td data-i18n="a2.6.2">Explicar o bloqueio e a recuperação específica.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">40</span>
+        </article>
+        <article
+          id="contracts"
+          class="panel appendix-panel"
+          data-panel="41"
+          data-chapter="07 / Decisões de produto"
+        >
+          <div class="panel__inner">
+            <p data-i18n="a3.kicker" class="panel__kicker">07 / Decisões de produto</p>
+            <h2 data-i18n="a3.title" class="panel__title">
+              Decisões necessárias antes da implementação
+            </h2>
+            <p data-i18n="a3.desc" class="appendix-intro">
+              Estas dependências do scheduler continuam abertas. O desenho torna os limites
+              visíveis.
+            </p>
+            <div class="table-wrap">
+              <table>
+                <thead>
+                  <tr>
+                    <th data-i18n="a3.0.0" scope="col">Nível</th>
+                    <th data-i18n="a3.0.1" scope="col">Contrato</th>
+                    <th data-i18n="a3.0.2" scope="col">Definição necessária</th>
+                    <th data-i18n="a3.0.3" scope="col">Telas</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-i18n="a3.1.0">P0</td>
+                    <td data-i18n="a3.1.1">Janela por device</td>
+                    <td data-i18n="a3.1.2">
+                      Relação entre reserva, estimativa, runtime e retries.
+                    </td>
+                    <td data-i18n="a3.1.3">HF-12, HF-24</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a3.2.0">P0</td>
+                    <td data-i18n="a3.2.1">Cron sem fim</td>
+                    <td data-i18n="a3.2.2">Horizonte verificado e conflito após esse horizonte.</td>
+                    <td data-i18n="a3.2.3">HF-13, HF-34</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a3.3.0">P0</td>
+                    <td data-i18n="a3.3.1">Concorrência</td>
+                    <td data-i18n="a3.3.2">
+                      Exclusão atómica entre schedules, execuções e Quick Runs.
+                    </td>
+                    <td data-i18n="a3.3.3">HF-12, HF-17</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a3.4.0">P0</td>
+                    <td data-i18n="a3.4.1">Confirmação ambígua</td>
+                    <td data-i18n="a3.4.2">
+                      Idempotência e consulta do resultado antes de repetir.
+                    </td>
+                    <td data-i18n="a3.4.3">HF-20, HF-28</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a3.5.0">P0</td>
+                    <td data-i18n="a3.5.1">Domínio e acesso</td>
+                    <td data-i18n="a3.5.2">Permissões e ocupação externa anonimizada.</td>
+                    <td data-i18n="a3.5.3">HF-29, HF-32</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a3.6.0">P0</td>
+                    <td data-i18n="a3.6.1">Cron e timezone</td>
+                    <td data-i18n="a3.6.2">
+                      Dialeto, horário inexistente ou repetido e execução tardia.
+                    </td>
+                    <td data-i18n="a3.6.3">HF-25, HF-29</td>
+                  </tr>
+                  <tr>
+                    <td data-i18n="a3.7.0">P0</td>
+                    <td data-i18n="a3.7.1">Revisão da Suite</td>
+                    <td data-i18n="a3.7.2">Invalidar a verificação quando a composição muda.</td>
+                    <td data-i18n="a3.7.3">HF-29</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p data-i18n="a3.note0" class="appendix-note">
+              P1: agregações e paginação consistentes, teclado e responsividade, contraste e fonte
+              do DS.
+            </p>
+            <p data-i18n="a3.note1" class="appendix-note">
+              O Figma demonstra cenários. Pesquisa, validação e persistência precisam da
+              implementação.
+            </p>
+            <div class="resource-links">
+              <a
+                href="https://www.figma.com/design/7mTEuhQzfzbOcwwK0QGcHg/Vodafone-TARS?node-id=1122-71783"
+                target="_blank"
+                rel="noopener noreferrer"
+                ><span data-i18n="resource.figma">Índice de telas no Figma</span> ↗</a
+              ><a
+                href="https://docs.google.com/presentation/d/1vOyRbWbLskB7tw3g_56gvTHZCcSoZa3p0pd6bhW2eUY/edit"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Google Slides (PT) ↗</a
+              >
+            </div>
+          </div>
+          <span class="panel__num" aria-hidden="true">41</span>
+        </article>
+      </div>
+    </main>
+    <div class="deck-controls" aria-label="Slide navigation">
+      <button type="button" data-step="-1" class="arrow-button" aria-label="Previous slide">
+        ←</button
+      ><button type="button" data-open-index class="deck-position">
+        <span id="slide-count">01 / 42</span><span id="slide-name">Suite Scheduling</span></button
+      ><button type="button" data-step="1" class="arrow-button" aria-label="Next slide">→</button
+      ><span class="deck-controls__hint"
+        ><span data-i18n="keys.hint">roda do mouse / setas</span></span
+      >
+    </div>
+    <dialog class="contents-dialog" id="contents" aria-labelledby="contents-title">
+      <div class="dialog-bar">
+        <h2 data-i18n="contents.title" id="contents-title">Índice da apresentação</h2>
+        <button class="close-button" type="button" data-close-dialog aria-label="Close">×</button>
+      </div>
+      <p class="dialog-intro">
+        <span data-i18n="contents.desc">42 seções · 35 telas · navegação livre</span>
+      </p>
+      <nav class="contents-chapters" aria-label="Chapters">
+        <button type="button" data-go="create" class="pill">
+          <span data-i18n="chapter.0">Fluxos</span></button
+        ><button type="button" data-go="HF-10" class="pill">
+          <span data-i18n="chapter.1">Agendar</span></button
+        ><button type="button" data-go="HF-01" class="pill">
+          <span data-i18n="chapter.2">Overview e Agenda</span></button
+        ><button type="button" data-go="HF-08" class="pill">
+          <span data-i18n="chapter.3">Gerir</span></button
+        ><button type="button" data-go="HF-20" class="pill">
+          <span data-i18n="chapter.4">Recuperação</span></button
+        ><button type="button" data-go="decisions" class="pill">
+          <span data-i18n="chapter.5">Decisões</span>
+        </button>
+      </nav>
+      <div class="contents-grid">
+        <button type="button" class="contents-item" data-go="start">
+          <span>01</span><span data-i18n="index.start">Suite Scheduling</span></button
+        ><button type="button" class="contents-item" data-go="create">
+          <span>02</span
+          ><span data-i18n="index.create">Criar um agendamento, tela a tela</span></button
+        ><button type="button" class="contents-item" data-go="edit">
+          <span>03</span><span data-i18n="index.edit">Alterar apenas uma ocorrência</span></button
+        ><button type="button" class="contents-item" data-go="HF-10">
+          <span>04</span><span data-i18n="index.HF-10">Entrada pela Suite</span></button
+        ><button type="button" class="contents-item" data-go="HF-11">
+          <span>05</span><span data-i18n="index.HF-11">Entrada pelo overview</span></button
+        ><button type="button" class="contents-item" data-go="HF-12">
+          <span>06</span><span data-i18n="index.HF-12">Formulário com conflito</span></button
+        ><button type="button" class="contents-item" data-go="HF-33">
+          <span>07</span><span data-i18n="index.HF-33">Formulário sem conflito</span></button
+        ><button type="button" class="contents-item" data-go="HF-13">
+          <span>08</span><span data-i18n="index.HF-13">Recorrência Cron</span></button
+        ><button type="button" class="contents-item" data-go="HF-24">
+          <span>09</span><span data-i18n="index.HF-24">Opções de execução</span></button
+        ><button type="button" class="contents-item" data-go="HF-25">
+          <span>10</span><span data-i18n="index.HF-25">Modos e finais da recorrência</span></button
+        ><button type="button" class="contents-item" data-go="HF-27">
+          <span>11</span><span data-i18n="index.HF-27">Preview completo e outra data</span></button
+        ><button type="button" class="contents-item" data-go="HF-14">
+          <span>12</span><span data-i18n="index.HF-14">Revisão Simple</span></button
+        ><button type="button" class="contents-item" data-go="HF-34">
+          <span>13</span><span data-i18n="index.HF-34">Revisão Cron aberta</span></button
+        ><button type="button" class="contents-item" data-go="HF-15">
+          <span>14</span><span data-i18n="index.HF-15">Criação confirmada</span></button
+        ><button type="button" class="contents-item" data-go="HF-32">
+          <span>15</span><span data-i18n="index.HF-32">Saída com alterações</span></button
+        ><button type="button" class="contents-item" data-go="HF-01">
+          <span>16</span><span data-i18n="index.HF-01">Agendamentos</span></button
+        ><button type="button" class="contents-item" data-go="HF-02">
+          <span>17</span><span data-i18n="index.HF-02">Detalhe do agendamento</span></button
+        ><button type="button" class="contents-item" data-go="HF-22">
+          <span>18</span><span data-i18n="index.HF-22">Timeline opcional</span></button
+        ><button type="button" class="contents-item" data-go="HF-04">
+          <span>19</span><span data-i18n="index.HF-04">Lista de ocorrências</span></button
+        ><button type="button" class="contents-item" data-go="HF-05">
+          <span>20</span><span data-i18n="index.HF-05">Agenda diária agregada</span></button
+        ><button type="button" class="contents-item" data-go="HF-06">
+          <span>21</span><span data-i18n="index.HF-06">Semana</span></button
+        ><button type="button" class="contents-item" data-go="HF-07">
+          <span>22</span><span data-i18n="index.HF-07">Mês</span></button
+        ><button type="button" class="contents-item" data-go="HF-23">
+          <span>23</span><span data-i18n="index.HF-23">Intervalo personalizado</span></button
+        ><button type="button" class="contents-item" data-go="HF-31">
+          <span>24</span><span data-i18n="index.HF-31">Dia com poucas ocorrências</span></button
+        ><button type="button" class="contents-item" data-go="HF-21">
+          <span>25</span><span data-i18n="index.HF-21">Período e filtros</span></button
+        ><button type="button" class="contents-item" data-go="HF-08">
+          <span>26</span><span data-i18n="index.HF-08">Ocorrência futura</span></button
+        ><button type="button" class="contents-item" data-go="HF-09">
+          <span>27</span><span data-i18n="index.HF-09">Ocorrência concluída</span></button
+        ><button type="button" class="contents-item" data-go="HF-26">
+          <span>28</span><span data-i18n="index.HF-26">Contexto da série</span></button
+        ><button type="button" class="contents-item" data-go="HF-16">
+          <span>29</span><span data-i18n="index.HF-16">Escopo da edição</span></button
+        ><button type="button" class="contents-item" data-go="HF-17">
+          <span>30</span><span data-i18n="index.HF-17">Edição bloqueada</span></button
+        ><button type="button" class="contents-item" data-go="HF-35">
+          <span>31</span><span data-i18n="index.HF-35">Edição pronta para guardar</span></button
+        ><button type="button" class="contents-item" data-go="HF-36">
+          <span>32</span><span data-i18n="index.HF-36">Alteração confirmada</span></button
+        ><button type="button" class="contents-item" data-go="HF-18">
+          <span>33</span><span data-i18n="index.HF-18">Escopo do cancelamento</span></button
+        ><button type="button" class="contents-item" data-go="HF-19">
+          <span>34</span><span data-i18n="index.HF-19">Resultados de gestão</span></button
+        ><button type="button" class="contents-item" data-go="HF-30">
+          <span>35</span><span data-i18n="index.HF-30">Retomar uma regra</span></button
+        ><button type="button" class="contents-item" data-go="HF-20">
+          <span>36</span><span data-i18n="index.HF-20">Recuperação e dados incertos</span></button
+        ><button type="button" class="contents-item" data-go="HF-28">
+          <span>37</span><span data-i18n="index.HF-28">Carregamento e submissão</span></button
+        ><button type="button" class="contents-item" data-go="HF-29">
+          <span>38</span><span data-i18n="index.HF-29">Exceções operacionais</span></button
+        ><button type="button" class="contents-item" data-go="decisions">
+          <span>39</span
+          ><span data-i18n="index.decisions">O que mudou do artefato para o produto</span></button
+        ><button type="button" class="contents-item" data-go="components">
+          <span>40</span
+          ><span data-i18n="index.components">Componentes e responsabilidade</span></button
+        ><button type="button" class="contents-item" data-go="states">
+          <span>41</span><span data-i18n="index.states">Estados que mudam as ações</span></button
+        ><button type="button" class="contents-item" data-go="contracts">
+          <span>42</span
+          ><span data-i18n="index.contracts">Decisões necessárias antes da implementação</span>
+        </button>
+      </div>
+      <a class="source-link" href="coverage.html"
+        ><span data-i18n="coverage.link">Ver as 43 decisões, feature a feature</span> →</a
+      >
+    </dialog>
+    <dialog class="zoom-dialog" id="screen-zoom" aria-labelledby="zoom-title">
+      <div class="dialog-bar">
+        <h2 id="zoom-title">TARS</h2>
+        <div class="zoom-actions">
+          <a id="zoom-figma" class="source-link" target="_blank" rel="noopener noreferrer"
+            >Figma ↗</a
+          ><button type="button" class="close-button" data-close-dialog aria-label="Close">
+            ×
+          </button>
+        </div>
+      </div>
+      <div class="zoom-scroll"><img id="zoom-image" alt="" /></div>
+    </dialog>
+    <script src="../vendor/gsap.min.js"></script>
+    <script src="../vendor/ScrollTrigger.min.js"></script>
+    <script src="lang.js"></script>
+    <script src="../i18n.js"></script>
+    <script src="../main.js"></script>
+    <script src="screen-links.js"></script>
+    <script src="page.js"></script>
+  </body>
+</html>
